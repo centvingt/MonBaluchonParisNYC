@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oET-1u-It0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Taux de change-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CurrencyViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="RoseVille"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Taux de change" id="ev7-jC-tbl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794.2028985507247" y="137.94642857142856"/>
+        </scene>
+        <!--Traduction-->
+        <scene sceneID="r1q-cU-8RT">
+            <objects>
+                <viewController id="tjg-ns-0n2" customClass="TranslationViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="idc-xE-FCb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2NX-Al-xUp"/>
+                        <color key="backgroundColor" name="RoseVille"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Traduction" id="1rP-rX-dwU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6iP-L2-l1h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="869"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MZm-Yc-04X">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="oET-1u-It0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dcw-DZ-kva">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="BleuGoudron"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" name="RoseVille"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" name="BleuVille"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ack-aD-hkX" kind="relationship" relationship="viewControllers" id="J20-qF-d50"/>
+                        <segue destination="UYg-3Z-weW" kind="relationship" relationship="viewControllers" id="5vk-IX-qMq"/>
+                        <segue destination="JVG-if-oyV" kind="relationship" relationship="viewControllers" id="9oh-Xr-xch"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZsP-EH-BpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-284" y="869"/>
+        </scene>
+        <!--Taux de change-->
+        <scene sceneID="LOB-4L-Ctv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ack-aD-hkX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Taux de change" image="Currency" selectedImage="CurrencySelected" id="vfr-w6-IjP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qYh-0G-uhi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="BleuVille"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="RoseVille"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KOr-0o-H0C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kst-Ix-n82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884.05797101449286" y="137.94642857142856"/>
+        </scene>
+        <!--Traduction-->
+        <scene sceneID="iZS-Ly-oXO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UYg-3Z-weW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Traduction" image="Translation" selectedImage="TranslationSelected" id="q5R-Pu-xaI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2SM-6l-RA1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="BleuVille"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="RoseVille"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tjg-ns-0n2" kind="relationship" relationship="rootViewController" id="GT5-JB-22I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QR5-Yj-L6z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884" y="869"/>
+        </scene>
+        <!--Météo-->
+        <scene sceneID="c4m-T5-gkj">
+            <objects>
+                <viewController id="ATx-VW-dom" customClass="WeatherViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rn2-dG-Fgj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="C25-Mo-gfc"/>
+                        <color key="backgroundColor" name="RoseVille"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Météo" id="7Cw-qu-RZh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pbK-7f-P42" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1792.753623188406" y="1595.7589285714284"/>
+        </scene>
+        <!--Météo-->
+        <scene sceneID="7XG-XX-rNe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JVG-if-oyV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Météo" image="Weather" selectedImage="WeatherSelected" id="X6d-UH-IXn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0hs-QP-fBw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="BleuVille"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="RoseVille"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ATx-VW-dom" kind="relationship" relationship="rootViewController" id="hSm-bu-aXs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ON-Dc-qAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882.60869565217399" y="1595.7589285714284"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Currency" width="36" height="36"/>
+        <image name="CurrencySelected" width="36" height="36"/>
+        <image name="Translation" width="36" height="36"/>
+        <image name="TranslationSelected" width="36" height="36"/>
+        <image name="Weather" width="36" height="36"/>
+        <image name="WeatherSelected" width="36" height="36"/>
+        <namedColor name="BleuGoudron">
+            <color red="0.047058823529411764" green="0.20000000000000001" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BleuVille">
+            <color red="0.13725490196078433" green="0.41960784313725491" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RoseVille">
+            <color red="0.95686274509803926" green="0.61960784313725492" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

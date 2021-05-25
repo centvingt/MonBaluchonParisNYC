@@ -18,6 +18,17 @@
 		2F599839265A320900ABC8D1 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F599838265A320900ABC8D1 /* TranslationViewController.swift */; };
 		2F59983B265A644800ABC8D1 /* APIKeys_SAMPLE.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F59983A265A644800ABC8D1 /* APIKeys_SAMPLE.plist */; };
 		2F599840265A7B6D00ABC8D1 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59983F265A7B6D00ABC8D1 /* APIKeys.swift */; };
+		2F599842265AA04B00ABC8D1 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F599841265AA04B00ABC8D1 /* CurrencyService.swift */; };
+		2F599844265AA05F00ABC8D1 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F599843265AA05F00ABC8D1 /* WeatherService.swift */; };
+		2F599846265AA07600ABC8D1 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F599845265AA07600ABC8D1 /* TranslationService.swift */; };
+		2F599847265AA82500ABC8D1 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F59983E265A7B1300ABC8D1 /* APIKeys.plist */; };
+		2F59984B265AAA0900ABC8D1 /* BPNError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F59984A265AAA0900ABC8D1 /* BPNError.swift */; };
+		2F599852265AAFCB00ABC8D1 /* CurrencyRateHttpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F599851265AAFCB00ABC8D1 /* CurrencyRateHttpData.swift */; };
+		2F599854265ABA3C00ABC8D1 /* CurrencyConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F599853265ABA3C00ABC8D1 /* CurrencyConversion.swift */; };
+		2F599857265BA19B00ABC8D1 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F599856265BA19B00ABC8D1 /* Comfortaa-Light.ttf */; };
+		2F599859265BC58400ABC8D1 /* BPNNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F599858265BC58400ABC8D1 /* BPNNotifications.swift */; };
+		2F59985C265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F59985A265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf */; };
+		2F59985D265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F59985B265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +58,16 @@
 		2F59983A265A644800ABC8D1 /* APIKeys_SAMPLE.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys_SAMPLE.plist; sourceTree = "<group>"; };
 		2F59983E265A7B1300ABC8D1 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		2F59983F265A7B6D00ABC8D1 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		2F599841265AA04B00ABC8D1 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		2F599843265AA05F00ABC8D1 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		2F599845265AA07600ABC8D1 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		2F59984A265AAA0900ABC8D1 /* BPNError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPNError.swift; sourceTree = "<group>"; };
+		2F599851265AAFCB00ABC8D1 /* CurrencyRateHttpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateHttpData.swift; sourceTree = "<group>"; };
+		2F599853265ABA3C00ABC8D1 /* CurrencyConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversion.swift; sourceTree = "<group>"; };
+		2F599856265BA19B00ABC8D1 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Light.ttf"; sourceTree = "<group>"; };
+		2F599858265BC58400ABC8D1 /* BPNNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPNNotifications.swift; sourceTree = "<group>"; };
+		2F59985A265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SF-Compact-Rounded-Medium.ttf"; sourceTree = "<group>"; };
+		2F59985B265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SF-Pro-Rounded-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +129,10 @@
 		2F599832265A216B00ABC8D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2F599853265ABA3C00ABC8D1 /* CurrencyConversion.swift */,
+				2F599850265AAF8D00ABC8D1 /* HttpData */,
+				2F599849265AA9B400ABC8D1 /* ErrorsAndNotifications */,
+				2F599848265AA9AA00ABC8D1 /* Services */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,9 +165,48 @@
 				2F599810265A213900ABC8D1 /* Info.plist */,
 				2F59983A265A644800ABC8D1 /* APIKeys_SAMPLE.plist */,
 				2F59983E265A7B1300ABC8D1 /* APIKeys.plist */,
-				2F59983F265A7B6D00ABC8D1 /* APIKeys.swift */,
+				2F599855265BA17000ABC8D1 /* Fonts */,
 			);
-			path = SupportingFiles;
+			name = SupportingFiles;
+			path = MonBaluchonParisNYC/SupportingFiles;
+			sourceTree = SOURCE_ROOT;
+		};
+		2F599848265AA9AA00ABC8D1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2F59983F265A7B6D00ABC8D1 /* APIKeys.swift */,
+				2F599841265AA04B00ABC8D1 /* CurrencyService.swift */,
+				2F599843265AA05F00ABC8D1 /* WeatherService.swift */,
+				2F599845265AA07600ABC8D1 /* TranslationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2F599849265AA9B400ABC8D1 /* ErrorsAndNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				2F59984A265AAA0900ABC8D1 /* BPNError.swift */,
+				2F599858265BC58400ABC8D1 /* BPNNotifications.swift */,
+			);
+			path = ErrorsAndNotifications;
+			sourceTree = "<group>";
+		};
+		2F599850265AAF8D00ABC8D1 /* HttpData */ = {
+			isa = PBXGroup;
+			children = (
+				2F599851265AAFCB00ABC8D1 /* CurrencyRateHttpData.swift */,
+			);
+			path = HttpData;
+			sourceTree = "<group>";
+		};
+		2F599855265BA17000ABC8D1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2F599856265BA19B00ABC8D1 /* Comfortaa-Light.ttf */,
+				2F59985A265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf */,
+				2F59985B265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,9 +290,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F59980F265A213900ABC8D1 /* LaunchScreen.storyboard in Resources */,
+				2F599847265AA82500ABC8D1 /* APIKeys.plist in Resources */,
 				2F59983B265A644800ABC8D1 /* APIKeys_SAMPLE.plist in Resources */,
+				2F59985D265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf in Resources */,
 				2F59980C265A213900ABC8D1 /* Assets.xcassets in Resources */,
+				2F599857265BA19B00ABC8D1 /* Comfortaa-Light.ttf in Resources */,
 				2F59980A265A213700ABC8D1 /* Main.storyboard in Resources */,
+				2F59985C265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,11 +314,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F599844265AA05F00ABC8D1 /* WeatherService.swift in Sources */,
+				2F59984B265AAA0900ABC8D1 /* BPNError.swift in Sources */,
 				2F599840265A7B6D00ABC8D1 /* APIKeys.swift in Sources */,
 				2F599807265A213700ABC8D1 /* CurrencyViewController.swift in Sources */,
+				2F599854265ABA3C00ABC8D1 /* CurrencyConversion.swift in Sources */,
+				2F599852265AAFCB00ABC8D1 /* CurrencyRateHttpData.swift in Sources */,
 				2F599837265A31F400ABC8D1 /* WeatherViewController.swift in Sources */,
 				2F599803265A213700ABC8D1 /* AppDelegate.swift in Sources */,
+				2F599846265AA07600ABC8D1 /* TranslationService.swift in Sources */,
+				2F599842265AA04B00ABC8D1 /* CurrencyService.swift in Sources */,
 				2F599805265A213700ABC8D1 /* SceneDelegate.swift in Sources */,
+				2F599859265BC58400ABC8D1 /* BPNNotifications.swift in Sources */,
 				2F599839265A320900ABC8D1 /* TranslationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +487,7 @@
 		2F59982A265A213900ABC8D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7A5894W984;
@@ -430,6 +506,7 @@
 		2F59982B265A213900ABC8D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7A5894W984;

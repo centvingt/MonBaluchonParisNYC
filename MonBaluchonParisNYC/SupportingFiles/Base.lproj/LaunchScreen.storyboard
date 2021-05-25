@@ -17,27 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="LogoBaluchonSeul" translatesAutoresizingMaskIntoConstraints="NO" id="2VM-Gx-zUf">
-                                <rect key="frame" x="143" y="361" width="128" height="174"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="abo-C2-t6X"/>
-                                    <constraint firstAttribute="height" constant="174" id="iRd-lk-q5g"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-Es-TaR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PW7-aa-G24">
-                                <rect key="frame" x="191.5" y="543" width="31" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="RoseVille"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BleuVille"/>
                         <constraints>
-                            <constraint firstItem="PW7-aa-G24" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="B5s-Vy-WGJ"/>
-                            <constraint firstItem="PW7-aa-G24" firstAttribute="top" secondItem="2VM-Gx-zUf" secondAttribute="bottom" constant="8" id="BC5-1e-vNo"/>
-                            <constraint firstItem="2VM-Gx-zUf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Uk9-gW-n1d"/>
-                            <constraint firstItem="2VM-Gx-zUf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="q9x-SG-lBa"/>
+                            <constraint firstAttribute="bottom" secondItem="HdS-Es-TaR" secondAttribute="bottom" id="2Y9-K6-GPF"/>
+                            <constraint firstItem="HdS-Es-TaR" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="2i6-wX-QmN"/>
+                            <constraint firstItem="HdS-Es-TaR" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Xqs-ui-Y2o"/>
+                            <constraint firstAttribute="trailing" secondItem="HdS-Es-TaR" secondAttribute="trailing" id="ayG-yT-T1u"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -47,12 +37,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoBaluchonSeul" width="659" height="890"/>
+        <image name="LaunchScreen" width="2000" height="2000"/>
         <namedColor name="BleuVille">
             <color red="0.13725490196078433" green="0.41960784313725491" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="RoseVille">
-            <color red="0.95686274509803926" green="0.61960784313725492" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

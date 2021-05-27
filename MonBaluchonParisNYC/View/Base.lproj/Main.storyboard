@@ -17,215 +17,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Taux de change-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="SvL-8K-LjU">
-                                <rect key="frame" x="16" y="16" width="343" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="AF8-EA-DHW"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Paris"/>
-                                    <segment title="New-York"/>
-                                </segments>
-                                <color key="tintColor" name="BleuVille"/>
-                                <color key="selectedSegmentTintColor" name="BleuVille"/>
-                            </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrs-Cs-Z2d">
-                                <rect key="frame" x="16" y="63" width="343" height="511"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPC-CC-kpb" userLabel="ViewContainer">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="511"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iuI-0j-apW" userLabel="Stack View Rate">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="164"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9Z-Mh-rWR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="144"/>
-                                                        <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-16" translatesAutoresizingMaskIntoConstraints="NO" id="XDk-xb-eoW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="144"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DR0-87-uNK">
-                                                                        <rect key="frame" x="16" y="12" width="311" height="29"/>
-                                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
-                                                                        <color key="textColor" name="RoseVille"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,82 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="0jQ-1V-S2b">
-                                                                        <rect key="frame" x="16" y="25" width="311" height="115"/>
-                                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="96"/>
-                                                                        <color key="textColor" name="BleuGoudron"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                                <edgeInsets key="layoutMargins" top="12" left="16" bottom="4" right="16"/>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" name="BleuVille"/>
-                                                        <constraints>
-                                                            <constraint firstItem="XDk-xb-eoW" firstAttribute="top" secondItem="o9Z-Mh-rWR" secondAttribute="top" id="LjR-mH-ryj"/>
-                                                            <constraint firstAttribute="trailing" secondItem="XDk-xb-eoW" secondAttribute="trailing" id="MIC-OI-S9e"/>
-                                                            <constraint firstItem="XDk-xb-eoW" firstAttribute="leading" secondItem="o9Z-Mh-rWR" secondAttribute="leading" id="YkZ-OE-rQB"/>
-                                                            <constraint firstAttribute="height" secondItem="XDk-xb-eoW" secondAttribute="height" id="nZl-Cd-dbh"/>
-                                                            <constraint firstAttribute="bottom" secondItem="XDk-xb-eoW" secondAttribute="bottom" id="vf2-xq-f1a"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dernière mise à jour le mardi 24 mai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNw-jE-NP7">
-                                                        <rect key="frame" x="0.0" y="152" width="343" height="12"/>
-                                                        <fontDescription key="fontDescription" name="SFRounded-Ultralight" family="SF Pro Rounded" pointSize="10"/>
-                                                        <color key="textColor" name="BleuVille"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="164" id="prc-xn-ftr"/>
-                                                </constraints>
-                                            </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUd-RR-Jnf">
-                                                <rect key="frame" x="0.0" y="180" width="343" height="214"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zQZ-TM-t7Z" userLabel="Stack View Conversion">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="214"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naj-W0-Dcm">
-                                                                <rect key="frame" x="16" y="16" width="311" height="50"/>
-                                                                <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PPr-aR-9uN">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="50"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conversion €/$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qp5-Hs-bTJ">
-                                                                                <rect key="frame" x="16" y="10.5" width="160.5" height="29"/>
-                                                                                <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
-                                                                                <color key="textColor" name="RoseVille"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3J5-sy-4HC">
-                                                                                <rect key="frame" x="197" y="9.5" width="106" height="31"/>
-                                                                                <subviews>
-                                                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3QL-L8-qwl">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-                                                                                        <color key="onTintColor" name="BleuVille"/>
-                                                                                        <color key="thumbTintColor" name="RoseVille"/>
-                                                                                    </switch>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Mnu-mg-9jt">
-                                                                                        <rect key="frame" x="57" y="7" width="49" height="24"/>
-                                                                                        <string key="text">+8,875%
-de TVA</string>
-                                                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="10"/>
-                                                                                        <color key="textColor" name="BleuVille"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
-                                                                                </subviews>
-                                                                            </stackView>
-                                                                        </subviews>
-                                                                        <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="8"/>
-                                                                    </stackView>
-                                                                </subviews>
-                                                                <color key="backgroundColor" name="BleuGoudron"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="PPr-aR-9uN" secondAttribute="trailing" id="8Cs-6p-gE6"/>
-                                                                    <constraint firstItem="PPr-aR-9uN" firstAttribute="leading" secondItem="naj-W0-Dcm" secondAttribute="leading" id="AlA-T1-Aad"/>
-                                                                    <constraint firstAttribute="height" constant="50" id="Gi8-dE-WdB"/>
-                                                                    <constraint firstItem="PPr-aR-9uN" firstAttribute="top" secondItem="naj-W0-Dcm" secondAttribute="top" id="hZc-6f-ypr"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="PPr-aR-9uN" secondAttribute="bottom" id="r2E-7X-bCf"/>
-                                                                </constraints>
-                                                            </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQx-h4-R19">
-                                                                <rect key="frame" x="16" y="82" width="311" height="116"/>
-                                                                <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eQ6-LS-qSF">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="311" height="116"/>
-                                                                        <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HS1-sU-sm3">
-                                                                                <rect key="frame" x="16" y="16" width="279" height="34"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="34" id="OKC-6T-YMU"/>
-                                                                                </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
-                                                                            </textField>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ByP-OZ-d4A">
-                                                                                <rect key="frame" x="16" y="66" width="279" height="34"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="height" constant="34" id="8ff-Ip-WsI"/>
-                                                                                </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
-                                                                            </textField>
-                                                                        </subviews>
-                                                                        <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
-                                                                    </stackView>
-                                                                </subviews>
-                                                                <color key="backgroundColor" name="BleuGoudron"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="eQ6-LS-qSF" secondAttribute="bottom" id="Ju1-Er-wPO"/>
-                                                                    <constraint firstItem="eQ6-LS-qSF" firstAttribute="top" secondItem="bQx-h4-R19" secondAttribute="top" id="Olw-Gm-ISm"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="eQ6-LS-qSF" secondAttribute="trailing" id="qgp-hS-Qyq"/>
-                                                                    <constraint firstAttribute="height" constant="116" id="t2m-lL-Rn8"/>
-                                                                    <constraint firstItem="eQ6-LS-qSF" firstAttribute="leading" secondItem="bQx-h4-R19" secondAttribute="leading" id="z4b-BK-bG3"/>
-                                                                </constraints>
-                                                            </view>
-                                                        </subviews>
-                                                        <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" name="BleuVille"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="zQZ-TM-t7Z" secondAttribute="trailing" id="5Qk-R2-FzG"/>
-                                                    <constraint firstItem="zQZ-TM-t7Z" firstAttribute="leading" secondItem="fUd-RR-Jnf" secondAttribute="leading" id="cOn-XS-k17"/>
-                                                    <constraint firstAttribute="height" constant="214" id="d6R-jP-SY2"/>
-                                                    <constraint firstItem="zQZ-TM-t7Z" firstAttribute="top" secondItem="fUd-RR-Jnf" secondAttribute="top" id="h5b-Lf-PL1"/>
-                                                    <constraint firstAttribute="bottom" secondItem="zQZ-TM-t7Z" secondAttribute="bottom" id="p23-1N-dD4"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="iuI-0j-apW" secondAttribute="trailing" id="9mC-zu-hVT"/>
-                                            <constraint firstAttribute="trailing" secondItem="fUd-RR-Jnf" secondAttribute="trailing" id="Fw1-BM-Ebk"/>
-                                            <constraint firstItem="iuI-0j-apW" firstAttribute="top" secondItem="uPC-CC-kpb" secondAttribute="top" id="Iio-EJ-auU"/>
-                                            <constraint firstItem="iuI-0j-apW" firstAttribute="leading" secondItem="uPC-CC-kpb" secondAttribute="leading" id="amm-YD-hRa"/>
-                                            <constraint firstItem="fUd-RR-Jnf" firstAttribute="top" secondItem="iuI-0j-apW" secondAttribute="bottom" constant="16" id="mDl-tq-g2q"/>
-                                            <constraint firstItem="fUd-RR-Jnf" firstAttribute="leading" secondItem="uPC-CC-kpb" secondAttribute="leading" id="y0l-80-JBo"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="uPC-CC-kpb" secondAttribute="trailing" id="2mt-hx-BhB"/>
-                                    <constraint firstAttribute="bottom" secondItem="uPC-CC-kpb" secondAttribute="bottom" id="HRi-Qu-1mI"/>
-                                    <constraint firstItem="uPC-CC-kpb" firstAttribute="centerY" secondItem="Nrs-Cs-Z2d" secondAttribute="centerY" id="KGW-nl-wTD"/>
-                                    <constraint firstItem="uPC-CC-kpb" firstAttribute="centerX" secondItem="Nrs-Cs-Z2d" secondAttribute="centerX" id="fgL-As-AxX"/>
-                                    <constraint firstItem="uPC-CC-kpb" firstAttribute="leading" secondItem="Nrs-Cs-Z2d" secondAttribute="leading" id="xCQ-Ya-7Xc"/>
-                                    <constraint firstItem="uPC-CC-kpb" firstAttribute="top" secondItem="Nrs-Cs-Z2d" secondAttribute="top" id="y3r-MO-mpa"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="lHX-1u-7Zf"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="QaO-BN-7Uj"/>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="RoseVille"/>
-                        <constraints>
-                            <constraint firstItem="SvL-8K-LjU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="1qK-iA-QPD"/>
-                            <constraint firstItem="Nrs-Cs-Z2d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9UI-39-dgF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nrs-Cs-Z2d" secondAttribute="trailing" constant="16" id="SxA-zb-hAY"/>
-                            <constraint firstItem="Nrs-Cs-Z2d" firstAttribute="top" secondItem="SvL-8K-LjU" secondAttribute="bottom" constant="16" id="aTA-xV-fF1"/>
-                            <constraint firstItem="SvL-8K-LjU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ahy-PU-D9I"/>
-                            <constraint firstItem="Nrs-Cs-Z2d" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ctA-D0-y03"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SvL-8K-LjU" secondAttribute="trailing" constant="16" id="uQB-ZT-ZvC"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Taux de change" id="ev7-jC-tbl"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1792.8" y="137.18140929535232"/>
-        </scene>
         <!--Traduction-->
         <scene sceneID="r1q-cU-8RT">
             <objects>
@@ -288,7 +79,7 @@ de TVA</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KOr-0o-H0C"/>
+                        <segue destination="Ihx-Kn-pje" kind="relationship" relationship="rootViewController" id="C70-9s-UWx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kst-Ix-n82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -360,15 +151,18 @@ de TVA</string>
             <point key="canvasLocation" x="882.60869565217399" y="1595.7589285714284"/>
         </scene>
         <!--Taux de change-->
-        <scene sceneID="nGY-XE-BFU">
+        <scene sceneID="FPC-AA-RYF">
             <objects>
-                <viewController id="w8N-f2-q8S" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="akz-kx-S86">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="Ihx-Kn-pje" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zVw-aU-8bP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="t8O-Ks-jTV">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="VDF-nh-Hdc">
                                 <rect key="frame" x="16" y="16" width="343" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="tx5-DK-Gwe"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Paris"/>
                                     <segment title="New-York"/>
@@ -376,25 +170,25 @@ de TVA</string>
                                 <color key="tintColor" name="BleuVille"/>
                                 <color key="selectedSegmentTintColor" name="BleuVille"/>
                             </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZ0-Q8-glq">
-                                <rect key="frame" x="0.0" y="61" width="375" height="513"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pUc-6d-IxE" userLabel="Stack View Rate">
+                                <rect key="frame" x="16" y="63" width="343" height="160"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eha-AF-FFv">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="144"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCJ-lJ-rKc">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="144.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="-16" translatesAutoresizingMaskIntoConstraints="NO" id="VCS-7h-Jdf">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="144"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-16" translatesAutoresizingMaskIntoConstraints="NO" id="zCE-ec-WJz">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="144.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3J-dr-Lgi">
-                                                        <rect key="frame" x="16" y="12" width="311" height="29"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I40-oL-wqH">
+                                                        <rect key="frame" x="16" y="12" width="311" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
                                                         <color key="textColor" name="RoseVille"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,82 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="UhA-rP-AaQ">
-                                                        <rect key="frame" x="16" y="25" width="311" height="115"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,82 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="oJk-ww-PDW">
+                                                        <rect key="frame" x="16" y="25.5" width="311" height="115"/>
                                                         <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="96"/>
-                                                        <color key="textColor" name="RoseVille"/>
+                                                        <color key="textColor" name="BleuGoudron"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -403,83 +197,79 @@ de TVA</string>
                                         </subviews>
                                         <color key="backgroundColor" name="BleuVille"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="VCS-7h-Jdf" secondAttribute="trailing" id="FOB-VI-uZf"/>
+                                            <constraint firstAttribute="bottom" secondItem="zCE-ec-WJz" secondAttribute="bottom" id="JTC-Zp-5r1"/>
+                                            <constraint firstAttribute="height" secondItem="zCE-ec-WJz" secondAttribute="height" id="MHb-qu-g9d"/>
+                                            <constraint firstItem="zCE-ec-WJz" firstAttribute="leading" secondItem="xCJ-lJ-rKc" secondAttribute="leading" id="V5T-Wh-0U7"/>
+                                            <constraint firstAttribute="trailing" secondItem="zCE-ec-WJz" secondAttribute="trailing" id="jGH-4o-KxQ"/>
+                                            <constraint firstItem="zCE-ec-WJz" firstAttribute="top" secondItem="xCJ-lJ-rKc" secondAttribute="top" id="pnN-ac-LPB"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Dernière mise à jour le mardi 24 mai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEb-ut-50X">
-                                        <rect key="frame" x="16" y="152" width="343" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dernière mise à jour le mardi 24 mai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3H-sg-Nwf">
+                                        <rect key="frame" x="0.0" y="148.5" width="343" height="11.5"/>
                                         <fontDescription key="fontDescription" name="SFRounded-Ultralight" family="SF Pro Rounded" pointSize="10"/>
                                         <color key="textColor" name="BleuVille"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e06-vQ-c2O">
-                                        <rect key="frame" x="16" y="294" width="343" height="79"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ClT-gH-448">
-                                                <rect key="frame" x="16" y="16" width="311" height="47"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conversion €/$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="lZ2-LV-g6I">
-                                                        <rect key="frame" x="16" y="9" width="176.5" height="29"/>
-                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
-                                                        <color key="textColor" name="RoseVille"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fl2-Zw-UOr">
-                                                        <rect key="frame" x="200.5" y="8" width="94.5" height="31"/>
-                                                        <subviews>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xSU-g9-CJ7">
-                                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="31"/>
-                                                                <color key="onTintColor" name="BleuVille"/>
-                                                                <color key="thumbTintColor" name="RoseVille"/>
-                                                            </switch>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="TjA-wH-rpf">
-                                                                <rect key="frame" x="55.5" y="7" width="39" height="24"/>
-                                                                <string key="text">+8,875%
-de TVA</string>
-                                                                <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="10"/>
-                                                                <color key="textColor" name="BleuVille"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                                <color key="backgroundColor" name="BleuGoudron"/>
-                                                <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" name="BleuVille"/>
-                                        <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="GEb-ut-50X" firstAttribute="leading" secondItem="s69-dq-scR" secondAttribute="leading" constant="16" id="ATc-m6-Xfe"/>
-                                    <constraint firstItem="s69-dq-scR" firstAttribute="trailing" secondItem="GEb-ut-50X" secondAttribute="trailing" constant="16" id="GwO-T8-mcd"/>
-                                    <constraint firstItem="e06-vQ-c2O" firstAttribute="leading" secondItem="s69-dq-scR" secondAttribute="leading" constant="16" id="K4I-WB-Lgj"/>
-                                    <constraint firstItem="e06-vQ-c2O" firstAttribute="top" secondItem="GEb-ut-50X" secondAttribute="bottom" constant="16" id="aba-Ou-YTb"/>
-                                    <constraint firstItem="s69-dq-scR" firstAttribute="trailing" secondItem="e06-vQ-c2O" secondAttribute="trailing" constant="16" id="nP3-8a-f2b"/>
-                                    <constraint firstAttribute="bottom" secondItem="e06-vQ-c2O" secondAttribute="bottom" constant="254" id="rN6-YS-iLd"/>
+                                    <constraint firstAttribute="height" constant="160" id="wMi-Pr-9Pb"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="lyC-yr-fxM"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="s69-dq-scR"/>
-                            </scrollView>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kth-md-fyr" customClass="SelfSizedTableView" customModule="MonBaluchonParisNYC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="239" width="343" height="200"/>
+                                <color key="tintColor" name="RoseVille"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" placeholder="YES" id="lAq-WT-hTo"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="navCell" textLabel="XhG-Uk-uVe" style="IBUITableViewCellStyleDefault" id="uoY-Mh-zOE">
+                                        <rect key="frame" x="0.0" y="24.5" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uoY-Mh-zOE" id="fH8-8v-AXb">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XhG-Uk-uVe">
+                                                    <rect key="frame" x="16" y="0.0" width="311" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="SFRounded-Ultralight" family="SF Pro Rounded" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="BleuVille"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ihx-Kn-pje" id="bto-1c-bHb"/>
+                                    <outlet property="delegate" destination="Ihx-Kn-pje" id="2mW-21-DhT"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="qm9-3a-roR"/>
+                        <viewLayoutGuide key="safeArea" id="xK1-Sg-taN"/>
                         <color key="backgroundColor" name="RoseVille"/>
                         <constraints>
-                            <constraint firstItem="t8O-Ks-jTV" firstAttribute="top" secondItem="qm9-3a-roR" secondAttribute="top" constant="16" id="0IB-Vk-1hs"/>
-                            <constraint firstItem="qm9-3a-roR" firstAttribute="trailing" secondItem="t8O-Ks-jTV" secondAttribute="trailing" constant="16" id="931-vC-v3N"/>
-                            <constraint firstItem="t8O-Ks-jTV" firstAttribute="leading" secondItem="qm9-3a-roR" secondAttribute="leading" constant="16" id="GKf-Xn-dHD"/>
-                            <constraint firstItem="fZ0-Q8-glq" firstAttribute="leading" secondItem="qm9-3a-roR" secondAttribute="leading" id="KL8-Ol-AzA"/>
-                            <constraint firstItem="fZ0-Q8-glq" firstAttribute="top" secondItem="t8O-Ks-jTV" secondAttribute="bottom" constant="14" id="nR1-Jm-3hV"/>
-                            <constraint firstItem="fZ0-Q8-glq" firstAttribute="bottom" secondItem="qm9-3a-roR" secondAttribute="bottom" id="p6m-Xv-5Nv"/>
-                            <constraint firstItem="fZ0-Q8-glq" firstAttribute="centerX" secondItem="t8O-Ks-jTV" secondAttribute="centerX" id="rwL-1O-uzw"/>
+                            <constraint firstItem="pUc-6d-IxE" firstAttribute="leading" secondItem="xK1-Sg-taN" secondAttribute="leading" constant="16" id="I6K-jt-eEf"/>
+                            <constraint firstItem="kth-md-fyr" firstAttribute="top" secondItem="pUc-6d-IxE" secondAttribute="bottom" constant="16" id="K2n-jQ-QEH"/>
+                            <constraint firstItem="VDF-nh-Hdc" firstAttribute="top" secondItem="xK1-Sg-taN" secondAttribute="top" constant="16" id="KDY-dM-xdo"/>
+                            <constraint firstItem="kth-md-fyr" firstAttribute="leading" secondItem="xK1-Sg-taN" secondAttribute="leading" constant="16" id="ZUf-L2-AYS"/>
+                            <constraint firstItem="xK1-Sg-taN" firstAttribute="trailing" secondItem="VDF-nh-Hdc" secondAttribute="trailing" constant="16" id="buY-kj-vlO"/>
+                            <constraint firstItem="xK1-Sg-taN" firstAttribute="trailing" secondItem="pUc-6d-IxE" secondAttribute="trailing" constant="16" id="deR-w6-gDe"/>
+                            <constraint firstItem="VDF-nh-Hdc" firstAttribute="leading" secondItem="xK1-Sg-taN" secondAttribute="leading" constant="16" id="gMD-8H-SCV"/>
+                            <constraint firstItem="xK1-Sg-taN" firstAttribute="trailing" secondItem="kth-md-fyr" secondAttribute="trailing" constant="16" id="j6k-kB-qb0"/>
+                            <constraint firstItem="pUc-6d-IxE" firstAttribute="top" secondItem="VDF-nh-Hdc" secondAttribute="bottom" constant="16" id="l1W-Yw-arr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Taux de change" id="x9Q-la-2ZC"/>
+                    <navigationItem key="navigationItem" title="Taux de change" id="1bS-V8-BnP"/>
+                    <connections>
+                        <outlet property="header" destination="xCJ-lJ-rKc" id="SFU-yR-y9d"/>
+                        <outlet property="tableView" destination="kth-md-fyr" id="HGf-9S-LgN"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gg4-0m-oz9" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C9N-gF-ZGx" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2633" y="129"/>
+            <point key="canvasLocation" x="1790" y="137"/>
         </scene>
     </scenes>
     <resources>

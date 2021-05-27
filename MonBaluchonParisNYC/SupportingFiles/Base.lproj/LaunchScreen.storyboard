@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-Es-TaR">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="LaunchScreen.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HdS-Es-TaR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
@@ -35,9 +35,35 @@
             </objects>
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="yda-9M-XnQ">
+            <objects>
+                <viewController storyboardIdentifier="storyboard" id="rzE-wX-EhE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tnU-Wn-EGt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="LaunchScreen.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FG3-nK-zAP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VJZ-ZP-6Tr"/>
+                        <color key="backgroundColor" name="BleuVille"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="FG3-nK-zAP" secondAttribute="bottom" id="IsO-fu-11c"/>
+                            <constraint firstItem="FG3-nK-zAP" firstAttribute="leading" secondItem="tnU-Wn-EGt" secondAttribute="leading" id="M2U-Tb-8eC"/>
+                            <constraint firstItem="FG3-nK-zAP" firstAttribute="top" secondItem="tnU-Wn-EGt" secondAttribute="top" id="Nu6-2j-D79"/>
+                            <constraint firstAttribute="trailing" secondItem="FG3-nK-zAP" secondAttribute="trailing" id="z8q-RR-98x"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gkK-fm-twI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreen" width="2000" height="2000"/>
+        <image name="LaunchScreen.png" width="996" height="996"/>
         <namedColor name="BleuVille">
             <color red="0.13725490196078433" green="0.41960784313725491" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

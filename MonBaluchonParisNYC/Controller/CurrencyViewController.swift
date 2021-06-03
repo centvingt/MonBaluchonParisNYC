@@ -1,21 +1,29 @@
 //
-//  ViewController.swift
-//  LeBaluchon
+//  CurrencyViewController.swift
+//  MonBaluchonParisNYC
 //
-//  Created by Vincent Caronnet on 23/05/2021.
+//  Created by Vincent Caronnet on 01/06/2021.
 //
 
 import UIKit
 
-class CurrencyViewController: UIViewController {
-    @IBOutlet weak var tableView: SelfSizedTableView!
-    @IBOutlet weak var header: UIView!
+class CurrencyViewController: UITableViewController {
+    @IBOutlet weak private var segmentedControl: UISegmentedControl!
     
-//    private var currencyRate = CurrencyConversion()
-
+    private var currencyRate = CurrencyConversion()
+    private var euroToUSDRate: String?
+    private var usdToEuroRate: String?
+    private var rateDate: String?
+    private var city: City?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         NotificationCenter.default.addObserver(
             self,
@@ -23,85 +31,121 @@ class CurrencyViewController: UIViewController {
             name: Notification.Name.currencyRateData,
             object: nil
         )
-        
-//        currencyRate.setRate()
-        tableView.separatorInset = UIEdgeInsets(top: 4, left: 15, bottom: 8, right: 0);
-        
-        setRoundedAndShadowFor(tableView)
-        setRoundedAndShadowFor(header)
+        city = getCityFromSegmentedControl()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        currencyRate.getRate()
     }
     
     @objc private func currencyRateDataIsSet(_ notification: NSNotification) {
-        print("CurrencyViewController ~> currencyRateDataIsSet", notification.userInfo?["euroToUSDRate"])
-        guard let euroToUSDRate = notification.userInfo?["euroToUSDRate"] as? Float,
-              let usdToEuroRate = notification.userInfo?["usdToEuroRate"] as? Float,
-              let date = notification.userInfo?["date"] as? Int
-              else {
-            print("notification mais pas de données")
-            return
-        }
-        print("self.euroToUSDRate", euroToUSDRate)
-        print("self.usdToEuroRate", usdToEuroRate)
-        print("self.date", date)
-
-    }
-}
-
-extension CurrencyViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(
-        _ tableView: UITableView,
-        numberOfRowsInSection section: Int
-    ) -> Int {
-        return 2
+        guard let euroToUSDRate = notification.userInfo?["euroToUSDRate"] as? String,
+              let usdToEuroRate = notification.userInfo?["usdToEuroRate"] as? String,
+              let rateDate = notification.userInfo?["rateDate"] as? String
+              else { return }
+        self.euroToUSDRate = euroToUSDRate
+        self.usdToEuroRate = usdToEuroRate
+        self.rateDate = rateDate
+        tableView.reloadData()
     }
     
-    func tableView(
+    @IBAction func segmentedChanged(_ sender: Any) {
+        city = getCityFromSegmentedControl()
+        tableView.reloadData()
+    }
+    
+    private func getCityFromSegmentedControl() -> City {
+        return segmentedControl.selectedSegmentIndex == 0 ? .paris : .nyc
+    }
+
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 1
+    }
+
+    override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "navCell") else {
-            return UITableViewCell.init()
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "RateCell",
+            for: indexPath
+        ) as? CurrencyRateCell,
+        let euroToUSDRate = euroToUSDRate,
+        let usdToEuroRate = usdToEuroRate,
+        let rateDate = rateDate,
+        let city = city
+        else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "WaitingCell") else {
+                let cell = UITableViewCell()
+                cell.contentView.backgroundColor = UIColor.bpnRoseVille
+                return cell
+            }
+            return cell
         }
         
-        cell.accessoryType = .disclosureIndicator
-        let chevron = UIImage(named: "Chevron")
-        cell.accessoryView = UIImageView(image: chevron!)
-        cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 11.2543, height: 20)
+        let rate = city == .paris ? euroToUSDRate : usdToEuroRate
         
-        switch indexPath.row {
-        case 0:
-            cell.textLabel?.text = "Conversion $/€"
-            let cellSize = UIScreen.main.bounds
-            let separatorHeight = CGFloat(2.0)
-            let additionalSeparator = UIView.init(
-                frame: CGRect(
-                    x: 15,
-                    y: cell.frame.size.height - separatorHeight,
-                    width: cellSize.width,
-                    height: separatorHeight
-                )
-            )
-            additionalSeparator.backgroundColor = UIColor.bpnRoseVille
-            additionalSeparator.layer.cornerRadius = 1
-            cell.addSubview(additionalSeparator)
-        case 1:
-            cell.textLabel?.text = "Calcul de la TVA"
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        default:
-            return UITableViewCell.init()
-        }
-        
-        
-        
+        cell.configure(
+            city: city,
+            rate: rate,
+            rateDate: rateDate
+        )
         return cell
     }
+   
+    
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
 
-func setRoundedAndShadowFor(_ view: UIView) {
-    view.layer.cornerRadius = 6
-    
-//    view.layer.shadowColor = UIColor.black.cgColor
-//    view.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-//    view.layer.shadowOpacity = 0.24
-//    view.layer.shadowRadius = 4.0
-}

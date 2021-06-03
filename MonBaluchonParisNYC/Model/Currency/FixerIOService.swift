@@ -1,5 +1,5 @@
 //
-//  CurrencyService.swift
+//  FixerIOService.swift
 //  MonBaluchonParisNYC
 //
 //  Created by Vincent Caronnet on 23/05/2021.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct CurrencyService {
-    static let shared = CurrencyService()
+struct FixerIOService {
+    static let shared = FixerIOService()
     private init() { }
     
     func getRate(completion: @escaping (BPNError?, CurrencyRateHttpData?) -> ()) {
@@ -16,8 +16,8 @@ struct CurrencyService {
             completion(BPNError.apiKeysNoFilePhath, nil)
             return
         }
-        let endPoint = "http://data.fixer.io/api/latest?access_key=\(key)&symbols=USD"
-        
+         let endPoint = "http://data.fixer.io/api/latest?access_key=\(key)&symbols=USD"
+
         guard let url = URL(string: endPoint) else {
             print("URL ERROR")
             completion(BPNError.apiURLRequest, nil)

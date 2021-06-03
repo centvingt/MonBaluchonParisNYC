@@ -79,12 +79,143 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ihx-Kn-pje" kind="relationship" relationship="rootViewController" id="C70-9s-UWx"/>
+                        <segue destination="a0D-9R-uby" kind="relationship" relationship="rootViewController" id="c1N-m0-FBW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kst-Ix-n82" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="884.05797101449286" y="137.94642857142856"/>
+        </scene>
+        <!--Currency View Controller-->
+        <scene sceneID="Ccd-S0-VWY">
+            <objects>
+                <tableViewController id="a0D-9R-uby" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nmV-en-CHQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="RoseVille"/>
+                        <color key="tintColor" name="BleuGoudron"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WaitingCell" id="crs-Q9-XsD">
+                                <rect key="frame" x="0.0" y="24.5" width="375" height="42"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="crs-Q9-XsD" id="Dlx-d0-kfw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kCR-3B-Kv4">
+                                            <rect key="frame" x="32" y="11" width="311" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kCR-3B-Kv4" secondAttribute="trailing" constant="16" id="H9s-9P-pOP"/>
+                                        <constraint firstItem="kCR-3B-Kv4" firstAttribute="top" secondItem="Dlx-d0-kfw" secondAttribute="topMargin" id="Jri-MD-0G3"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kCR-3B-Kv4" secondAttribute="bottom" id="Vb7-0o-b9F"/>
+                                        <constraint firstItem="kCR-3B-Kv4" firstAttribute="leading" secondItem="Dlx-d0-kfw" secondAttribute="leadingMargin" constant="16" id="iVI-7F-0Ph"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="RoseVille"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RateCell" id="JZc-Nh-Bhc" customClass="CurrencyRateCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="66.5" width="375" height="199"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JZc-Nh-Bhc" id="oWJ-mh-1G0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JB1-mk-71E" userLabel="RateCellContainer">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0Z-mS-WKD">
+                                                    <rect key="frame" x="16" y="16" width="343" height="151"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="H37-fh-pjH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="151"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfC-6b-Jt4">
+                                                                    <rect key="frame" x="16" y="8" width="311" height="43"/>
+                                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="36"/>
+                                                                    <color key="textColor" name="RoseVille"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,833 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pWj-oj-McM">
+                                                                    <rect key="frame" x="16" y="31" width="311" height="120"/>
+                                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="94"/>
+                                                                    <color key="textColor" name="BleuGoudron"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <edgeInsets key="layoutMargins" top="8" left="16" bottom="0.0" right="16"/>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="BleuVille"/>
+                                                    <constraints>
+                                                        <constraint firstItem="H37-fh-pjH" firstAttribute="top" secondItem="k0Z-mS-WKD" secondAttribute="top" id="1nz-ap-Y3a"/>
+                                                        <constraint firstAttribute="trailing" secondItem="H37-fh-pjH" secondAttribute="trailing" id="bj5-Rn-1be"/>
+                                                        <constraint firstItem="H37-fh-pjH" firstAttribute="leading" secondItem="k0Z-mS-WKD" secondAttribute="leading" id="fZm-lF-bUi"/>
+                                                        <constraint firstAttribute="bottom" secondItem="H37-fh-pjH" secondAttribute="bottom" id="wTh-0o-G6L"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dernière mise à jour le mardi 24 mai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJD-q0-S0a">
+                                                    <rect key="frame" x="16" y="171" width="343" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="12" id="hT7-hm-7ul"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="SFRounded-Ultralight" family="SF Pro Rounded" pointSize="10"/>
+                                                    <color key="textColor" name="BleuGoudron"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="JB1-mk-71E" secondAttribute="bottom" id="2Fe-4I-ztf"/>
+                                        <constraint firstAttribute="trailing" secondItem="JB1-mk-71E" secondAttribute="trailing" id="cFN-7Q-qT3"/>
+                                        <constraint firstItem="JB1-mk-71E" firstAttribute="leading" secondItem="oWJ-mh-1G0" secondAttribute="leading" id="qom-Ud-91i"/>
+                                        <constraint firstItem="JB1-mk-71E" firstAttribute="top" secondItem="oWJ-mh-1G0" secondAttribute="top" id="ssA-UU-UkR"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="RoseVille"/>
+                                <connections>
+                                    <outlet property="background" destination="k0Z-mS-WKD" id="Svt-Rm-6Bx"/>
+                                    <outlet property="dateLabel" destination="KJD-q0-S0a" id="Uzv-1Y-qzc"/>
+                                    <outlet property="introLabel" destination="yfC-6b-Jt4" id="hsZ-Ye-swy"/>
+                                    <outlet property="rateLabel" destination="pWj-oj-McM" id="FaV-RG-kNQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="a0D-9R-uby" id="MhC-tx-OQ8"/>
+                            <outlet property="delegate" destination="a0D-9R-uby" id="cJu-8W-4Yk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="98y-gD-TaL">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="YJt-LH-eao">
+                            <rect key="frame" x="108" y="5.5" width="159" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Paris"/>
+                                <segment title="New-York"/>
+                            </segments>
+                            <color key="tintColor" name="RoseVille"/>
+                            <color key="selectedSegmentTintColor" name="RoseVille"/>
+                            <connections>
+                                <action selector="segmentedChanged:" destination="g3w-JI-Wbf" eventType="valueChanged" id="dCW-4R-TvV"/>
+                                <action selector="segmentedChanged:" destination="a0D-9R-uby" eventType="valueChanged" id="prG-RG-Wvl"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="YJt-LH-eao" id="7Mv-B4-K4h"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kGB-AI-PAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="g3w-JI-Wbf" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1700" y="136.28185907046478"/>
         </scene>
         <!--Traduction-->
         <scene sceneID="iZS-Ly-oXO">
@@ -149,127 +280,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ON-Dc-qAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="882.60869565217399" y="1595.7589285714284"/>
-        </scene>
-        <!--Taux de change-->
-        <scene sceneID="FPC-AA-RYF">
-            <objects>
-                <viewController id="Ihx-Kn-pje" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zVw-aU-8bP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="VDF-nh-Hdc">
-                                <rect key="frame" x="16" y="16" width="343" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="tx5-DK-Gwe"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Paris"/>
-                                    <segment title="New-York"/>
-                                </segments>
-                                <color key="tintColor" name="BleuVille"/>
-                                <color key="selectedSegmentTintColor" name="BleuVille"/>
-                            </segmentedControl>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pUc-6d-IxE" userLabel="Stack View Rate">
-                                <rect key="frame" x="16" y="63" width="343" height="160"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCJ-lJ-rKc">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="144.5"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-16" translatesAutoresizingMaskIntoConstraints="NO" id="zCE-ec-WJz">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="144.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I40-oL-wqH">
-                                                        <rect key="frame" x="16" y="12" width="311" height="29.5"/>
-                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
-                                                        <color key="textColor" name="RoseVille"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,82 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="oJk-ww-PDW">
-                                                        <rect key="frame" x="16" y="25.5" width="311" height="115"/>
-                                                        <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="96"/>
-                                                        <color key="textColor" name="BleuGoudron"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <edgeInsets key="layoutMargins" top="12" left="16" bottom="4" right="16"/>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" name="BleuVille"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="zCE-ec-WJz" secondAttribute="bottom" id="JTC-Zp-5r1"/>
-                                            <constraint firstAttribute="height" secondItem="zCE-ec-WJz" secondAttribute="height" id="MHb-qu-g9d"/>
-                                            <constraint firstItem="zCE-ec-WJz" firstAttribute="leading" secondItem="xCJ-lJ-rKc" secondAttribute="leading" id="V5T-Wh-0U7"/>
-                                            <constraint firstAttribute="trailing" secondItem="zCE-ec-WJz" secondAttribute="trailing" id="jGH-4o-KxQ"/>
-                                            <constraint firstItem="zCE-ec-WJz" firstAttribute="top" secondItem="xCJ-lJ-rKc" secondAttribute="top" id="pnN-ac-LPB"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dernière mise à jour le mardi 24 mai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3H-sg-Nwf">
-                                        <rect key="frame" x="0.0" y="148.5" width="343" height="11.5"/>
-                                        <fontDescription key="fontDescription" name="SFRounded-Ultralight" family="SF Pro Rounded" pointSize="10"/>
-                                        <color key="textColor" name="BleuVille"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="wMi-Pr-9Pb"/>
-                                </constraints>
-                            </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kth-md-fyr" customClass="SelfSizedTableView" customModule="MonBaluchonParisNYC" customModuleProvider="target">
-                                <rect key="frame" x="16" y="239" width="343" height="200"/>
-                                <color key="tintColor" name="RoseVille"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" placeholder="YES" id="lAq-WT-hTo"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="navCell" textLabel="XhG-Uk-uVe" style="IBUITableViewCellStyleDefault" id="uoY-Mh-zOE">
-                                        <rect key="frame" x="0.0" y="24.5" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uoY-Mh-zOE" id="fH8-8v-AXb">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XhG-Uk-uVe">
-                                                    <rect key="frame" x="16" y="0.0" width="311" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="SFRounded-Ultralight" family="SF Pro Rounded" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="BleuVille"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Ihx-Kn-pje" id="bto-1c-bHb"/>
-                                    <outlet property="delegate" destination="Ihx-Kn-pje" id="2mW-21-DhT"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="xK1-Sg-taN"/>
-                        <color key="backgroundColor" name="RoseVille"/>
-                        <constraints>
-                            <constraint firstItem="pUc-6d-IxE" firstAttribute="leading" secondItem="xK1-Sg-taN" secondAttribute="leading" constant="16" id="I6K-jt-eEf"/>
-                            <constraint firstItem="kth-md-fyr" firstAttribute="top" secondItem="pUc-6d-IxE" secondAttribute="bottom" constant="16" id="K2n-jQ-QEH"/>
-                            <constraint firstItem="VDF-nh-Hdc" firstAttribute="top" secondItem="xK1-Sg-taN" secondAttribute="top" constant="16" id="KDY-dM-xdo"/>
-                            <constraint firstItem="kth-md-fyr" firstAttribute="leading" secondItem="xK1-Sg-taN" secondAttribute="leading" constant="16" id="ZUf-L2-AYS"/>
-                            <constraint firstItem="xK1-Sg-taN" firstAttribute="trailing" secondItem="VDF-nh-Hdc" secondAttribute="trailing" constant="16" id="buY-kj-vlO"/>
-                            <constraint firstItem="xK1-Sg-taN" firstAttribute="trailing" secondItem="pUc-6d-IxE" secondAttribute="trailing" constant="16" id="deR-w6-gDe"/>
-                            <constraint firstItem="VDF-nh-Hdc" firstAttribute="leading" secondItem="xK1-Sg-taN" secondAttribute="leading" constant="16" id="gMD-8H-SCV"/>
-                            <constraint firstItem="xK1-Sg-taN" firstAttribute="trailing" secondItem="kth-md-fyr" secondAttribute="trailing" constant="16" id="j6k-kB-qb0"/>
-                            <constraint firstItem="pUc-6d-IxE" firstAttribute="top" secondItem="VDF-nh-Hdc" secondAttribute="bottom" constant="16" id="l1W-Yw-arr"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Taux de change" id="1bS-V8-BnP"/>
-                    <connections>
-                        <outlet property="header" destination="xCJ-lJ-rKc" id="SFU-yR-y9d"/>
-                        <outlet property="tableView" destination="kth-md-fyr" id="HGf-9S-LgN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C9N-gF-ZGx" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1790" y="137"/>
         </scene>
     </scenes>
     <resources>

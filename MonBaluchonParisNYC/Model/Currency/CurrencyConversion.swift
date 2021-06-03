@@ -13,15 +13,25 @@ class CurrencyConversion {
         guard let euroUSDRate = euroToUSDRate else { return nil }
         return 1 / euroUSDRate
     }
-    private var date: Int? {
-        didSet {
-            
-        }
+    private var date: Int?
+    private var formatedDate: String? {
+        guard let date = date else { return nil }
+        
+        let firstFormatter = DateFormatter()
+        firstFormatter.dateFormat = "yyyyMMdd"
+        guard let firstDate = firstFormatter.date(
+            from: String(date)
+        ) else { return nil }
+        
+        let secondFormatter = DateFormatter()
+        secondFormatter.locale = Locale(identifier: "fr-FR")
+        secondFormatter.dateFormat = "eeee d MMMM yyyy"
+        return secondFormatter.string(from: firstDate)
     }
     
     private let userDefaults = UserDefaults.standard
     private let rateUserDefaultsKey = "euroToUSDRate"
-    private let dateUsersDefaultKey = "euroToUSDRateDate"
+    private let dateUsersDefaultsKey = "currencyDate"
     
     private func getIntDateFromString(_ stringDate: String) -> Int? {
         let sanitizedStringDate = stringDate.filter { $0 != "-"}
@@ -32,7 +42,7 @@ class CurrencyConversion {
         return intDate
     }
     
-    func setRate() {
+    func getRate() {
         let nowFormat = DateFormatter()
         nowFormat.dateFormat = "yyyy-MM-dd"
         nowFormat.timeZone = TimeZone(abbreviation: "CET")
@@ -45,7 +55,7 @@ class CurrencyConversion {
             return
         }
         
-        let userDefaultsDate = userDefaults.integer(forKey: dateUsersDefaultKey)
+        let userDefaultsDate = userDefaults.integer(forKey: dateUsersDefaultsKey)
         
         if userDefaultsDate == 0 || nowIntDate > userDefaultsDate {
             CurrencyService.shared.getRate { error, data in
@@ -68,41 +78,50 @@ class CurrencyConversion {
                     return
                 }
                 
-                self.userDefaults.set(self.euroToUSDRate, forKey: self.rateUserDefaultsKey)
                 self.euroToUSDRate = data.rates.USD
+                self.userDefaults.set(self.euroToUSDRate, forKey: self.rateUserDefaultsKey)
                 
-                self.userDefaults.set(self.date, forKey: self.dateUsersDefaultKey)
                 self.date = intDate
+                self.userDefaults.set(self.date, forKey: self.dateUsersDefaultsKey)
                 
-                print("New fixer.io request")
+                print("CurrencyConversion ~> getRate ~> NEW CURRENCY REQUEST")
                 self.postDataNotification()
             }
         } else {
             euroToUSDRate = userDefaults.float(forKey: rateUserDefaultsKey)
-            date = userDefaults.integer(forKey: dateUsersDefaultKey)
+            date = userDefaults.integer(forKey: dateUsersDefaultsKey)
             
             postDataNotification()
         }
     }
     private func postDataNotification() {
-        guard let euroToUSDRate = self.euroToUSDRate,
-              let usdToEuroRate = self.usdToEuroRate,
-              let date = self.date else {
+        guard let euroToUSDRateFloat = self.euroToUSDRate,
+              let usdToEuroRateFloat = self.usdToEuroRate,
+              let rateDate = self.formatedDate,
+              let euroToUSDRate = formatNumber(euroToUSDRateFloat),
+              let usdToEuroRate = formatNumber(usdToEuroRateFloat)
+        else {
             print("CurrencyConversion ~> postDataNotification ~> nil data")
             NotificationCenter.default.post(Notification(name: .errorUndefined))
             return
         }
-        print("CurrencyConversion ~> postDataNotification ~> euroToUSDRate", euroToUSDRate)
-        print("CurrencyConversion ~> postDataNotification ~> usdToEuroRate", usdToEuroRate)
-        print("CurrencyConversion ~> postDataNotification ~> date", date)
         NotificationCenter.default.post(
             name: .currencyRateData,
             object: self,
             userInfo: [
                 "euroToUSDRate": euroToUSDRate,
                 "usdToEuroRate": usdToEuroRate,
-                "date": date
+                "rateDate": rateDate
             ]
         )
+    }
+    private func formatNumber(_ float: Float) -> String? {
+        let formatter = NumberFormatter()
+        formatter.minimumIntegerDigits = 1
+        formatter.decimalSeparator = ","
+        formatter.maximumFractionDigits = 3
+        formatter.minimumFractionDigits = 3
+
+        return formatter.string(for: float)
     }
 }

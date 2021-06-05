@@ -35,12 +35,3 @@ class CurrencyRateCell: UITableViewCell {
         dateLabel.text = "Dernière mise à jour le \(rateDate)"
     }
 }
-
-func setRoundedAndShadowFor(_ view: UIView) {
-    view.layer.cornerRadius = 6
-    
-    view.layer.shadowColor = UIColor.black.cgColor
-    view.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-    view.layer.shadowOpacity = 0.24
-    view.layer.shadowRadius = 4.0
-}

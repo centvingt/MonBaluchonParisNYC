@@ -22,7 +22,7 @@
             <objects>
                 <viewController id="tjg-ns-0n2" customClass="TranslationViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="idc-xE-FCb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="2NX-Al-xUp"/>
                         <color key="backgroundColor" name="RoseVille"/>
@@ -91,12 +91,12 @@
             <objects>
                 <tableViewController id="a0D-9R-uby" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nmV-en-CHQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="RoseVille"/>
                         <color key="tintColor" name="BleuGoudron"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WaitingCell" id="crs-Q9-XsD">
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="WaitingCell" id="crs-Q9-XsD">
                                 <rect key="frame" x="0.0" y="24.5" width="375" height="42"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="crs-Q9-XsD" id="Dlx-d0-kfw">
@@ -132,14 +132,14 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="H37-fh-pjH">
                                                             <rect key="frame" x="0.0" y="0.0" width="343" height="151"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfC-6b-Jt4">
-                                                                    <rect key="frame" x="16" y="8" width="311" height="43"/>
+                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfC-6b-Jt4">
+                                                                    <rect key="frame" x="16" y="8" width="311" height="42"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="36"/>
                                                                     <color key="textColor" name="RoseVille"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,833 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pWj-oj-McM">
-                                                                    <rect key="frame" x="16" y="31" width="311" height="120"/>
+                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,833 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pWj-oj-McM">
+                                                                    <rect key="frame" x="16" y="30" width="311" height="121"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="94"/>
                                                                     <color key="textColor" name="BleuGoudron"/>
                                                                     <nil key="highlightedColor"/>
@@ -156,7 +156,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="H37-fh-pjH" secondAttribute="bottom" id="wTh-0o-G6L"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dernière mise à jour le mardi 24 mai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJD-q0-S0a">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dernière mise à jour le mardi 24 mai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJD-q0-S0a">
                                                     <rect key="frame" x="16" y="171" width="343" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="12" id="hT7-hm-7ul"/>
@@ -184,11 +184,116 @@
                                     <outlet property="rateLabel" destination="pWj-oj-McM" id="FaV-RG-kNQ"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ConversionCell" id="hgG-iY-YqB" customClass="CurrencyConversionCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="265.5" width="375" height="245"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hgG-iY-YqB" id="K8r-2D-epA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXd-vx-mqg">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="229"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iuM-uZ-W5q">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="229"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGi-tv-atP">
+                                                            <rect key="frame" x="16" y="16" width="311" height="61"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XlN-pb-p7F">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="311" height="61"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conversion $/€" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUq-OW-hAp">
+                                                                            <rect key="frame" x="16" y="8" width="279" height="45"/>
+                                                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                                            <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
+                                                                            <color key="textColor" name="RoseVille"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                            <constraints>
+                                                                <constraint firstItem="XlN-pb-p7F" firstAttribute="leading" secondItem="rGi-tv-atP" secondAttribute="leading" id="QXB-4B-YBU"/>
+                                                                <constraint firstItem="XlN-pb-p7F" firstAttribute="top" secondItem="rGi-tv-atP" secondAttribute="top" id="dsM-bb-UER"/>
+                                                                <constraint firstAttribute="bottom" secondItem="XlN-pb-p7F" secondAttribute="bottom" id="h9D-Z6-Dae"/>
+                                                                <constraint firstAttribute="trailing" secondItem="XlN-pb-p7F" secondAttribute="trailing" id="rxF-v4-o8i"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0g-EY-tzp">
+                                                            <rect key="frame" x="16" y="93" width="311" height="120"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-mV-RmX">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="311" height="120"/>
+                                                                    <subviews>
+                                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 $" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWs-iC-uTb">
+                                                                            <rect key="frame" x="16" y="16" width="279" height="36"/>
+                                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                                            <color key="tintColor" name="RoseVille"/>
+                                                                            <color key="textColor" name="RoseVille"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                            <textInputTraits key="textInputTraits"/>
+                                                                        </textField>
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 $" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-Q2-fHp">
+                                                                            <rect key="frame" x="16" y="68" width="279" height="36"/>
+                                                                            <color key="backgroundColor" name="RoseVille"/>
+                                                                            <color key="textColor" name="BleuGoudron"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                                                            <connections>
+                                                                                <action selector="inputTextFieldChanged:" destination="hgG-iY-YqB" eventType="editingChanged" id="U8r-8V-WTx"/>
+                                                                            </connections>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="3Zt-mV-RmX" secondAttribute="bottom" id="XKO-nF-8od"/>
+                                                                <constraint firstItem="3Zt-mV-RmX" firstAttribute="leading" secondItem="p0g-EY-tzp" secondAttribute="leading" id="hF7-Ok-Iwm"/>
+                                                                <constraint firstItem="3Zt-mV-RmX" firstAttribute="top" secondItem="p0g-EY-tzp" secondAttribute="top" id="rsc-xU-kQu"/>
+                                                                <constraint firstAttribute="trailing" secondItem="3Zt-mV-RmX" secondAttribute="trailing" id="wNv-Ah-Kra"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="BleuVille"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="iuM-uZ-W5q" secondAttribute="bottom" id="R5N-XQ-rlJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="iuM-uZ-W5q" secondAttribute="trailing" id="UlO-gZ-VjE"/>
+                                                <constraint firstItem="iuM-uZ-W5q" firstAttribute="top" secondItem="tXd-vx-mqg" secondAttribute="top" id="hkr-fO-Mjl"/>
+                                                <constraint firstItem="iuM-uZ-W5q" firstAttribute="leading" secondItem="tXd-vx-mqg" secondAttribute="leading" id="mta-xh-FAE"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="tXd-vx-mqg" secondAttribute="trailing" constant="16" id="4Mk-si-hL7"/>
+                                        <constraint firstItem="tXd-vx-mqg" firstAttribute="top" secondItem="K8r-2D-epA" secondAttribute="top" id="GWz-X1-KEo"/>
+                                        <constraint firstAttribute="bottom" secondItem="tXd-vx-mqg" secondAttribute="bottom" constant="16" id="OZh-UY-K2i"/>
+                                        <constraint firstItem="tXd-vx-mqg" firstAttribute="leading" secondItem="K8r-2D-epA" secondAttribute="leading" constant="16" id="tGw-xl-pwt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="RoseVille"/>
+                                <connections>
+                                    <outlet property="inputTextField" destination="c2e-Q2-fHp" id="lsS-cG-2c4"/>
+                                    <outlet property="mainContainer" destination="tXd-vx-mqg" id="Aee-WH-VbL"/>
+                                    <outlet property="outputTextField" destination="cWs-iC-uTb" id="OCL-iG-ohs"/>
+                                    <outlet property="textFieldsContainer" destination="p0g-EY-tzp" id="RMY-es-fe9"/>
+                                    <outlet property="title" destination="sUq-OW-hAp" id="isk-Nf-Rws"/>
+                                    <outlet property="titleContainer" destination="rGi-tv-atP" id="Sov-Vy-89F"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="a0D-9R-uby" id="MhC-tx-OQ8"/>
                             <outlet property="delegate" destination="a0D-9R-uby" id="cJu-8W-4Yk"/>
+                            <outletCollection property="gestureRecognizers" destination="ynz-Ba-WtK" appends="YES" id="ptj-Pz-ZiJ"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="98y-gD-TaL">
@@ -213,6 +318,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGB-AI-PAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ynz-Ba-WtK">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="a0D-9R-uby" id="MMr-Uk-i8r"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <exit id="g3w-JI-Wbf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1700" y="136.28185907046478"/>
@@ -246,7 +356,7 @@
             <objects>
                 <viewController id="ATx-VW-dom" customClass="WeatherViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rn2-dG-Fgj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="C25-Mo-gfc"/>
                         <color key="backgroundColor" name="RoseVille"/>

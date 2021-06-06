@@ -227,8 +227,14 @@ class Currency {
            sanitizedInput[index...].count == 5 {
             sanitizedInput.removeLast()
         }
-        print("getFloatFromInput ~> sanitizedInput", sanitizedInput)
-        guard let float = Float(sanitizedInput) else { return nil }
+        guard !sanitizedInput.isEmpty else {
+            print("sanitizedInput empty else")
+            return 0
+        }
+        guard let float = Float(sanitizedInput) else {
+            print("getFloatFromInput ~> Float(sanitizedInput) ~> nil")
+            return nil
+        }
         return float
     }
     

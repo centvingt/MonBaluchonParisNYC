@@ -103,7 +103,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kCR-3B-Kv4">
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kCR-3B-Kv4">
                                             <rect key="frame" x="32" y="11" width="311" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
@@ -117,14 +117,14 @@
                                 <color key="backgroundColor" name="RoseVille"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RateCell" id="JZc-Nh-Bhc" customClass="CurrencyRateCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66.5" width="375" height="199"/>
+                                <rect key="frame" x="0.0" y="66.5" width="375" height="197"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JZc-Nh-Bhc" id="oWJ-mh-1G0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JB1-mk-71E" userLabel="RateCellContainer">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0Z-mS-WKD">
                                                     <rect key="frame" x="16" y="16" width="343" height="151"/>
@@ -166,7 +166,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                            <edgeInsets key="layoutMargins" top="16" left="16" bottom="14" right="16"/>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -184,18 +184,18 @@
                                     <outlet property="rateLabel" destination="pWj-oj-McM" id="FaV-RG-kNQ"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ConversionCell" id="hgG-iY-YqB" customClass="CurrencyConversionCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="265.5" width="375" height="245"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CalculationCell" id="hgG-iY-YqB" customClass="CurrencyCalculationCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="263.5" width="375" height="261"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hgG-iY-YqB" id="K8r-2D-epA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="261"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXd-vx-mqg">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="229"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="245"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iuM-uZ-W5q">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="229"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="245"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGi-tv-atP">
                                                             <rect key="frame" x="16" y="16" width="311" height="61"/>
@@ -223,29 +223,94 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0g-EY-tzp">
-                                                            <rect key="frame" x="16" y="93" width="311" height="120"/>
+                                                            <rect key="frame" x="16" y="93" width="311" height="136"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3Zt-mV-RmX">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="311" height="120"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="311" height="136"/>
                                                                     <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 $" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWs-iC-uTb">
-                                                                            <rect key="frame" x="16" y="16" width="279" height="36"/>
-                                                                            <color key="backgroundColor" name="BleuGoudron"/>
-                                                                            <color key="tintColor" name="RoseVille"/>
-                                                                            <color key="textColor" name="RoseVille"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 $" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-Q2-fHp">
-                                                                            <rect key="frame" x="16" y="68" width="279" height="36"/>
-                                                                            <color key="backgroundColor" name="RoseVille"/>
-                                                                            <color key="textColor" name="BleuGoudron"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
-                                                                            <connections>
-                                                                                <action selector="inputTextFieldChanged:" destination="hgG-iY-YqB" eventType="editingChanged" id="U8r-8V-WTx"/>
-                                                                            </connections>
-                                                                        </textField>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Eyl-LT-mbG">
+                                                                            <rect key="frame" x="16" y="16" width="279" height="44"/>
+                                                                            <subviews>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-Tf-xWN">
+                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="44" id="fSu-Zd-Fmb"/>
+                                                                                        <constraint firstAttribute="width" constant="32" id="ibz-6B-sWQ"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="10"/>
+                                                                                    <color key="tintColor" name="BleuVille"/>
+                                                                                    <state key="normal" backgroundImage="CopyButton">
+                                                                                        <color key="titleColor" name="BleuVille"/>
+                                                                                    </state>
+                                                                                    <state key="highlighted" backgroundImage="CopyButton"/>
+                                                                                </button>
+                                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWs-iC-uTb">
+                                                                                    <rect key="frame" x="80" y="0.0" width="199" height="44"/>
+                                                                                    <color key="backgroundColor" name="BleuGoudron"/>
+                                                                                    <color key="tintColor" name="RoseVille"/>
+                                                                                    <color key="textColor" name="BleuVille"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                                    <textInputTraits key="textInputTraits"/>
+                                                                                </textField>
+                                                                            </subviews>
+                                                                            <edgeInsets key="layoutMargins" top="0.0" left="40" bottom="0.0" right="0.0"/>
+                                                                        </stackView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="haV-mH-C8U">
+                                                                            <rect key="frame" x="16" y="76" width="279" height="44"/>
+                                                                            <subviews>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tKC-oD-LgW">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="32" height="44"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="44" id="eQb-v7-e4E"/>
+                                                                                        <constraint firstAttribute="width" constant="32" id="mVj-aN-AWD"/>
+                                                                                    </constraints>
+                                                                                    <color key="tintColor" name="RoseVille"/>
+                                                                                    <state key="normal" backgroundImage="DeleteButton"/>
+                                                                                    <state key="highlighted" backgroundImage="DeleteButton"/>
+                                                                                </button>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZfH-QH-4y8">
+                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="32" id="6Ee-zH-TSm"/>
+                                                                                    </constraints>
+                                                                                    <color key="tintColor" name="RoseVille"/>
+                                                                                    <state key="normal" backgroundImage="PasteButton"/>
+                                                                                    <state key="highlighted" backgroundImage="CopyButton"/>
+                                                                                </button>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxJ-gc-uel">
+                                                                                    <rect key="frame" x="80" y="0.0" width="199" height="44"/>
+                                                                                    <subviews>
+                                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 $" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-Q2-fHp">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="199" height="44"/>
+                                                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                                                            <color key="textColor" name="RoseVille"/>
+                                                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                                                                            <connections>
+                                                                                                <action selector="inputTextFieldChanged:" destination="hgG-iY-YqB" eventType="editingChanged" id="U8r-8V-WTx"/>
+                                                                                            </connections>
+                                                                                        </textField>
+                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kY-i9-wuK">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="199" height="44"/>
+                                                                                            <connections>
+                                                                                                <action selector="inputButtonDidPressed:" destination="hgG-iY-YqB" eventType="touchUpInside" id="A01-FT-gbb"/>
+                                                                                            </connections>
+                                                                                        </button>
+                                                                                    </subviews>
+                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="bottom" secondItem="4kY-i9-wuK" secondAttribute="bottom" id="B3a-v9-noF"/>
+                                                                                        <constraint firstItem="4kY-i9-wuK" firstAttribute="top" secondItem="WxJ-gc-uel" secondAttribute="top" id="Bk4-AA-bwr"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="4kY-i9-wuK" secondAttribute="trailing" id="Dwf-Ub-SLn"/>
+                                                                                        <constraint firstItem="4kY-i9-wuK" firstAttribute="leading" secondItem="WxJ-gc-uel" secondAttribute="leading" id="GNU-6Q-c4i"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="c2e-Q2-fHp" secondAttribute="trailing" id="X9X-hq-QYh"/>
+                                                                                        <constraint firstItem="c2e-Q2-fHp" firstAttribute="top" secondItem="WxJ-gc-uel" secondAttribute="top" id="ZWB-7r-0nx"/>
+                                                                                        <constraint firstAttribute="bottom" secondItem="c2e-Q2-fHp" secondAttribute="bottom" id="bZB-tQ-Kiw"/>
+                                                                                        <constraint firstItem="c2e-Q2-fHp" firstAttribute="leading" secondItem="WxJ-gc-uel" secondAttribute="leading" id="roc-wl-T3o"/>
+                                                                                    </constraints>
+                                                                                </view>
+                                                                            </subviews>
+                                                                        </stackView>
                                                                     </subviews>
                                                                     <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
                                                                 </stackView>
@@ -393,8 +458,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CopyButton" width="32" height="44"/>
         <image name="Currency" width="36" height="36"/>
         <image name="CurrencySelected" width="36" height="36"/>
+        <image name="DeleteButton" width="32" height="44"/>
+        <image name="PasteButton" width="32" height="44"/>
         <image name="Translation" width="36" height="36"/>
         <image name="TranslationSelected" width="36" height="36"/>
         <image name="Weather" width="36" height="36"/>

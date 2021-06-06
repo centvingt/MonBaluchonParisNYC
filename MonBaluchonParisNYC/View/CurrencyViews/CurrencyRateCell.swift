@@ -16,7 +16,7 @@ class CurrencyRateCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setRoundedAndShadowFor(background)
+        setRoundedAndShadowFor(view: background)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

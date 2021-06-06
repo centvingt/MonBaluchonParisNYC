@@ -30,9 +30,55 @@ class Currency {
     }
     private var inputConversion: Float?
     
+    private var usdToEuroInput: String {
+        guard let value = userDefaults.string(
+            forKey: getUserDefaults(for: .usdToEuro)
+        ) else {
+            return "0" + getInputSuffix(for: .usdToEuro)
+        }
+        return value
+    }
+    private var euroToUSDInput: String {
+        guard let value = userDefaults.string(
+            forKey: getUserDefaults(for: .euroToUSD)
+        ) else {
+            return "0" + getInputSuffix(for: .euroToUSD)
+        }
+        return value
+    }
+    private var vatInput: String {
+        guard let value = userDefaults.string(
+            forKey: getUserDefaults(for: .vat)
+        ) else {
+            return "0" + getInputSuffix(for: .vat)
+        }
+        return value
+    }
+    private var tip15Input: String {
+        guard let value = userDefaults.string(
+            forKey: getUserDefaults(for: .tip15)
+        ) else {
+            return "0" + getInputSuffix(for: .tip15)
+        }
+        return value
+    }
+    private var tip20Input: String {
+        guard let value = userDefaults.string(
+            forKey: getUserDefaults(for: .tip20)
+        ) else {
+            return "0" + getInputSuffix(for: .tip20)
+        }
+        return value
+    }
+    
     private let userDefaults = UserDefaults.standard
-    private let rateUserDefaultsKey = "euroToUSDRate"
+    private let rateUserDefaultsKey = "rate"
     private let dateUsersDefaultsKey = "currencyDate"
+    private let usdToEuroInputDefaultsKey = "usdToEuroInput"
+    private let euroToUSDInputDefaultsKey = "euroToUSDInput"
+    private let vatInputDefaultsKey = "vatInput"
+    private let tip15InputDefaultsKey = "tip15Input"
+    private let tip20InputDefaultsKey = "tip20Input"
     
     private func getIntDateFromString(_ stringDate: String) -> Int? {
         let sanitizedStringDate = stringDate.filter { $0 != "-"}
@@ -99,8 +145,8 @@ class Currency {
         guard let euroToUSDRateFloat = self.euroToUSDRate,
               let usdToEuroRateFloat = self.usdToEuroRate,
               let rateDate = self.formatedDate,
-              let euroToUSDRate = formatRateNumber(euroToUSDRateFloat),
-              let usdToEuroRate = formatRateNumber(usdToEuroRateFloat)
+              let euroToUSDRate = getStringFromFloat(euroToUSDRateFloat),
+              let usdToEuroRate = getStringFromFloat(usdToEuroRateFloat)
         else {
             print("Currency ~> postDataNotification ~> nil data")
             NotificationCenter.default.post(Notification(name: .errorUndefined))
@@ -116,17 +162,112 @@ class Currency {
             ]
         )
     }
-    private func formatRateNumber(_ float: Float) -> String? {
+    private func getStringFromFloat(
+        _ float: Float,
+        minimumFractionDigits: Int = 3
+    ) -> String? {
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 1
         formatter.decimalSeparator = ","
         formatter.maximumFractionDigits = 3
-        formatter.minimumFractionDigits = 3
-
+        formatter.minimumFractionDigits = minimumFractionDigits
+        
         return formatter.string(for: float)
     }
     
-//    func convertDollarToEuro(dollar: String) -> String? {
-//        dollar
-//    }
+    func processInput(input: String, for calculation: CurrencyCalculation) -> String {
+        let inputContainsPoint = input.contains(".")
+        let lastCharacter = input.suffix(3).first
+        let lastCharacterIsComma = lastCharacter == "," || lastCharacter == "."
+        
+        print("input ~>", input)
+        guard let inputConvertedToFloat = getFloatFromInput(
+            input,
+            for: calculation
+        ) else {
+            return getValue(for: calculation)
+        }
+        let inputIsRounded = floor(inputConvertedToFloat) == inputConvertedToFloat
+        
+        guard let newInputFromFloat = getStringFromFloat(
+            inputConvertedToFloat,
+            minimumFractionDigits: inputContainsPoint ? 1 : 0
+        ) else {
+            return getValue(for: calculation)
+        }
+
+        var newInput = newInputFromFloat
+        
+        if inputIsRounded
+            && lastCharacterIsComma
+        {
+            if newInput.last == "0" { newInput.removeLast() }
+            else { newInput += "," }
+        }
+        newInput += getInputSuffix(for: calculation)
+        
+        userDefaults.set(
+            newInput,
+            forKey: getUserDefaults(for: calculation)
+        )
+        return newInput
+    }
+    
+    private func getFloatFromInput(
+        _ input: String,
+        for calculation: CurrencyCalculation
+    ) -> Float? {
+        var sanitizedInput = input
+            .replacingOccurrences(
+                of: getInputSuffix(for: calculation),
+                with: ""
+            )
+            .replacingOccurrences(of: ",", with: ".")
+        if let index = sanitizedInput.firstIndex(of: "."),
+           sanitizedInput[index...].count == 5 {
+            sanitizedInput.removeLast()
+        }
+        print("getFloatFromInput ~> sanitizedInput", sanitizedInput)
+        guard let float = Float(sanitizedInput) else { return nil }
+        return float
+    }
+    
+    private func getInputSuffix(for calculation: CurrencyCalculation) -> String {
+        switch calculation {
+        case .euroToUSD:
+            return " €"
+        case .usdToEuro, .vat, .tip15, .tip20:
+            return " $"
+        }
+    }
+    private func getUserDefaults(
+        for calculation: CurrencyCalculation
+    ) -> String {
+        switch calculation {
+        case .usdToEuro:
+            return usdToEuroInputDefaultsKey
+        case .euroToUSD:
+            return euroToUSDInputDefaultsKey
+        case .vat:
+            return vatInputDefaultsKey
+        case .tip15:
+            return tip15InputDefaultsKey
+        case .tip20:
+            return tip20InputDefaultsKey
+        }
+    }
+    private func getValue(for calculation: CurrencyCalculation) -> String {
+        switch calculation {
+        case .usdToEuro:
+            return usdToEuroInput
+        case .euroToUSD:
+            return euroToUSDInput
+        case .vat:
+            return vatInput
+        case .tip15:
+            return tip15Input
+        case .tip20:
+            return tip20Input
+        }
+    }
 }

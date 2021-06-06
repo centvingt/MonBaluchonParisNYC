@@ -145,8 +145,8 @@ class Currency {
         guard let euroToUSDRateFloat = self.euroToUSDRate,
               let usdToEuroRateFloat = self.usdToEuroRate,
               let rateDate = self.formatedDate,
-              let euroToUSDRate = getStringFromFloat(euroToUSDRateFloat),
-              let usdToEuroRate = getStringFromFloat(usdToEuroRateFloat)
+              let euroToUSDRate = getStringFromDouble(Double(euroToUSDRateFloat)),
+              let usdToEuroRate = getStringFromDouble(Double(usdToEuroRateFloat))
         else {
             print("Currency ~> postDataNotification ~> nil data")
             NotificationCenter.default.post(Notification(name: .errorUndefined))
@@ -162,8 +162,8 @@ class Currency {
             ]
         )
     }
-    private func getStringFromFloat(
-        _ float: Float,
+    private func getStringFromDouble(
+        _ double: Double,
         minimumFractionDigits: Int = 3
     ) -> String? {
         let formatter = NumberFormatter()
@@ -171,8 +171,11 @@ class Currency {
         formatter.decimalSeparator = ","
         formatter.maximumFractionDigits = 3
         formatter.minimumFractionDigits = minimumFractionDigits
+        formatter.groupingSeparator = " "
+        formatter.groupingSize = 3
+        formatter.usesGroupingSeparator = true
         
-        return formatter.string(for: float)
+        return formatter.string(for: double)
     }
     
     func processInput(input: String, for calculation: CurrencyCalculation) -> String {
@@ -180,17 +183,17 @@ class Currency {
         let lastCharacter = input.suffix(3).first
         let lastCharacterIsComma = lastCharacter == "," || lastCharacter == "."
         
-        print("input ~>", input)
-        guard let inputConvertedToFloat = getFloatFromInput(
+        guard let inputConvertedToDouble = getDoubleFromInput(
             input,
             for: calculation
         ) else {
             return getValue(for: calculation)
         }
-        let inputIsRounded = floor(inputConvertedToFloat) == inputConvertedToFloat
+
+        let inputIsRounded = floor(inputConvertedToDouble) == inputConvertedToDouble
         
-        guard let newInputFromFloat = getStringFromFloat(
-            inputConvertedToFloat,
+        guard let newInputFromFloat = getStringFromDouble(
+            inputConvertedToDouble,
             minimumFractionDigits: inputContainsPoint ? 1 : 0
         ) else {
             return getValue(for: calculation)
@@ -213,29 +216,29 @@ class Currency {
         return newInput
     }
     
-    private func getFloatFromInput(
+    private func getDoubleFromInput(
         _ input: String,
         for calculation: CurrencyCalculation
-    ) -> Float? {
+    ) -> Double? {
         var sanitizedInput = input
             .replacingOccurrences(
                 of: getInputSuffix(for: calculation),
                 with: ""
             )
             .replacingOccurrences(of: ",", with: ".")
+            .replacingOccurrences(of: " ", with: "")
         if let index = sanitizedInput.firstIndex(of: "."),
            sanitizedInput[index...].count == 5 {
             sanitizedInput.removeLast()
         }
         guard !sanitizedInput.isEmpty else {
-            print("sanitizedInput empty else")
             return 0
         }
-        guard let float = Float(sanitizedInput) else {
-            print("getFloatFromInput ~> Float(sanitizedInput) ~> nil")
+        guard let double = Double(sanitizedInput),
+              double < 1_000_000 else {
             return nil
         }
-        return float
+        return double
     }
     
     private func getInputSuffix(for calculation: CurrencyCalculation) -> String {

@@ -8,8 +8,10 @@
 import Foundation
 
 class Currency {
-    private var euroToUSDRate: Float?
-    private var usdToEuroRate: Float? {
+    // MARK: - Data
+    
+    private var euroToUSDRate: Double?
+    private var usdToEuroRate: Double? {
         guard let euroUSDRate = euroToUSDRate else { return nil }
         return 1 / euroUSDRate
     }
@@ -29,6 +31,9 @@ class Currency {
         return secondFormatter.string(from: firstDate)
     }
     private var inputConversion: Float?
+    private let vatRate = 1.08875
+    
+    // MARK: - Input values
     
     private var usdToEuroInput: String {
         guard let value = userDefaults.string(
@@ -54,22 +59,73 @@ class Currency {
         }
         return value
     }
-    private var tip15Input: String {
+    private var tipInput: String {
         guard let value = userDefaults.string(
-            forKey: getUserDefaults(for: .tip15)
+            forKey: getUserDefaults(for: .tip)
         ) else {
-            return "0" + getInputSuffix(for: .tip15)
+            return "0" + getInputSuffix(for: .tip)
         }
         return value
     }
-    private var tip20Input: String {
-        guard let value = userDefaults.string(
-            forKey: getUserDefaults(for: .tip20)
-        ) else {
-            return "0" + getInputSuffix(for: .tip20)
-        }
-        return value
+    private var usdToEuroOutput: String {
+        let suffix = " €"
+        guard
+            let double = getDoubleFromInput(
+                usdToEuroInput,
+                for: .usdToEuro
+            ),
+            let usdToEuroRate = usdToEuroRate,
+            let result = getStringFromDouble(double * usdToEuroRate)
+        else { return "0" + suffix }
+        return result + suffix
     }
+    private var euroToUSDOutput: String {
+        let suffix = " $"
+        guard
+            let double = getDoubleFromInput(
+                euroToUSDInput,
+                for: .euroToUSD
+            ),
+            let euroToUSDRate = euroToUSDRate,
+            let result = getStringFromDouble(double * euroToUSDRate)
+        else { return "0" + suffix }
+        return result + suffix
+    }
+    private var vatOutput: String {
+        let suffix = " $"
+        guard
+            let double = getDoubleFromInput(
+                vatInput,
+                for: .vat
+            ),
+            let result = getStringFromDouble(double * vatRate)
+        else { return "0" + suffix }
+        return result + suffix
+    }
+    private var tip15Output: String {
+        let suffix = " $"
+        guard
+            let double = getDoubleFromInput(
+                tipInput,
+                for: .tip
+            ),
+            let result = getStringFromDouble(double * 1.15)
+        else { return "0" + suffix }
+        return result + suffix
+    }
+    private var tip20Output: String {
+        let suffix = " $"
+        guard
+            let double = getDoubleFromInput(
+                tipInput,
+                for: .tip
+            ),
+            let result = getStringFromDouble(double * 1.20)
+        else { return "0" + suffix }
+        return result + suffix
+    }
+
+    // MARK: - User Defaults Keys
     
     private let userDefaults = UserDefaults.standard
     private let rateUserDefaultsKey = "rate"
@@ -77,17 +133,9 @@ class Currency {
     private let usdToEuroInputDefaultsKey = "usdToEuroInput"
     private let euroToUSDInputDefaultsKey = "euroToUSDInput"
     private let vatInputDefaultsKey = "vatInput"
-    private let tip15InputDefaultsKey = "tip15Input"
-    private let tip20InputDefaultsKey = "tip20Input"
+    private let tipInputDefaultsKey = "tipInput"
     
-    private func getIntDateFromString(_ stringDate: String) -> Int? {
-        let sanitizedStringDate = stringDate.filter { $0 != "-"}
-        
-        guard let intDate = Int(sanitizedStringDate) else {
-            return nil
-        }
-        return intDate
-    }
+    // MARK: - Getting data from api
     
     func getRate() {
         let nowFormat = DateFormatter()
@@ -135,18 +183,21 @@ class Currency {
                 self.postDataNotification()
             }
         } else {
-            euroToUSDRate = userDefaults.float(forKey: rateUserDefaultsKey)
+            euroToUSDRate = userDefaults.double(forKey: rateUserDefaultsKey)
             date = userDefaults.integer(forKey: dateUsersDefaultsKey)
             
             postDataNotification()
         }
     }
+    
+    // MARK: - Post notifications
+    
     private func postDataNotification() {
         guard let euroToUSDRateFloat = self.euroToUSDRate,
               let usdToEuroRateFloat = self.usdToEuroRate,
               let rateDate = self.formatedDate,
-              let euroToUSDRate = getStringFromDouble(Double(euroToUSDRateFloat)),
-              let usdToEuroRate = getStringFromDouble(Double(usdToEuroRateFloat))
+              let euroToUSDRate = getStringFromDouble(euroToUSDRateFloat),
+              let usdToEuroRate = getStringFromDouble(usdToEuroRateFloat)
         else {
             print("Currency ~> postDataNotification ~> nil data")
             NotificationCenter.default.post(Notification(name: .errorUndefined))
@@ -158,27 +209,21 @@ class Currency {
             userInfo: [
                 "euroToUSDRate": euroToUSDRate,
                 "usdToEuroRate": usdToEuroRate,
-                "rateDate": rateDate
+                "rateDate": rateDate,
+                "usdToEuroIOValues": getIOValues(for: .usdToEuro),
+                "euroToUSDIOValues": getIOValues(for: .euroToUSD),
+                "vatIOValues": getIOValues(for: .vat),
+                "tipIOValues": getIOValues(for: .tip)
             ]
         )
     }
-    private func getStringFromDouble(
-        _ double: Double,
-        minimumFractionDigits: Int = 3
-    ) -> String? {
-        let formatter = NumberFormatter()
-        formatter.minimumIntegerDigits = 1
-        formatter.decimalSeparator = ","
-        formatter.maximumFractionDigits = 3
-        formatter.minimumFractionDigits = minimumFractionDigits
-        formatter.groupingSeparator = " "
-        formatter.groupingSize = 3
-        formatter.usesGroupingSeparator = true
-        
-        return formatter.string(for: double)
-    }
     
-    func processInput(input: String, for calculation: CurrencyCalculation) -> String {
+    // MARK: - IO handling
+    
+    func processInput(
+        input: String,
+        for calculation: CurrencyCalculation
+    ) -> CurrencyIOValues {
         let inputContainsPoint = input.contains(".")
         let lastCharacter = input.suffix(3).first
         let lastCharacterIsComma = lastCharacter == "," || lastCharacter == "."
@@ -187,7 +232,7 @@ class Currency {
             input,
             for: calculation
         ) else {
-            return getValue(for: calculation)
+            return getIOValues(for: calculation)
         }
 
         let inputIsRounded = floor(inputConvertedToDouble) == inputConvertedToDouble
@@ -196,9 +241,9 @@ class Currency {
             inputConvertedToDouble,
             minimumFractionDigits: inputContainsPoint ? 1 : 0
         ) else {
-            return getValue(for: calculation)
+            return getIOValues(for: calculation)
         }
-
+        
         var newInput = newInputFromFloat
         
         if inputIsRounded
@@ -213,7 +258,48 @@ class Currency {
             newInput,
             forKey: getUserDefaults(for: calculation)
         )
-        return newInput
+        return getIOValues(for: calculation)
+    }
+    func deleteInput(for calculation: CurrencyCalculation) -> CurrencyIOValues {
+        let newIOValues = CurrencyIOValues(for: calculation)
+        
+        userDefaults.set(
+            newIOValues.input,
+            forKey: getUserDefaults(for: calculation)
+        )
+        
+        return newIOValues
+    }
+    
+    // MARK: - Helpers
+    
+    // MARK: Date helper
+    
+    private func getIntDateFromString(_ stringDate: String) -> Int? {
+        let sanitizedStringDate = stringDate.filter { $0 != "-"}
+        
+        guard let intDate = Int(sanitizedStringDate) else {
+            return nil
+        }
+        return intDate
+    }
+    
+    // MARK: - IO helperes
+    
+    private func getStringFromDouble(
+        _ double: Double,
+        minimumFractionDigits: Int = 3
+    ) -> String? {
+        let formatter = NumberFormatter()
+        formatter.minimumIntegerDigits = 1
+        formatter.decimalSeparator = ","
+        formatter.maximumFractionDigits = 3
+        formatter.minimumFractionDigits = minimumFractionDigits
+        formatter.groupingSeparator = " "
+        formatter.groupingSize = 3
+        formatter.usesGroupingSeparator = true
+        
+        return formatter.string(for: double)
     }
     
     private func getDoubleFromInput(
@@ -245,7 +331,7 @@ class Currency {
         switch calculation {
         case .euroToUSD:
             return " €"
-        case .usdToEuro, .vat, .tip15, .tip20:
+        case .usdToEuro, .vat, .tip:
             return " $"
         }
     }
@@ -259,24 +345,34 @@ class Currency {
             return euroToUSDInputDefaultsKey
         case .vat:
             return vatInputDefaultsKey
-        case .tip15:
-            return tip15InputDefaultsKey
-        case .tip20:
-            return tip20InputDefaultsKey
+        case .tip:
+            return tipInputDefaultsKey
         }
     }
-    private func getValue(for calculation: CurrencyCalculation) -> String {
+    private func getIOValues(
+        for calculation: CurrencyCalculation
+    ) -> CurrencyIOValues {
         switch calculation {
         case .usdToEuro:
-            return usdToEuroInput
+            return CurrencyIOValues(
+                input: usdToEuroInput,
+                output: [usdToEuroOutput]
+            )
         case .euroToUSD:
-            return euroToUSDInput
+            return CurrencyIOValues(
+                input: euroToUSDInput,
+                output: [euroToUSDOutput]
+            )
         case .vat:
-            return vatInput
-        case .tip15:
-            return tip15Input
-        case .tip20:
-            return tip20Input
+            return CurrencyIOValues(
+                input: vatInput,
+                output: [vatOutput]
+            )
+        case .tip:
+            return CurrencyIOValues(
+                input: tipInput,
+                output: [tip15Output, tip20Output]
+            )
         }
     }
 }

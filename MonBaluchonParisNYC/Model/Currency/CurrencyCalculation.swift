@@ -8,5 +8,5 @@
 import Foundation
 
 enum CurrencyCalculation {
-    case usdToEuro, euroToUSD, vat, tip15, tip20
+    case usdToEuro, euroToUSD, vat, tip
 }

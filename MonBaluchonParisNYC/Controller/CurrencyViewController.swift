@@ -10,26 +10,21 @@ import UIKit
 class CurrencyViewController: UITableViewController {
     @IBOutlet weak private var segmentedControl: UISegmentedControl!
     
+    private var city: City?
+    
     private var currency = Currency()
+    
     private var euroToUSDRate: String?
     private var usdToEuroRate: String?
     private var rateDate: String?
-    private var city: City?
     
-    private var usdToEuroInput = "0 $"
-    private var euroToUSDInput = "0 €"
-    private var vatInput = "0 $"
-    private var tip15Input = "0 $"
-    private var tip20Input = "0 $"
+    private var usdToEuroIOValues = CurrencyIOValues(for: .usdToEuro)
+    private var euroToUSDIOValues = CurrencyIOValues(for: .euroToUSD)
+    private var vatIOValues = CurrencyIOValues(for: .vat)
+    private var tipIOValues = CurrencyIOValues(for: .tip)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         registerForRateDataNotification()
         registerForKeyboardNotifications()
@@ -50,13 +45,30 @@ class CurrencyViewController: UITableViewController {
         )
     }
     @objc private func currencyRateDataIsSet(_ notification: NSNotification) {
-        guard let euroToUSDRate = notification.userInfo?["euroToUSDRate"] as? String,
-              let usdToEuroRate = notification.userInfo?["usdToEuroRate"] as? String,
-              let rateDate = notification.userInfo?["rateDate"] as? String
+        guard let euroToUSDRate = notification
+                .userInfo?["euroToUSDRate"] as? String,
+              let usdToEuroRate = notification
+                .userInfo?["usdToEuroRate"] as? String,
+              let rateDate = notification
+                .userInfo?["rateDate"] as? String,
+              let usdToEuroIOValues = notification
+                .userInfo?["usdToEuroIOValues"] as? CurrencyIOValues,
+              let euroToUSDIOValues = notification
+                .userInfo?["euroToUSDIOValues"] as? CurrencyIOValues,
+              let vatIOValues = notification
+                .userInfo?["vatIOValues"] as? CurrencyIOValues,
+              let tipIOValues = notification
+                .userInfo?["tipIOValues"] as? CurrencyIOValues
         else { return }
+        
         self.euroToUSDRate = euroToUSDRate
         self.usdToEuroRate = usdToEuroRate
         self.rateDate = rateDate
+        self.usdToEuroIOValues = usdToEuroIOValues
+        self.euroToUSDIOValues = euroToUSDIOValues
+        self.vatIOValues = vatIOValues
+        self.tipIOValues = tipIOValues
+        
         tableView.reloadData()
     }
     
@@ -103,16 +115,17 @@ class CurrencyViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         guard let _ = euroToUSDRate,
               let _ = usdToEuroRate,
               let _ = rateDate,
               let _ = city
         else { return 1 }
-        return city == .paris ? 2 : 5
+        return city == .paris ? 2 : 4
     }
-    
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
@@ -147,13 +160,13 @@ class CurrencyViewController: UITableViewController {
         case 2:
             return getCalculationCell(calculation: .vat)
         case 3:
-            return getCalculationCell(calculation: .tip15)
-        case 4:
-            return getCalculationCell(calculation: .tip20)
+            return getCalculationCell(calculation: .tip)
         default:
             return getEmptyCell()
         }
     }
+    
+    // MARK: - Table view cells
     
     private func getEmptyCell() -> UITableViewCell {
         let cell = UITableViewCell()
@@ -188,37 +201,101 @@ class CurrencyViewController: UITableViewController {
             return getEmptyCell()
         }
         cell.delegate = self
+        
         cell.calculation = calculation
-        cell.inputText = getInputText(from: calculation)
+        
+        configureData(of: cell)
+        
         cell.configure()
         return cell
     }
-    private func getInputText(from calculation: CurrencyCalculation) -> String {
+    
+    // MARK: - Helpers for CalculationCell
+    
+    private func getInputText(
+        from calculation: CurrencyCalculation
+    ) -> String {
         switch calculation {
         case .usdToEuro:
-            return usdToEuroInput
+            return usdToEuroIOValues.input
         case .euroToUSD:
-            return usdToEuroInput
+            return usdToEuroIOValues.input
         case .vat:
-            return vatInput
-        case .tip15:
-            return tip15Input
-        case .tip20:
-            return tip15Input
+            return vatIOValues.input
+        case .tip:
+            return tipIOValues.input
+        }
+    }
+    private func getOutpuText(
+        from calculation: CurrencyCalculation
+    ) -> [String] {
+        switch calculation {
+        case .usdToEuro:
+            return usdToEuroIOValues.output
+        case .euroToUSD:
+            return usdToEuroIOValues.output
+        case .vat:
+            return vatIOValues.output
+        case .tip:
+            return tipIOValues.output
+        }
+    }
+    private func configureData(of cell: CurrencyCalculationCell) {
+        let calculation = cell.calculation
+        
+        cell.inputText = getInputText(from: calculation)
+        
+        if calculation == .tip {
+            cell.outputTip15Text = getOutpuText(from: calculation)[0]
+            cell.outputTip20Text = getOutpuText(from: calculation)[1]
+        } else {
+            cell.outputText = getOutpuText(from: calculation)[0]
+        }
+    }
+    private func setIOValues(
+        of calculation: CurrencyCalculation,
+        with newIOValues: CurrencyIOValues
+    ) {
+        switch calculation {
+        case .usdToEuro:
+            usdToEuroIOValues = newIOValues
+        case .euroToUSD:
+            usdToEuroIOValues = newIOValues
+        case .vat:
+            vatIOValues = newIOValues
+        case .tip:
+            tipIOValues = newIOValues
         }
     }
 }
 extension CurrencyViewController: CurrencyCalculationCellDelegate {
+    func deleteTextFieldText(for cell: CurrencyCalculationCell) {
+        let calculation = cell.calculation
+        
+        let newIOValues = currency.deleteInput(for: cell.calculation)
+        
+        setIOValues(of: calculation, with: newIOValues)
+        
+        configureData(of: cell)
+        
+        cell.configure()
+    }
+    
     func processInput(
         for cell: CurrencyCalculationCell,
-        calculation: CurrencyCalculation,
         input: String
     ) {
-        let newInput = currency.processInput(
+        let calculation = cell.calculation
+        
+        let newIOValues = currency.processInput(
             input: input,
             for: calculation
         )
-        cell.inputText = newInput
+        
+        setIOValues(of: calculation, with: newIOValues)
+        
+        configureData(of: cell)
+        
         cell.configure()
     }
 }

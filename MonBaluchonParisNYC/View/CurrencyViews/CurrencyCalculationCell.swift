@@ -24,21 +24,21 @@ class CurrencyCalculationCell: UITableViewCell {
         case .euroToUSD:
             return "Conversion €/$"
         case .vat:
-            return "Calcul de la TVA à 8,875 %"
-        case .tip15:
-            return "Ajout de 15 % de pourboire"
-        case .tip20:
-            return "Ajout de 20 % de pourboire"
+            return "Calcul de la TVA"
+        case .tip:
+            return "Calcul de pourboire"
         }
     }
     var inputText = "0 $"
-    
+    var outputText = "0 $"
+    var outputTip15Text = "0 $"
+    var outputTip20Text = "0 $"
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Initialization code
         configure()
-        
     }
     
     @IBAction func inputButtonDidPressed(_ sender: UIButton) {
@@ -46,7 +46,10 @@ class CurrencyCalculationCell: UITableViewCell {
     }
     @IBAction func inputTextFieldChanged(_ sender: Any) {
         guard let input = inputTextField.text else { return }
-        delegate?.processInput(for: self, calculation: calculation, input: input)
+        delegate?.processInput(for: self, input: input)
+    }
+    @IBAction func deleteButtonDidPressed(_ sender: UIButton) {
+        delegate?.deleteTextFieldText(for: self)
     }
     
     func configure() {
@@ -56,13 +59,21 @@ class CurrencyCalculationCell: UITableViewCell {
         setRoundedAndShadowFor(view: titleContainer)
         setRoundedAndShadowFor(view: textFieldsContainer)
         
-        setRoundedAndBorderFor(view: outputTextField, with: UIColor.bpnBleuVille.cgColor)
-        setRoundedAndBorderFor(view: inputTextField, with: UIColor.bpnRoseVille.cgColor)
+        setRoundedAndBorderFor(
+            view: outputTextField,
+            with: UIColor.bpnBleuVille.cgColor
+        )
+        setRoundedAndBorderFor(
+            view: inputTextField,
+            with: UIColor.bpnRoseVille.cgColor
+        )
         
         inputTextField.delegate = self
         
         inputTextField.text = inputText
-        setCursorPosition()
+        setInputCursorPosition()
+        
+        outputTextField.text = outputText
     }
 }
 
@@ -70,16 +81,22 @@ extension CurrencyCalculationCell: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.backgroundColor = .bpnRoseVille
         textField.textColor = .bpnBleuGoudron
-        setCursorPosition()
+        setInputCursorPosition()
     }
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         textField.backgroundColor = .bpnBleuGoudron
         textField.textColor = .bpnRoseVille
     }
     
-    private func setCursorPosition() {
-        if let newPosition = inputTextField.position(from: inputTextField.endOfDocument, offset: -2) {
-            inputTextField.selectedTextRange = inputTextField.textRange(from: newPosition, to: newPosition)
+    private func setInputCursorPosition() {
+        if let newPosition = inputTextField.position(
+            from: inputTextField.endOfDocument,
+            offset: -2
+        ) {
+            inputTextField.selectedTextRange = inputTextField.textRange(
+                from: newPosition,
+                to: newPosition
+            )
         }
     }
 }
@@ -87,8 +104,10 @@ extension CurrencyCalculationCell: UITextFieldDelegate {
 protocol CurrencyCalculationCellDelegate {
     func processInput(
         for cell: CurrencyCalculationCell,
-        calculation: CurrencyCalculation,
         input: String
+    )
+    func deleteTextFieldText(
+        for cell: CurrencyCalculationCell
     )
 }
 

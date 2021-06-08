@@ -13,6 +13,6 @@ struct CurrencyRateHttpData: Decodable {
     let rates: Rates
     
     struct Rates: Decodable {
-        let USD: Float
+        let USD: Double
     }
 }

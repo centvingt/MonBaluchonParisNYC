@@ -14,6 +14,11 @@ class CurrencyCalculationCell: UITableViewCell {
     @IBOutlet weak var textFieldsContainer: UIView!
     @IBOutlet weak var outputTextField: UITextField!
     @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var outputTextFieldTip20: UITextField!
+    @IBOutlet weak var outputTextFieldTip15: UITextField!
+    @IBOutlet weak var outputTip15StackView: UIStackView!
+    @IBOutlet weak var outputTip20StackView: UIStackView!
+    @IBOutlet weak var outputStackView: UIStackView!
     
     var delegate: CurrencyCalculationCellDelegate?
     var calculation = CurrencyCalculation.usdToEuro
@@ -24,7 +29,7 @@ class CurrencyCalculationCell: UITableViewCell {
         case .euroToUSD:
             return "Conversion €/$"
         case .vat:
-            return "Calcul de la TVA"
+            return "TVA à 8,875 %"
         case .tip:
             return "Calcul de pourboire"
         }
@@ -38,7 +43,9 @@ class CurrencyCalculationCell: UITableViewCell {
         super.awakeFromNib()
         
         // Initialization code
-        configure()
+        inputTextField.delegate = self
+        configureUI()
+        configureTextFieldValues()
     }
     
     @IBAction func inputButtonDidPressed(_ sender: UIButton) {
@@ -52,28 +59,54 @@ class CurrencyCalculationCell: UITableViewCell {
         delegate?.deleteTextFieldText(for: self)
     }
     
-    func configure() {
+    func configureUI() {
         title.text = titleText
+        
+        let bpnBleuVille = UIColor.bpnBleuVille.cgColor
         
         setRoundedAndShadowFor(view: mainContainer)
         setRoundedAndShadowFor(view: titleContainer)
         setRoundedAndShadowFor(view: textFieldsContainer)
         
-        setRoundedAndBorderFor(
-            view: outputTextField,
-            with: UIColor.bpnBleuVille.cgColor
-        )
+        if calculation == .tip {
+            setRoundedAndBorderFor(
+                view: outputTextFieldTip15,
+                with: bpnBleuVille
+            )
+            
+            setRoundedAndBorderFor(
+                view: outputTextFieldTip20,
+                with: bpnBleuVille
+            )
+            
+            outputStackView.isHidden = true
+            
+            outputTip15StackView.isHidden = false
+            outputTip20StackView.isHidden = false
+        } else {
+            setRoundedAndBorderFor(
+                view: outputTextField,
+                with: bpnBleuVille
+            )
+            outputTip15StackView.isHidden = true
+            outputTip20StackView.isHidden = true
+        }
+        
         setRoundedAndBorderFor(
             view: inputTextField,
             with: UIColor.bpnRoseVille.cgColor
         )
-        
-        inputTextField.delegate = self
-        
+    }
+    func configureTextFieldValues() {
         inputTextField.text = inputText
         setInputCursorPosition()
         
-        outputTextField.text = outputText
+        if calculation == .tip {
+            outputTextFieldTip15.text = outputTip15Text
+            outputTextFieldTip20.text = outputTip20Text
+        } else {
+            outputTextField.text = outputText
+        }
     }
 }
 

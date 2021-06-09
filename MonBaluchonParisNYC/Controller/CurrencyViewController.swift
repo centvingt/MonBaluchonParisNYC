@@ -200,13 +200,15 @@ class CurrencyViewController: UITableViewController {
         ) as? CurrencyCalculationCell else {
             return getEmptyCell()
         }
-        cell.delegate = self
-        
         cell.calculation = calculation
+        
+        cell.delegate = self
         
         configureData(of: cell)
         
-        cell.configure()
+        cell.configureUI()
+        cell.configureTextFieldValues()
+        
         return cell
     }
     
@@ -219,7 +221,7 @@ class CurrencyViewController: UITableViewController {
         case .usdToEuro:
             return usdToEuroIOValues.input
         case .euroToUSD:
-            return usdToEuroIOValues.input
+            return euroToUSDIOValues.input
         case .vat:
             return vatIOValues.input
         case .tip:
@@ -233,7 +235,7 @@ class CurrencyViewController: UITableViewController {
         case .usdToEuro:
             return usdToEuroIOValues.output
         case .euroToUSD:
-            return usdToEuroIOValues.output
+            return euroToUSDIOValues.output
         case .vat:
             return vatIOValues.output
         case .tip:
@@ -260,7 +262,7 @@ class CurrencyViewController: UITableViewController {
         case .usdToEuro:
             usdToEuroIOValues = newIOValues
         case .euroToUSD:
-            usdToEuroIOValues = newIOValues
+            euroToUSDIOValues = newIOValues
         case .vat:
             vatIOValues = newIOValues
         case .tip:
@@ -278,7 +280,7 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
         
         configureData(of: cell)
         
-        cell.configure()
+        cell.configureTextFieldValues()
     }
     
     func processInput(
@@ -296,6 +298,6 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
         
         configureData(of: cell)
         
-        cell.configure()
+        cell.configureTextFieldValues()
     }
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum CurrencyCalculation {
+enum CurrencyCalculation: CaseIterable {
     case usdToEuro, euroToUSD, vat, tip
 }

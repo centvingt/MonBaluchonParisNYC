@@ -22,6 +22,10 @@ class CurrencyViewController: UITableViewController {
     private var euroToUSDIOValues = CurrencyIOValues(for: .euroToUSD)
     private var vatIOValues = CurrencyIOValues(for: .vat)
     private var tipIOValues = CurrencyIOValues(for: .tip)
+    
+    private let haptic = UINotificationFeedbackGenerator()
+    private let lightHaptic = UIImpactFeedbackGenerator(style: .light)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +73,10 @@ class CurrencyViewController: UITableViewController {
         self.vatIOValues = vatIOValues
         self.tipIOValues = tipIOValues
         
-        tableView.reloadData()
+//        tableView.reloadData()
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
     }
     
     private func registerForKeyboardNotifications() {
@@ -94,6 +101,8 @@ class CurrencyViewController: UITableViewController {
     }
     @objc func keyboardWillHide(_ notification: Notification) {
         tableView.contentInset.bottom = 0
+        
+        currency.removeUselessCommasFromInputs()
     }
     
     // MARK: - Actions
@@ -130,6 +139,7 @@ class CurrencyViewController: UITableViewController {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        print("CurrencyViewController ~> cellForRowAt")
         guard let euroToUSDRate = euroToUSDRate,
               let usdToEuroRate = usdToEuroRate,
               let rateDate = rateDate,
@@ -206,6 +216,8 @@ class CurrencyViewController: UITableViewController {
         
         configureData(of: cell)
         
+        print("CurrencyViewController ~> getCalculationCell ~> cell.inputText ~>", cell.inputText)
+        
         cell.configureUI()
         cell.configureTextFieldValues()
         
@@ -246,6 +258,7 @@ class CurrencyViewController: UITableViewController {
         let calculation = cell.calculation
         
         cell.inputText = getInputText(from: calculation)
+        print("CurrencyViewController ~> configureData ~> cell.inputText ~>", cell.inputText)
         
         if calculation == .tip {
             cell.outputTip15Text = getOutpuText(from: calculation)[0]
@@ -281,6 +294,9 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
         configureData(of: cell)
         
         cell.configureTextFieldValues()
+        
+        haptic.notificationOccurred(.warning)
+
     }
     
     func processInput(
@@ -299,5 +315,17 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
         configureData(of: cell)
         
         cell.configureTextFieldValues()
+        
+        lightHaptic.impactOccurred()
+    }
+    
+    func copy(
+        value: String
+    ) {
+        currency.copy(value: value)
+        haptic.notificationOccurred(.success)
+    }
+    func paste(in cell: CurrencyCalculationCell) {
+        
     }
 }

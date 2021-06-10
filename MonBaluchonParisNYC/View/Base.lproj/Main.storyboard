@@ -231,7 +231,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b2e-Qs-0BF" userLabel="OutputTip15">
                                                                             <rect key="frame" x="16" y="16" width="318" height="44"/>
                                                                             <subviews>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mk2-4s-4Y0">
+                                                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mk2-4s-4Y0">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="7T4-q0-tod"/>
@@ -243,6 +243,9 @@
                                                                                         <color key="titleColor" name="BleuVille"/>
                                                                                     </state>
                                                                                     <state key="highlighted" backgroundImage="CopyButton"/>
+                                                                                    <connections>
+                                                                                        <action selector="copyButtonDidPressed:" destination="hgG-iY-YqB" eventType="touchUpInside" id="8QG-Re-Y1j"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PU5-zo-OCZ">
                                                                                     <rect key="frame" x="40" y="0.0" width="34" height="44"/>
@@ -267,7 +270,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mmh-tt-dbx" userLabel="OutputTip20">
                                                                             <rect key="frame" x="16" y="76" width="318" height="44"/>
                                                                             <subviews>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-pJ-ajI">
+                                                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-pJ-ajI">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="44" id="qsF-PJ-mWm"/>
@@ -279,6 +282,9 @@
                                                                                         <color key="titleColor" name="BleuVille"/>
                                                                                     </state>
                                                                                     <state key="highlighted" backgroundImage="CopyButton"/>
+                                                                                    <connections>
+                                                                                        <action selector="copyButtonDidPressed:" destination="hgG-iY-YqB" eventType="touchUpInside" id="EVT-DH-OiT"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AAh-jq-l2e">
                                                                                     <rect key="frame" x="40" y="0.0" width="34" height="44"/>
@@ -315,6 +321,9 @@
                                                                                         <color key="titleColor" name="BleuVille"/>
                                                                                     </state>
                                                                                     <state key="highlighted" backgroundImage="CopyButton"/>
+                                                                                    <connections>
+                                                                                        <action selector="copyButtonDidPressed:" destination="hgG-iY-YqB" eventType="touchUpInside" id="jOI-Xj-9tR"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWs-iC-uTb">
                                                                                     <rect key="frame" x="80" y="0.0" width="238" height="44"/>
@@ -351,6 +360,9 @@
                                                                                     <color key="tintColor" name="RoseVille"/>
                                                                                     <state key="normal" backgroundImage="PasteButton"/>
                                                                                     <state key="highlighted" backgroundImage="CopyButton"/>
+                                                                                    <connections>
+                                                                                        <action selector="pasteButtonDidPressed:" destination="hgG-iY-YqB" eventType="touchUpInside" id="CEd-gc-5t1"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxJ-gc-uel">
                                                                                     <rect key="frame" x="80" y="0.0" width="238" height="44"/>

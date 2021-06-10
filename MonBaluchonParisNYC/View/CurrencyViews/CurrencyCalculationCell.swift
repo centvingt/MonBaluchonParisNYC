@@ -8,6 +8,8 @@
 import UIKit
 
 class CurrencyCalculationCell: UITableViewCell {
+    // MARK: - IB Outlets
+    
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var titleContainer: UIView!
     @IBOutlet weak var mainContainer: UIView!
@@ -19,6 +21,8 @@ class CurrencyCalculationCell: UITableViewCell {
     @IBOutlet weak var outputTip15StackView: UIStackView!
     @IBOutlet weak var outputTip20StackView: UIStackView!
     @IBOutlet weak var outputStackView: UIStackView!
+    
+    // MARK: - Data
     
     var delegate: CurrencyCalculationCellDelegate?
     var calculation = CurrencyCalculation.usdToEuro
@@ -38,7 +42,9 @@ class CurrencyCalculationCell: UITableViewCell {
     var outputText = "0 $"
     var outputTip15Text = "0 $"
     var outputTip20Text = "0 $"
-
+    
+    // MARK: Configuration
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -46,17 +52,6 @@ class CurrencyCalculationCell: UITableViewCell {
         inputTextField.delegate = self
         configureUI()
         configureTextFieldValues()
-    }
-    
-    @IBAction func inputButtonDidPressed(_ sender: UIButton) {
-        inputTextField.becomeFirstResponder()
-    }
-    @IBAction func inputTextFieldChanged(_ sender: Any) {
-        guard let input = inputTextField.text else { return }
-        delegate?.processInput(for: self, input: input)
-    }
-    @IBAction func deleteButtonDidPressed(_ sender: UIButton) {
-        delegate?.deleteTextFieldText(for: self)
     }
     
     func configureUI() {
@@ -98,6 +93,8 @@ class CurrencyCalculationCell: UITableViewCell {
         )
     }
     func configureTextFieldValues() {
+        print("CurrencyCell ~> configureTextFieldValues ~> inputText", inputText)
+        print("-----")
         inputTextField.text = inputText
         setInputCursorPosition()
         
@@ -108,17 +105,38 @@ class CurrencyCalculationCell: UITableViewCell {
             outputTextField.text = outputText
         }
     }
-}
-
-extension CurrencyCalculationCell: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.backgroundColor = .bpnRoseVille
-        textField.textColor = .bpnBleuGoudron
-        setInputCursorPosition()
+    
+    
+    // MARK: - IB Actions
+    
+    @IBAction func inputButtonDidPressed(_ sender: UIButton) {
+        inputTextField.becomeFirstResponder()
     }
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.backgroundColor = .bpnBleuGoudron
-        textField.textColor = .bpnRoseVille
+    @IBAction func inputTextFieldChanged(_ sender: Any) {
+        guard let input = inputTextField.text else { return }
+        delegate?.processInput(for: self, input: input)
+    }
+    @IBAction func deleteButtonDidPressed(_ sender: UIButton) {
+        delegate?.deleteTextFieldText(for: self)
+    }
+    @IBAction func copyButtonDidPressed(_ sender: UIButton) {
+        var value: String
+        
+        switch sender.tag {
+        case 0:
+            value = outputText
+        case 1:
+            value = outputTip15Text
+        case 2:
+            value = outputTip20Text
+        default:
+            return
+        }
+        
+        delegate?.copy(value: value)
+    }
+    @IBAction func pasteButtonDidPressed(_ sender: UIButton) {
+        delegate?.paste(in: self)
     }
     
     private func setInputCursorPosition() {
@@ -134,6 +152,18 @@ extension CurrencyCalculationCell: UITextFieldDelegate {
     }
 }
 
+extension CurrencyCalculationCell: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.backgroundColor = .bpnRoseVille
+        textField.textColor = .bpnBleuGoudron
+        setInputCursorPosition()
+    }
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        textField.backgroundColor = .bpnBleuGoudron
+        textField.textColor = .bpnRoseVille
+    }
+}
+
 protocol CurrencyCalculationCellDelegate {
     func processInput(
         for cell: CurrencyCalculationCell,
@@ -142,5 +172,10 @@ protocol CurrencyCalculationCellDelegate {
     func deleteTextFieldText(
         for cell: CurrencyCalculationCell
     )
+    func copy(
+        value: String
+    )
+    func paste(
+        in cell: CurrencyCalculationCell
+    )
 }
-

@@ -224,35 +224,11 @@ class Currency {
         input: String,
         for calculation: CurrencyCalculation
     ) -> CurrencyIOValues {
-        let inputContainsPoint = input.contains(".")
-        let lastCharacter = input.suffix(3).first
-        let lastCharacterIsComma = lastCharacter == "," || lastCharacter == "."
+        var newInput = input.replacingOccurrences(of: ".", with: ",")
         
-        guard let inputConvertedToDouble = getDoubleFromInput(
-            input,
-            for: calculation
-        ) else {
-            return getIOValues(for: calculation)
-        }
-
-        let inputIsRounded = floor(inputConvertedToDouble) == inputConvertedToDouble
-        
-        guard let newInputFromFloat = getStringFromDouble(
-            inputConvertedToDouble,
-            minimumFractionDigits: inputContainsPoint ? 1 : 0
-        ) else {
-            return getIOValues(for: calculation)
-        }
-        
-        var newInput = newInputFromFloat
-        
-        if inputIsRounded
-            && lastCharacterIsComma
-        {
-            if newInput.last == "0" { newInput.removeLast() }
-            else { newInput += "," }
-        }
-        newInput += getInputSuffix(for: calculation)
+        if newInput.prefix(1) == "0"
+            && newInput.prefix(2) != "0," { newInput.removeFirst() }
+        if newInput.count == 2 { newInput = "0" + newInput }
         
         userDefaults.set(
             newInput,
@@ -270,6 +246,22 @@ class Currency {
         
         return newIOValues
     }
+    func copy(
+        value: String
+    ) {
+        /* Remove " $" or " €" from value
+         before set this value in pasteboard */
+        PasteboardService.set(
+            value: String(value.dropLast(2))
+        )
+    }
+    func paste(
+        in indexInput: Int,
+        of calculation: CurrencyCalculation
+    ) -> String {
+        return String()
+    }
+
     
     // MARK: - Helpers
     
@@ -298,10 +290,9 @@ class Currency {
         formatter.groupingSeparator = " "
         formatter.groupingSize = 3
         formatter.usesGroupingSeparator = true
-        
+
         return formatter.string(for: double)
     }
-    
     private func getDoubleFromInput(
         _ input: String,
         for calculation: CurrencyCalculation
@@ -375,4 +366,18 @@ class Currency {
             )
         }
     }
+    func removeUselessCommasFromInputs() {
+        var valuesHaveChanged = false
+        CurrencyCalculation.allCases.forEach { calculation in
+            let inputValue = getIOValues(for: calculation).input
+            if inputValue.suffix(3)[0] == "," {
+                userDefaults.set(
+                    inputValue.replacingOccurrences(of: ",", with: ""),
+                    forKey: getUserDefaults(for: calculation)
+                )
+                valuesHaveChanged = true
+            }
+        }
+        if valuesHaveChanged { postDataNotification() }
+   }
 }

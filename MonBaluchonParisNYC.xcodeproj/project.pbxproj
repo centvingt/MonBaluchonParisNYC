@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F29964F265FEA080042238F /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29964E265FEA080042238F /* SelfSizedTableView.swift */; };
+		2F354E7F26721D72005AC917 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F354E7E26721D72005AC917 /* PasteboardService.swift */; };
 		2F57451026695B3400667EFD /* CurrencyCalculationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F57450F26695B3400667EFD /* CurrencyCalculationCell.swift */; };
 		2F57451326695BC100667EFD /* RoundAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F57451226695BC100667EFD /* RoundAndShadow.swift */; };
 		2F5745172669735C00667EFD /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5745162669735C00667EFD /* CurrencyService.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		2F29964E265FEA080042238F /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
+		2F354E7E26721D72005AC917 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		2F57450F26695B3400667EFD /* CurrencyCalculationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCalculationCell.swift; sourceTree = "<group>"; };
 		2F57451226695BC100667EFD /* RoundAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundAndShadow.swift; sourceTree = "<group>"; };
 		2F5745162669735C00667EFD /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				2F59983F265A7B6D00ABC8D1 /* APIKeys.swift */,
 				2F599843265AA05F00ABC8D1 /* WeatherService.swift */,
 				2F599845265AA07600ABC8D1 /* TranslationService.swift */,
+				2F354E7E26721D72005AC917 /* PasteboardService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				2F681BB2266F81E700485DE3 /* CurrencyIOValues .swift in Sources */,
 				2F7D3076266C036F00B8423A /* CurrencyCalculation.swift in Sources */,
 				2F599837265A31F400ABC8D1 /* WeatherViewController.swift in Sources */,
+				2F354E7F26721D72005AC917 /* PasteboardService.swift in Sources */,
 				2F599803265A213700ABC8D1 /* AppDelegate.swift in Sources */,
 				2F9C65F52666BEA4002C767F /* CurrencyViewController.swift in Sources */,
 				2F5745172669735C00667EFD /* CurrencyService.swift in Sources */,

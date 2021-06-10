@@ -27,4 +27,6 @@ func setRoundedAndBorderFor(view: UIView, with color: CGColor) {
     view.layer.borderWidth = getBPNWidth()
     view.layer.cornerRadius = getBPNRadius()
     view.layer.borderColor = color
+    
+    view.clipsToBounds = true
 }

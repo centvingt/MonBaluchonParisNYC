@@ -22,7 +22,7 @@
             <objects>
                 <viewController id="tjg-ns-0n2" customClass="TranslationViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="idc-xE-FCb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="2NX-Al-xUp"/>
                         <color key="backgroundColor" name="RoseVille"/>
@@ -91,7 +91,7 @@
             <objects>
                 <tableViewController id="a0D-9R-uby" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nmV-en-CHQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="RoseVille"/>
                         <color key="tintColor" name="BleuGoudron"/>
@@ -133,13 +133,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="151"/>
                                                             <subviews>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfC-6b-Jt4">
-                                                                    <rect key="frame" x="16" y="8" width="350" height="42"/>
+                                                                    <rect key="frame" x="16" y="8" width="350" height="43"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="36"/>
                                                                     <color key="textColor" name="RoseVille"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,833 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pWj-oj-McM">
-                                                                    <rect key="frame" x="16" y="30" width="350" height="121"/>
+                                                                    <rect key="frame" x="16" y="31" width="350" height="120"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="94"/>
                                                                     <color key="textColor" name="BleuGoudron"/>
                                                                     <nil key="highlightedColor"/>
@@ -231,7 +231,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b2e-Qs-0BF" userLabel="OutputTip15">
                                                                             <rect key="frame" x="16" y="16" width="318" height="44"/>
                                                                             <subviews>
-                                                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mk2-4s-4Y0">
+                                                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mk2-4s-4Y0">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="7T4-q0-tod"/>
@@ -248,7 +248,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PU5-zo-OCZ">
-                                                                                    <rect key="frame" x="40" y="0.0" width="34" height="44"/>
+                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="y7Q-fN-pFx"/>
                                                                                     </constraints>
@@ -257,7 +257,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gX9-I8-wgs">
-                                                                                    <rect key="frame" x="82" y="0.0" width="236" height="44"/>
+                                                                                    <rect key="frame" x="80" y="0.0" width="238" height="44"/>
                                                                                     <color key="backgroundColor" name="BleuGoudron"/>
                                                                                     <color key="tintColor" name="RoseVille"/>
                                                                                     <color key="textColor" name="BleuVille"/>
@@ -270,7 +270,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mmh-tt-dbx" userLabel="OutputTip20">
                                                                             <rect key="frame" x="16" y="76" width="318" height="44"/>
                                                                             <subviews>
-                                                                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-pJ-ajI">
+                                                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-pJ-ajI">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="44" id="qsF-PJ-mWm"/>
@@ -287,7 +287,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AAh-jq-l2e">
-                                                                                    <rect key="frame" x="40" y="0.0" width="34" height="44"/>
+                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="C8T-rD-Isc"/>
                                                                                     </constraints>
@@ -296,7 +296,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m2H-hT-wSt">
-                                                                                    <rect key="frame" x="82" y="0.0" width="236" height="44"/>
+                                                                                    <rect key="frame" x="80" y="0.0" width="238" height="44"/>
                                                                                     <color key="backgroundColor" name="BleuGoudron"/>
                                                                                     <color key="tintColor" name="RoseVille"/>
                                                                                     <color key="textColor" name="BleuVille"/>
@@ -513,7 +513,7 @@
             <objects>
                 <viewController id="ATx-VW-dom" customClass="WeatherViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rn2-dG-Fgj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="C25-Mo-gfc"/>
                         <color key="backgroundColor" name="RoseVille"/>

@@ -23,10 +23,8 @@ class CurrencyViewController: UITableViewController {
     private var vatIOValues = CurrencyIOValues(for: .vat)
     private var tipIOValues = CurrencyIOValues(for: .tip)
     
-    private let haptic = UINotificationFeedbackGenerator()
-    private let lightHaptic = UIImpactFeedbackGenerator(style: .light)
-
-
+    private let haptic = Haptic()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -139,7 +137,6 @@ class CurrencyViewController: UITableViewController {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        print("CurrencyViewController ~> cellForRowAt")
         guard let euroToUSDRate = euroToUSDRate,
               let usdToEuroRate = usdToEuroRate,
               let rateDate = rateDate,
@@ -216,8 +213,6 @@ class CurrencyViewController: UITableViewController {
         
         configureData(of: cell)
         
-        print("CurrencyViewController ~> getCalculationCell ~> cell.inputText ~>", cell.inputText)
-        
         cell.configureUI()
         cell.configureTextFieldValues()
         
@@ -258,7 +253,6 @@ class CurrencyViewController: UITableViewController {
         let calculation = cell.calculation
         
         cell.inputText = getInputText(from: calculation)
-        print("CurrencyViewController ~> configureData ~> cell.inputText ~>", cell.inputText)
         
         if calculation == .tip {
             cell.outputTip15Text = getOutpuText(from: calculation)[0]
@@ -295,7 +289,7 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
         
         cell.configureTextFieldValues()
         
-        haptic.notificationOccurred(.warning)
+        haptic.runWarning()
 
     }
     
@@ -316,16 +310,35 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
         
         cell.configureTextFieldValues()
         
-        lightHaptic.impactOccurred()
+        haptic.runLight()
     }
     
     func copy(
         value: String
     ) {
         currency.copy(value: value)
-        haptic.notificationOccurred(.success)
+        haptic.runSuccess()
     }
     func paste(in cell: CurrencyCalculationCell) {
+        let calculation = cell.calculation
         
+        guard let newIOValues = currency.pasteInInput(
+            of: calculation
+        ) else {
+            haptic.runError()
+            
+            // TODO: Afficher une alerte
+            print("CurrencyViewController ~> paste ~> ERREUR")
+            
+            return
+        }
+        
+        setIOValues(of: calculation, with: newIOValues)
+        
+        configureData(of: cell)
+        
+        cell.configureTextFieldValues()
+        
+        haptic.runSuccess()
     }
 }

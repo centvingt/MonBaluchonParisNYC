@@ -93,8 +93,6 @@ class CurrencyCalculationCell: UITableViewCell {
         )
     }
     func configureTextFieldValues() {
-        print("CurrencyCell ~> configureTextFieldValues ~> inputText", inputText)
-        print("-----")
         inputTextField.text = inputText
         setInputCursorPosition()
         

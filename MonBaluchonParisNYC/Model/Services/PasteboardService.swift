@@ -11,4 +11,9 @@ struct PasteboardService {
     static func set(value: String) {
         UIPasteboard.general.string = value
     }
+    static func fetchValue() -> String? {
+        if UIPasteboard.general.hasStrings {
+            return UIPasteboard.general.string
+        } else { return nil }
+    }
 }

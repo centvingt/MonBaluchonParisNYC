@@ -227,8 +227,22 @@ class Currency {
         var newInput = input.replacingOccurrences(of: ".", with: ",")
         
         if newInput.prefix(1) == "0"
-            && newInput.prefix(2) != "0," { newInput.removeFirst() }
+            && newInput.prefix(2) != "0," {
+            newInput.removeFirst()
+        }
+        
         if newInput.count == 2 { newInput = "0" + newInput }
+        
+        let endIndex = newInput.index(
+            newInput.endIndex,
+            offsetBy: -2
+        )
+        if let commaIndex = newInput.firstIndex(of: ","),
+           newInput[commaIndex..<endIndex].count == 5 {
+            print("condition")
+            let removeIndex = newInput.index(before: endIndex)
+            newInput.remove(at: removeIndex)
+        }
         
         userDefaults.set(
             newInput,
@@ -255,13 +269,24 @@ class Currency {
             value: String(value.dropLast(2))
         )
     }
-    func paste(
-        in indexInput: Int,
+    func pasteInInput(
         of calculation: CurrencyCalculation
-    ) -> String {
-        return String()
+    ) -> CurrencyIOValues? {
+        guard let string = PasteboardService.fetchValue(),
+              let double = getDoubleFromInput(
+                string,
+                for: calculation
+              ),
+              let formattedString = getStringFromDouble(double)
+        else {
+            return nil
+        }
+        return processInput(
+            input: formattedString
+                + getInputSuffix(for: calculation),
+            for: calculation
+        )
     }
-
     
     // MARK: - Helpers
     
@@ -297,17 +322,17 @@ class Currency {
         _ input: String,
         for calculation: CurrencyCalculation
     ) -> Double? {
-        var sanitizedInput = input
+        let sanitizedInput = input
             .replacingOccurrences(
                 of: getInputSuffix(for: calculation),
                 with: ""
             )
             .replacingOccurrences(of: ",", with: ".")
             .replacingOccurrences(of: " ", with: "")
-        if let index = sanitizedInput.firstIndex(of: "."),
-           sanitizedInput[index...].count == 5 {
-            sanitizedInput.removeLast()
-        }
+//        if let index = sanitizedInput.firstIndex(of: "."),
+//           sanitizedInput[index...].count == 5 {
+//            sanitizedInput.removeLast()
+//        }
         guard !sanitizedInput.isEmpty else {
             return 0
         }

@@ -33,6 +33,7 @@
 		2F59985C265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F59985A265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf */; };
 		2F59985D265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F59985B265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf */; };
 		2F681BB2266F81E700485DE3 /* CurrencyIOValues .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F681BB1266F81E700485DE3 /* CurrencyIOValues .swift */; };
+		2F761FFD2673E5790029919C /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F761FFC2673E5790029919C /* Haptic.swift */; };
 		2F7D3076266C036F00B8423A /* CurrencyCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7D3075266C036F00B8423A /* CurrencyCalculation.swift */; };
 		2F9C65F52666BEA4002C767F /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C65F42666BEA4002C767F /* CurrencyViewController.swift */; };
 		2F9C65F82666BFD8002C767F /* CurrencyRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C65F72666BFD8002C767F /* CurrencyRateCell.swift */; };
@@ -82,6 +83,7 @@
 		2F59985A265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SF-Compact-Rounded-Medium.ttf"; sourceTree = "<group>"; };
 		2F59985B265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SF-Pro-Rounded-Medium.ttf"; sourceTree = "<group>"; };
 		2F681BB1266F81E700485DE3 /* CurrencyIOValues .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyIOValues .swift"; sourceTree = "<group>"; };
+		2F761FFC2673E5790029919C /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		2F7D3075266C036F00B8423A /* CurrencyCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCalculation.swift; sourceTree = "<group>"; };
 		2F9C65F42666BEA4002C767F /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		2F9C65F72666BFD8002C767F /* CurrencyRateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateCell.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				2FCE94FF26602FB100209B83 /* BPNColors.swift */,
+				2F761FFC2673E5790029919C /* Haptic.swift */,
 				2F57451226695BC100667EFD /* RoundAndShadow.swift */,
 			);
 			path = ViewHelpers;
@@ -372,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F761FFD2673E5790029919C /* Haptic.swift in Sources */,
 				2F599844265AA05F00ABC8D1 /* WeatherService.swift in Sources */,
 				2F59984B265AAA0900ABC8D1 /* BPNError.swift in Sources */,
 				2F599840265A7B6D00ABC8D1 /* APIKeys.swift in Sources */,

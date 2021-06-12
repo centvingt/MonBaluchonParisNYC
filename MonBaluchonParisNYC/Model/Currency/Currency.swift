@@ -277,10 +277,11 @@ class Currency {
                 string,
                 for: calculation
               ),
-              let formattedString = getStringFromDouble(double)
+              let formattedString = getStringFromDouble(double, minimumFractionDigits: 0)
         else {
             return nil
         }
+        
         return processInput(
             input: formattedString
                 + getInputSuffix(for: calculation),
@@ -329,10 +330,6 @@ class Currency {
             )
             .replacingOccurrences(of: ",", with: ".")
             .replacingOccurrences(of: " ", with: "")
-//        if let index = sanitizedInput.firstIndex(of: "."),
-//           sanitizedInput[index...].count == 5 {
-//            sanitizedInput.removeLast()
-//        }
         guard !sanitizedInput.isEmpty else {
             return 0
         }

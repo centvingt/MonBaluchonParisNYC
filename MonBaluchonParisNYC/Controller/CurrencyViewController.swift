@@ -340,5 +340,9 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
         cell.configureTextFieldValues()
         
         haptic.runSuccess()
+        
+        
     }
+    
+    
 }

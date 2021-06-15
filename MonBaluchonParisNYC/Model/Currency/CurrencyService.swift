@@ -7,19 +7,33 @@
 
 import Foundation
 
-struct CurrencyService {
+class CurrencyService {
     static let shared = CurrencyService()
     private init() { }
     
+    private var session = URLSession(configuration: .default)
+    private var task: URLSessionDataTask?
+    
+    private var apiURL: String = "https://animated-graph-314612.uk.r.appspot.com/?key=devkey"
+    
+//    init(session: URLSession) {
+    init(
+        session: URLSession = URLSession.shared,
+        apiURL: String
+    ) {
+        self.session = session
+        self.apiURL = apiURL
+    }
+    
     func getRate(completion: @escaping (BPNError?, CurrencyRateHttpData?) -> ()) {
-        let endPoint = "https://animated-graph-314612.uk.r.appspot.com/?key=devkey"
-
-        guard let url = URL(string: endPoint) else {
+        guard let url = URL(string: apiURL) else {
             print("URL ERROR")
             completion(BPNError.apiURLRequest, nil)
             return
         }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        
+        task?.cancel()
+        task = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 // HTTP request's handling
                 if let error = error as? URLError {
@@ -40,6 +54,7 @@ struct CurrencyService {
                     completion(BPNError.httpResponse, nil)
                     return
                 }
+                print("CurrencyService ~> response.statusCode ~> ", response.statusCode)
                 guard response.statusCode == 200 else {
                     print("ERROR WITH THE RESPONSE'S STATUS CODE", response.statusCode)
                     completion(BPNError.httpStatusCode, nil)
@@ -57,6 +72,6 @@ struct CurrencyService {
                 completion(nil, currencyRateData)
             }
         }
-        .resume()
+        task?.resume()
     }
 }

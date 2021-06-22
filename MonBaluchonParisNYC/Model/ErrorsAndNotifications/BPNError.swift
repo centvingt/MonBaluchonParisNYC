@@ -11,7 +11,7 @@ enum BPNError {
     case apiKeysNoFilePhath,
          apiURLRequest,
          internetConnection,
-         httpInternetConnection,
+         undefinedRequestError,
          httpResponse,
          httpStatusCode,
          httpResponseData

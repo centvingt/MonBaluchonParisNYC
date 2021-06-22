@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrencyIOValues {
+struct CurrencyIOValues: Equatable {
     let input: String
     let output: [String]
     

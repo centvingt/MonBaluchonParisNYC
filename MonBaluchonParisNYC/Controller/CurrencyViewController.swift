@@ -31,6 +31,15 @@ class CurrencyViewController: UITableViewController {
         registerForRateDataNotification()
         registerForKeyboardNotifications()
         city = getCityFromSegmentedControl()
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
     }
     override func viewWillAppear(_ animated: Bool) {
         currency.getRate()
@@ -71,7 +80,7 @@ class CurrencyViewController: UITableViewController {
         self.vatIOValues = vatIOValues
         self.tipIOValues = tipIOValues
         
-//        tableView.reloadData()
+        //        tableView.reloadData()
         DispatchQueue.main.async{
             self.tableView.reloadData()
         }
@@ -115,6 +124,18 @@ class CurrencyViewController: UITableViewController {
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    // MARK: - Swipe handler
+    @objc private func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+        if (sender.direction == .left) {
+            segmentedControl.selectedSegmentIndex = 0
+        }
+        if (sender.direction == .right) {
+            segmentedControl.selectedSegmentIndex = 1
+        }
+        city = getCityFromSegmentedControl()
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -290,7 +311,7 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
         cell.configureTextFieldValues()
         
         haptic.runWarning()
-
+        
     }
     
     func processInput(

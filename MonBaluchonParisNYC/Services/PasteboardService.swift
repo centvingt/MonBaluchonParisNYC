@@ -8,6 +8,7 @@
 import UIKit
 
 struct PasteboardService {
+    
     static func set(value: String) {
         UIPasteboard.general.string = value
     }

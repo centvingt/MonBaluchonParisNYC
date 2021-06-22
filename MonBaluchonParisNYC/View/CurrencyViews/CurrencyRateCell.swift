@@ -15,14 +15,8 @@ class CurrencyRateCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        setRoundedAndShadowFor(view: background)
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        ViewHelper.setRoundedAndShadowFor(view: background)
     }
     
     func configure(
@@ -30,8 +24,8 @@ class CurrencyRateCell: UITableViewCell {
         rate: String,
         rateDate: String
     ) {
-        introLabel.text = "Un \(city == .paris ? "euro" : "dollar") équivaut à"
-        rateLabel.text = "\(rate) \(city == .paris ? "$" : "€")"
+        introLabel.text = "Un \(city.getCurrency().name) équivaut à"
+        rateLabel.text = "\(rate) \(city.getCurrency().convertSymbol)"
         dateLabel.text = "Dernière mise à jour le \(rateDate)"
     }
 }

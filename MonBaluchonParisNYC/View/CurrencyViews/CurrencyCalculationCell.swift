@@ -59,17 +59,17 @@ class CurrencyCalculationCell: UITableViewCell {
         
         let bpnBleuVille = UIColor.bpnBleuVille.cgColor
         
-        setRoundedAndShadowFor(view: mainContainer)
-        setRoundedAndShadowFor(view: titleContainer)
-        setRoundedAndShadowFor(view: textFieldsContainer)
+        ViewHelper.setRoundedAndShadowFor(view: mainContainer)
+        ViewHelper.setRoundedAndShadowFor(view: titleContainer)
+        ViewHelper.setRoundedAndShadowFor(view: textFieldsContainer)
         
         if calculation == .tip {
-            setRoundedAndBorderFor(
+            ViewHelper.setRoundedAndBorderFor(
                 view: outputTextFieldTip15,
                 with: bpnBleuVille
             )
             
-            setRoundedAndBorderFor(
+            ViewHelper.setRoundedAndBorderFor(
                 view: outputTextFieldTip20,
                 with: bpnBleuVille
             )
@@ -79,7 +79,7 @@ class CurrencyCalculationCell: UITableViewCell {
             outputTip15StackView.isHidden = false
             outputTip20StackView.isHidden = false
         } else {
-            setRoundedAndBorderFor(
+            ViewHelper.setRoundedAndBorderFor(
                 view: outputTextField,
                 with: bpnBleuVille
             )
@@ -87,7 +87,7 @@ class CurrencyCalculationCell: UITableViewCell {
             outputTip20StackView.isHidden = true
         }
         
-        setRoundedAndBorderFor(
+        ViewHelper.setRoundedAndBorderFor(
             view: inputTextField,
             with: UIColor.bpnRoseVille.cgColor
         )

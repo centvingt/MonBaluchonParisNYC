@@ -8,6 +8,17 @@
 import Foundation
 
 class Currency {
+    init(
+        userDefaults: BPNUserDefaultsProtocol = UserDefaults.standard,
+        currencyService: CurrencyServiceProtocol = CurrencyService.shared
+    ) {
+        self.userDefaults = userDefaults
+        self.currencyService = currencyService
+    }
+    
+    private let userDefaults: BPNUserDefaultsProtocol
+    private let currencyService: CurrencyServiceProtocol
+    
     // MARK: - Data
     
     private var euroToUSDRate: Double?
@@ -43,7 +54,7 @@ class Currency {
         }
         return value
     }
-    private var euroToUSDInput: String {
+    private var euroToUSDInput: String   {
         guard let value = userDefaults.string(
             forKey: getUserDefaults(for: .euroToUSD)
         ) else {
@@ -127,35 +138,22 @@ class Currency {
 
     // MARK: - User Defaults Keys
     
-    private let userDefaults = UserDefaults.standard
-    private let rateUserDefaultsKey = "rate"
-    private let dateUsersDefaultsKey = "currencyDate"
-    private let usdToEuroInputDefaultsKey = "usdToEuroInput"
-    private let euroToUSDInputDefaultsKey = "euroToUSDInput"
-    private let vatInputDefaultsKey = "vatInput"
-    private let tipInputDefaultsKey = "tipInput"
+    private let euroToUSDRateUDKey = "euroToUSDRate"
+    private let currencyDateUDKey = "currencyDate"
+    private let usdToEuroInputUDKey = "usdToEuroInput"
+    private let euroToUSDInputUDKey = "euroToUSDInput"
+    private let vatInputUDKey = "vatInput"
+    private let tipInputUDKey = "tipInput"
     
     // MARK: - Getting data from api
     
     func getRate() {
-        let nowFormat = DateFormatter()
-        nowFormat.dateFormat = "yyyy-MM-dd"
-        nowFormat.timeZone = TimeZone(abbreviation: "CET")
-        let nowStringDate = nowFormat.string(from: Date())
+        let currentIntDate = getCurrentIntDate()
+        let userDefaultsDate = userDefaults.integer(forKey: currencyDateUDKey)
         
-        guard let nowIntDate = getIntDateFromString(nowStringDate)
-        else {
-            print("Convert nowStringDate to Int error")
-            NotificationCenter.default.post(Notification(name: .errorUndefined))
-            return
-        }
-        
-        let userDefaultsDate = userDefaults.integer(forKey: dateUsersDefaultsKey)
-        
-        if userDefaultsDate == 0 || nowIntDate > userDefaultsDate {
-            CurrencyService.shared.getRate { error, data in
+        if userDefaultsDate == 0 || currentIntDate > userDefaultsDate {
+            currencyService.getRate { error, data in
                 if let error = error {
-                    print("ERREUR!!!", error)
                     var notification: Notification
                     if error == .internetConnection {
                         notification = Notification(name: .errorInternetConnection)
@@ -168,23 +166,28 @@ class Currency {
                 
                 guard let data = data,
                       let intDate = self.getIntDateFromString(data.date) else {
-                    print("data or data.date is equal to nil")
                     NotificationCenter.default.post(Notification(name: .errorUndefined))
                     return
                 }
                 
                 self.euroToUSDRate = data.rates.USD
-                self.userDefaults.set(self.euroToUSDRate, forKey: self.rateUserDefaultsKey)
+                self.userDefaults.set(
+                    self.euroToUSDRate,
+                    forKey: self.euroToUSDRateUDKey
+                )
                 
                 self.date = intDate
-                self.userDefaults.set(self.date, forKey: self.dateUsersDefaultsKey)
+                self.userDefaults.set(
+                    self.date,
+                    forKey: self.currencyDateUDKey
+                )
                 
                 print("Currency ~> getRate ~> NEW CURRENCY REQUEST")
                 self.postDataNotification()
             }
         } else {
-            euroToUSDRate = userDefaults.double(forKey: rateUserDefaultsKey)
-            date = userDefaults.integer(forKey: dateUsersDefaultsKey)
+            euroToUSDRate = userDefaults.double(forKey: euroToUSDRateUDKey)
+            date = userDefaults.integer(forKey: currencyDateUDKey)
             
             postDataNotification()
         }
@@ -193,11 +196,14 @@ class Currency {
     // MARK: - Post notifications
     
     private func postDataNotification() {
-        guard let euroToUSDRateFloat = self.euroToUSDRate,
-              let usdToEuroRateFloat = self.usdToEuroRate,
+//        print("Currency ~> postDataNotification ~> self.euroToUSDRate")
+        guard let euroToUSDRateDouble = self.euroToUSDRate,
+              let usdToEuroRateDouble = self.usdToEuroRate,
+              euroToUSDRateDouble != 0,
+              usdToEuroRateDouble != 0,
               let rateDate = self.formatedDate,
-              let euroToUSDRate = getStringFromDouble(euroToUSDRateFloat),
-              let usdToEuroRate = getStringFromDouble(usdToEuroRateFloat)
+              let euroToUSDRate = getStringFromDouble(euroToUSDRateDouble),
+              let usdToEuroRate = getStringFromDouble(usdToEuroRateDouble)
         else {
             print("Currency ~> postDataNotification ~> nil data")
             NotificationCenter.default.post(Notification(name: .errorUndefined))
@@ -239,7 +245,6 @@ class Currency {
         )
         if let commaIndex = newInput.firstIndex(of: ","),
            newInput[commaIndex..<endIndex].count == 5 {
-            print("condition")
             let removeIndex = newInput.index(before: endIndex)
             newInput.remove(at: removeIndex)
         }
@@ -292,6 +297,31 @@ class Currency {
     // MARK: - Helpers
     
     // MARK: Date helper
+    
+    private func getCurrentIntDate() -> Int {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "CET") ?? calendar.timeZone
+
+        let currentDate = currentDate.value()
+        let year = calendar.component(.year, from: currentDate)
+        let month = calendar.component(.month, from: currentDate)
+        let day = calendar.component(.day, from: currentDate)
+
+        let dateComponents = [ year, month, day ]
+
+        var intDate = 0
+        let indexes = 0...2
+        indexes.forEach { index in
+            let dateComponent = dateComponents[index]
+            
+            if index == 0 {
+                intDate = dateComponent
+            } else {
+                intDate = intDate * 100 + dateComponent
+            }
+        }
+        return intDate
+    }
     
     private func getIntDateFromString(_ stringDate: String) -> Int? {
         let sanitizedStringDate = stringDate.filter { $0 != "-"}
@@ -353,13 +383,13 @@ class Currency {
     ) -> String {
         switch calculation {
         case .usdToEuro:
-            return usdToEuroInputDefaultsKey
+            return usdToEuroInputUDKey
         case .euroToUSD:
-            return euroToUSDInputDefaultsKey
+            return euroToUSDInputUDKey
         case .vat:
-            return vatInputDefaultsKey
+            return vatInputUDKey
         case .tip:
-            return tipInputDefaultsKey
+            return tipInputUDKey
         }
     }
     private func getIOValues(
@@ -403,3 +433,20 @@ class Currency {
         if valuesHaveChanged { postDataNotification() }
    }
 }
+
+struct CurrentDate {
+    var value: () -> Date = Date.init
+}
+var currentDate = CurrentDate()
+
+public protocol BPNUserDefaultsProtocol {
+    func integer(forKey defaultName: String) -> Int
+//    func set(_ value: Int, forKey defaultName: String)
+    
+    func string(forKey defaultName: String) -> String?
+    func set(_ value: Any?, forKey defaultName: String)
+    
+    func double(forKey defaultName: String) -> Double
+//    func set(_ value: Double, forKey defaultName: String)
+}
+extension UserDefaults: BPNUserDefaultsProtocol {}

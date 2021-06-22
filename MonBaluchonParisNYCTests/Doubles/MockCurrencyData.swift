@@ -1,5 +1,5 @@
 //
-//  FakeCurrencyData.swift
+//  MockCurrencyData.swift
 //  MonBaluchonParisNYCTests
 //
 //  Created by Vincent Caronnet on 14/06/2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FakeCurrencyData {
+class MockCurrencyData {
     // MARK: - Simulate URL
     
     static let goodURL = "https://www.apple.com/fr/"
@@ -43,11 +43,11 @@ class FakeCurrencyData {
     class FakeResponseDataError: Error {}
     static let error = FakeResponseDataError()
     static let internetConnectionError = URLError(.notConnectedToInternet)
-    static let urlError = URLError(.cannotFindHost)
+    static let undefinedError = URLError(.cannotFindHost)
 
     // MARK: - Simulate data
     static var currencyCorrectData: Data? {
-        let bundle = Bundle(for: FakeCurrencyData.self)
+        let bundle = Bundle(for: MockCurrencyData.self)
         let url = bundle.url(forResource: "Currency", withExtension: "json")!
         return try! Data(contentsOf: url)
     }

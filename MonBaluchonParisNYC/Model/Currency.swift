@@ -10,14 +10,17 @@ import Foundation
 class Currency {
     init(
         userDefaults: BPNUserDefaultsProtocol = UserDefaults.standard,
-        currencyService: CurrencyServiceProtocol = CurrencyService.shared
+        currencyService: CurrencyServiceProtocol = CurrencyService.shared,
+        pasteboardService: PasteboardServiceProtocol = PasteboardService()
     ) {
         self.userDefaults = userDefaults
         self.currencyService = currencyService
+        self.pasteboardService = pasteboardService
     }
     
     private let userDefaults: BPNUserDefaultsProtocol
     private let currencyService: CurrencyServiceProtocol
+    private let pasteboardService: PasteboardServiceProtocol
     
     // MARK: - Data
     
@@ -28,13 +31,15 @@ class Currency {
     }
     private var date: Int?
     private var formatedDate: String? {
-        guard let date = date else { return nil }
-        
         let firstFormatter = DateFormatter()
         firstFormatter.dateFormat = "yyyyMMdd"
-        guard let firstDate = firstFormatter.date(
-            from: String(date)
-        ) else { return nil }
+
+        guard let date = date,
+              date > 0,
+              let firstDate = firstFormatter.date(
+                  from: String(date)
+              )
+        else { return nil }
         
         let secondFormatter = DateFormatter()
         secondFormatter.locale = Locale(identifier: "fr-FR")
@@ -54,7 +59,7 @@ class Currency {
         }
         return value
     }
-    private var euroToUSDInput: String   {
+    private var euroToUSDInput: String {
         guard let value = userDefaults.string(
             forKey: getUserDefaults(for: .euroToUSD)
         ) else {
@@ -196,7 +201,6 @@ class Currency {
     // MARK: - Post notifications
     
     private func postDataNotification() {
-//        print("Currency ~> postDataNotification ~> self.euroToUSDRate")
         guard let euroToUSDRateDouble = self.euroToUSDRate,
               let usdToEuroRateDouble = self.usdToEuroRate,
               euroToUSDRateDouble != 0,
@@ -205,10 +209,10 @@ class Currency {
               let euroToUSDRate = getStringFromDouble(euroToUSDRateDouble),
               let usdToEuroRate = getStringFromDouble(usdToEuroRateDouble)
         else {
-            print("Currency ~> postDataNotification ~> nil data")
-            NotificationCenter.default.post(Notification(name: .errorUndefined))
+           NotificationCenter.default.post(Notification(name: .errorUndefined))
             return
         }
+        
         NotificationCenter.default.post(
             name: .currencyRateData,
             object: self,
@@ -253,6 +257,7 @@ class Currency {
             newInput,
             forKey: getUserDefaults(for: calculation)
         )
+        
         return getIOValues(for: calculation)
     }
     func deleteInput(for calculation: CurrencyCalculation) -> CurrencyIOValues {
@@ -268,16 +273,16 @@ class Currency {
     func copy(
         value: String
     ) {
-        /* Remove " $" or " €" from value
+        /* value.dropLats removes " $" or " €" from value
          before set this value in pasteboard */
-        PasteboardService.set(
+        pasteboardService.set(
             value: String(value.dropLast(2))
         )
     }
     func pasteInInput(
         of calculation: CurrencyCalculation
     ) -> CurrencyIOValues? {
-        guard let string = PasteboardService.fetchValue(),
+        guard let string = pasteboardService.fetchValue(),
               let double = getDoubleFromInput(
                 string,
                 for: calculation
@@ -360,6 +365,7 @@ class Currency {
             )
             .replacingOccurrences(of: ",", with: ".")
             .replacingOccurrences(of: " ", with: "")
+        
         guard !sanitizedInput.isEmpty else {
             return 0
         }
@@ -367,6 +373,7 @@ class Currency {
               double < 1_000_000 else {
             return nil
         }
+        
         return double
     }
     
@@ -420,6 +427,7 @@ class Currency {
     }
     func removeUselessCommasFromInputs() {
         var valuesHaveChanged = false
+        
         CurrencyCalculation.allCases.forEach { calculation in
             let inputValue = getIOValues(for: calculation).input
             if inputValue.suffix(3)[0] == "," {
@@ -430,6 +438,7 @@ class Currency {
                 valuesHaveChanged = true
             }
         }
+        
         if valuesHaveChanged { postDataNotification() }
    }
 }

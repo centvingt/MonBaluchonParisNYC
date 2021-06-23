@@ -14,5 +14,6 @@ enum BPNError {
          undefinedRequestError,
          httpResponse,
          httpStatusCode,
-         httpResponseData
+         httpResponseData,
+         incorrectPastedValue
 }

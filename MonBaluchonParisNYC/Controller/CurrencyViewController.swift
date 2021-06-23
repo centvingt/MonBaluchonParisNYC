@@ -40,6 +40,8 @@ class CurrencyViewController: UITableViewController {
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
+        
+        // TODO: Abonnement aux erreurs de Currency + un helper d'alertes
     }
     override func viewWillAppear(_ animated: Bool) {
         currency.getRate()
@@ -85,6 +87,19 @@ class CurrencyViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    // TODO: créer des alertes suivant le type de notifications observées dans le viewdidload
+//    @objc func presentAlertNoChoice() {
+//        hidePoster()
+//
+//        let alert = UIAlertController(title: "Warnint!", message: "You have not selected any movie!", preferredStyle: .alert)
+//
+//        alert.addAction(UIAlertAction(title: "Start over", style: .default, handler: { action in
+//            self.choice.start()
+//        }))
+//
+//        self.present(alert, animated: true)
+//    }
     
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(

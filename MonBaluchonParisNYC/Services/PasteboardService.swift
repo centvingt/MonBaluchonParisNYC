@@ -7,14 +7,19 @@
 
 import UIKit
 
-struct PasteboardService {
-    
-    static func set(value: String) {
+struct PasteboardService: PasteboardServiceProtocol {
+    func set(value: String) {
         UIPasteboard.general.string = value
     }
-    static func fetchValue() -> String? {
-        if UIPasteboard.general.hasStrings {
-            return UIPasteboard.general.string
-        } else { return nil }
+    func fetchValue() -> String? {
+        guard UIPasteboard.general.hasStrings else {
+            return nil
+        }
+        return UIPasteboard.general.string
     }
+}
+
+protocol PasteboardServiceProtocol {
+    func set(value: String)
+    func fetchValue() -> String?
 }

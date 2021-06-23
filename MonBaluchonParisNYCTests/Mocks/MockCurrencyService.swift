@@ -13,7 +13,6 @@ class MockCurrencyService: CurrencyServiceProtocol {
     var currencyRateHTTPData: CurrencyRateHTTPData?
     
     func getRate(completion: @escaping (BPNError?, CurrencyRateHTTPData?) -> ()) {
-        print("MockCurrencyService ~> getRate")
         completion(bpnError, currencyRateHTTPData)
     }
 }

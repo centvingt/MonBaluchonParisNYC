@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2F29964F265FEA080042238F /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F29964E265FEA080042238F /* SelfSizedTableView.swift */; };
 		2F354E7F26721D72005AC917 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F354E7E26721D72005AC917 /* PasteboardService.swift */; };
+		2F42972D2683A9D200D61B79 /* PasteboardServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */; };
+		2F4297312683B0CF00D61B79 /* CityTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4297302683B0CF00D61B79 /* CityTestCase.swift */; };
 		2F43E424267F06430050B61C /* CurrencyTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F146C60267B97A0000CB25A /* CurrencyTestCase.swift */; };
 		2F57451026695B3400667EFD /* CurrencyCalculationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F57450F26695B3400667EFD /* CurrencyCalculationCell.swift */; };
 		2F57451326695BC100667EFD /* RoundAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F57451226695BC100667EFD /* RoundAndShadow.swift */; };
@@ -38,6 +40,7 @@
 		2F761FFD2673E5790029919C /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F761FFC2673E5790029919C /* Haptic.swift */; };
 		2F7620162674ACCF0029919C /* CurrencyServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7620152674ACCF0029919C /* CurrencyServiceTestCase.swift */; };
 		2F7D3076266C036F00B8423A /* CurrencyCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7D3075266C036F00B8423A /* CurrencyCalculation.swift */; };
+		2F97F66A26821F47002655F4 /* MockPasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F97F66926821F47002655F4 /* MockPasteboardService.swift */; };
 		2F9C65F52666BEA4002C767F /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C65F42666BEA4002C767F /* CurrencyViewController.swift */; };
 		2F9C65F82666BFD8002C767F /* CurrencyRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C65F72666BFD8002C767F /* CurrencyRateCell.swift */; };
 		2FCBA7882668C7670035F205 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCBA7872668C7670035F205 /* City.swift */; };
@@ -61,6 +64,8 @@
 		2F146C60267B97A0000CB25A /* CurrencyTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTestCase.swift; sourceTree = "<group>"; };
 		2F29964E265FEA080042238F /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
 		2F354E7E26721D72005AC917 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
+		2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardServiceTestCase.swift; sourceTree = "<group>"; };
+		2F4297302683B0CF00D61B79 /* CityTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTestCase.swift; sourceTree = "<group>"; };
 		2F57450F26695B3400667EFD /* CurrencyCalculationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCalculationCell.swift; sourceTree = "<group>"; };
 		2F57451226695BC100667EFD /* RoundAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundAndShadow.swift; sourceTree = "<group>"; };
 		2F5745162669735C00667EFD /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 		2F7620152674ACCF0029919C /* CurrencyServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceTestCase.swift; sourceTree = "<group>"; };
 		2F7620172674ACCF0029919C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F7D3075266C036F00B8423A /* CurrencyCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCalculation.swift; sourceTree = "<group>"; };
+		2F97F66926821F47002655F4 /* MockPasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPasteboardService.swift; sourceTree = "<group>"; };
 		2F9C65F42666BEA4002C767F /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		2F9C65F72666BFD8002C767F /* CurrencyRateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateCell.swift; sourceTree = "<group>"; };
 		2FCBA7872668C7670035F205 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -140,7 +146,7 @@
 			path = HTTPData;
 			sourceTree = "<group>";
 		};
-		2F146C5F267B9728000CB25A /* Doubles */ = {
+		2F146C5F267B9728000CB25A /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
 				2F6F3A832677B6B1008F252A /* MockURLProtocol.swift */,
@@ -148,8 +154,9 @@
 				2F6F3A7F2677AEF6008F252A /* Currency.json */,
 				2FE7A9C8267D3ACD005C7079 /* MockUserDefaults.swift */,
 				2FE7A9CA267E03A8005C7079 /* MockCurrencyService.swift */,
+				2F97F66926821F47002655F4 /* MockPasteboardService.swift */,
 			);
-			path = Doubles;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		2F57451126695B6D00667EFD /* ViewHelpers */ = {
@@ -264,8 +271,10 @@
 			isa = PBXGroup;
 			children = (
 				2F146C60267B97A0000CB25A /* CurrencyTestCase.swift */,
+				2F4297302683B0CF00D61B79 /* CityTestCase.swift */,
+				2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */,
 				2F7620152674ACCF0029919C /* CurrencyServiceTestCase.swift */,
-				2F146C5F267B9728000CB25A /* Doubles */,
+				2F146C5F267B9728000CB25A /* Mocks */,
 				2F7620172674ACCF0029919C /* Info.plist */,
 			);
 			path = MonBaluchonParisNYCTests;
@@ -431,8 +440,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F43E424267F06430050B61C /* CurrencyTestCase.swift in Sources */,
+				2F4297312683B0CF00D61B79 /* CityTestCase.swift in Sources */,
 				2F7620162674ACCF0029919C /* CurrencyServiceTestCase.swift in Sources */,
 				2FE7A9C9267D3ACD005C7079 /* MockUserDefaults.swift in Sources */,
+				2F97F66A26821F47002655F4 /* MockPasteboardService.swift in Sources */,
+				2F42972D2683A9D200D61B79 /* PasteboardServiceTestCase.swift in Sources */,
 				2F6F3A842677B6B1008F252A /* MockURLProtocol.swift in Sources */,
 				2FE7A9CB267E03A8005C7079 /* MockCurrencyService.swift in Sources */,
 				2F6F3A822677AFE9008F252A /* MockCurrencyData.swift in Sources */,

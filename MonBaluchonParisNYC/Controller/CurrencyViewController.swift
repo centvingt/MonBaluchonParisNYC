@@ -29,7 +29,9 @@ class CurrencyViewController: UITableViewController {
         super.viewDidLoad()
         
         registerForRateDataNotification()
+        registerForErrorNotifications()
         registerForKeyboardNotifications()
+        
         city = getCityFromSegmentedControl()
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
@@ -40,8 +42,6 @@ class CurrencyViewController: UITableViewController {
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
-        
-        // TODO: Abonnement aux erreurs de Currency + un helper d'alertes
     }
     override func viewWillAppear(_ animated: Bool) {
         currency.getRate()
@@ -82,24 +82,64 @@ class CurrencyViewController: UITableViewController {
         self.vatIOValues = vatIOValues
         self.tipIOValues = tipIOValues
         
-        //        tableView.reloadData()
         DispatchQueue.main.async{
             self.tableView.reloadData()
         }
     }
     
-    // TODO: créer des alertes suivant le type de notifications observées dans le viewdidload
-//    @objc func presentAlertNoChoice() {
-//        hidePoster()
-//
-//        let alert = UIAlertController(title: "Warnint!", message: "You have not selected any movie!", preferredStyle: .alert)
-//
-//        alert.addAction(UIAlertAction(title: "Start over", style: .default, handler: { action in
-//            self.choice.start()
-//        }))
-//
-//        self.present(alert, animated: true)
-//    }
+    private func registerForErrorNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(presentAlert(for:)),
+            name: Notification.Name.errorInternetConnection,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(presentAlert(for:)),
+            name: Notification.Name.errorUndefined,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(presentAlert(for:)),
+            name: Notification.Name.errorBadPasteboardValue,
+            object: nil
+        )
+    }
+    @objc func presentAlert(for notification: Notification) {
+        var title = ""
+        var message = ""
+        
+        if notification.name == .errorInternetConnection {
+            title = "Pas de connection internet"
+            message = "Activez votre connexion internet avant d’utiliser l’application."
+        }
+        if notification.name == .errorUndefined {
+            title = "Erreur"
+            message = "Une erreur indéterminée est survenue."
+        }
+        if notification.name == .errorBadPasteboardValue {
+            title = "Mauvaise donnée"
+            message = "Veuillez coller un nombre dans ce champ."
+        }
+
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(
+            UIAlertAction(
+                title: "J’ai compris",
+                style: .default,
+                handler: nil
+            )
+        )
+        
+        self.present(alert, animated: true)
+    }
     
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(
@@ -365,6 +405,7 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
             
             // TODO: Afficher une alerte
             print("CurrencyViewController ~> paste ~> ERREUR")
+            NotificationCenter.default.post(Notification(name: .errorBadPasteboardValue))
             
             return
         }
@@ -376,9 +417,5 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
         cell.configureTextFieldValues()
         
         haptic.runSuccess()
-        
-        
     }
-    
-    
 }

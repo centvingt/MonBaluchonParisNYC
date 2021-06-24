@@ -273,7 +273,7 @@ class Currency {
     func copy(
         value: String
     ) {
-        /* value.dropLats removes " $" or " €" from value
+        /* value.dropLast removes " $" or " €" from value
          before set this value in pasteboard */
         pasteboardService.set(
             value: String(value.dropLast(2))

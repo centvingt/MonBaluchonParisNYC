@@ -10,5 +10,6 @@ import Foundation
 extension Notification.Name {
     static let errorInternetConnection = Notification.Name("errorInternetConnection")
     static let errorUndefined = Notification.Name("errorUndefined")
+    static let errorBadPasteboardValue = Notification.Name("errorBadPasteboardValue")
     static let currencyRateData = Notification.Name("currencyRateData")
 }

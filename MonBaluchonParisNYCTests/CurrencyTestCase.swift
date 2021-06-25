@@ -85,6 +85,8 @@ class CurrencyTestCase: XCTestCase {
         }
     }
 
+    // MARK: - Request tests
+    
     func testGivenGetRateReturnConnectionError_WhenGetRate_ThenNotificationPosted() {
         // Given
         currentDate = .mockDate20210403
@@ -181,76 +183,6 @@ class CurrencyTestCase: XCTestCase {
         }
     }
     
-    func testGivenEmptyUD_WhenGetRate_ThenUDSetAndNotificationPosted() {
-        // Given
-        let currencyRateHTTPData = CurrencyRateHTTPData(
-            success: true,
-            date: "2021-10-03",
-            rates: CurrencyRateHTTPData.Rates(USD: 2.0)
-        )
-        
-        currencyService.bpnError = nil
-        currencyService.currencyRateHTTPData = currencyRateHTTPData
-        
-        // When
-        let notificationName = Notification.Name.currencyRateData
-        expectation(
-            forNotification: notificationName,
-            object: nil,
-            handler: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(notificationPosted(_:)),
-            name: notificationName,
-            object: nil
-        )
-        
-        sut.getRate()
-        
-        // Then
-        waitForExpectations(timeout: timeout) { (error) in
-            if let error = error {
-                XCTFail("timeout errored: \(error)")
-                return
-            }
-            
-            XCTAssertEqual(self.notification?.name, .currencyRateData)
-            
-            XCTAssertEqual(self.euroToUSDRate, "2,000")
-            XCTAssertEqual(self.usdToEuroRate, "0,500")
-            XCTAssertEqual(self.rateDate, "dimanche 3 octobre 2021")
-            XCTAssertEqual(
-                self.usdToEuroIOValues,
-                CurrencyIOValues(
-                    input: "0 $",
-                    output: ["0,000 €"]
-                )
-            )
-            XCTAssertEqual(
-                self.euroToUSDIOValues,
-                CurrencyIOValues(
-                    input: "0 €",
-                    output: ["0,000 $"]
-                )
-            )
-            XCTAssertEqual(
-                self.vatIOValues,
-                CurrencyIOValues(
-                    input: "0 $",
-                    output: ["0,000 $"]
-                )
-            )
-            XCTAssertEqual(
-                self.tipIOValues,
-                CurrencyIOValues(
-                    input: "0 $",
-                    output: ["0,000 $", "0,000 $"]
-                )
-            )
-        }
-    }
-    
     func testHTTPDataDateIsZero_WhenGetRate_ThenErrorNotificationPosted() {
         let notificationName = Notification.Name.errorUndefined
         let currencyRateHTTPData = CurrencyRateHTTPData(
@@ -327,6 +259,78 @@ class CurrencyTestCase: XCTestCase {
         }
     }
 
+    // MARK: - User Defaults tests
+    
+    func testGivenEmptyUD_WhenGetRate_ThenUDSetAndNotificationPosted() {
+        // Given
+        let currencyRateHTTPData = CurrencyRateHTTPData(
+            success: true,
+            date: "2021-10-03",
+            rates: CurrencyRateHTTPData.Rates(USD: 2.0)
+        )
+        
+        currencyService.bpnError = nil
+        currencyService.currencyRateHTTPData = currencyRateHTTPData
+        
+        // When
+        let notificationName = Notification.Name.currencyRateData
+        expectation(
+            forNotification: notificationName,
+            object: nil,
+            handler: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(notificationPosted(_:)),
+            name: notificationName,
+            object: nil
+        )
+        
+        sut.getRate()
+        
+        // Then
+        waitForExpectations(timeout: timeout) { (error) in
+            if let error = error {
+                XCTFail("timeout errored: \(error)")
+                return
+            }
+            
+            XCTAssertEqual(self.notification?.name, .currencyRateData)
+            
+            XCTAssertEqual(self.euroToUSDRate, "2,000")
+            XCTAssertEqual(self.usdToEuroRate, "0,500")
+            XCTAssertEqual(self.rateDate, "dimanche 3 octobre 2021")
+            XCTAssertEqual(
+                self.usdToEuroIOValues,
+                CurrencyIOValues(
+                    input: "0 $",
+                    output: ["0,000 €"]
+                )
+            )
+            XCTAssertEqual(
+                self.euroToUSDIOValues,
+                CurrencyIOValues(
+                    input: "0 €",
+                    output: ["0,000 $"]
+                )
+            )
+            XCTAssertEqual(
+                self.vatIOValues,
+                CurrencyIOValues(
+                    input: "0 $",
+                    output: ["0,000 $"]
+                )
+            )
+            XCTAssertEqual(
+                self.tipIOValues,
+                CurrencyIOValues(
+                    input: "0 $",
+                    output: ["0,000 $", "0,000 $"]
+                )
+            )
+        }
+    }
+    
     func testGivenUDIsSet_WhenGetRate_ThenUDSetAndNotificationPosted() {
         // Given
         userDefaults.set(3.0, forKey: euroToUSDRateUDKey)
@@ -428,7 +432,45 @@ class CurrencyTestCase: XCTestCase {
             )
         }
     }
+    
+    func testGivenUDIsSetWithBadData_WhenGetRate_ThenNotificationPosted() {
+        // Given
+        userDefaults.set(20211002, forKey: currencyDateUDKey)
+        currentDate = .mockDate20211002
+        
+        /* Bad data in User Defaults */
+        userDefaults.set(nil, forKey: euroToUSDRateUDKey)
+        
+        // When
+        let notificationName = Notification.Name.errorUndefined
+        expectation(
+            forNotification: notificationName,
+            object: nil,
+            handler: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(notificationPosted(_:)),
+            name: notificationName,
+            object: nil
+        )
+        
+        sut.getRate()
+        
+        // Then
+        waitForExpectations(timeout: timeout) { (error) in
+            if let error = error {
+                XCTFail("timeout errored: \(error)")
+                return
+            }
+            XCTAssertEqual(self.notification?.name, .errorUndefined)
+        }
+    }
+    
 
+    
+    // MARK: - IO values tests
+    
     func testGivenEmptyInputValue_WhenNotificationDataPosted_ThenOutputValueIsZero() {
         // Given
         userDefaults.set(" $", forKey: usdToEuroInputUDKey)
@@ -514,40 +556,6 @@ class CurrencyTestCase: XCTestCase {
                 self.euroToUSDIOValues,
                 CurrencyIOValues(input: "0 €", output: ["0,000 $"])
             )
-        }
-    }
-    
-    func testGivenUDIsSetWithBadData_WhenGetRate_ThenNotificationPosted() {
-        // Given
-        userDefaults.set(20211002, forKey: currencyDateUDKey)
-        currentDate = .mockDate20211002
-        
-        /* Bad data in User Defaults */
-        userDefaults.set(nil, forKey: euroToUSDRateUDKey)
-        
-        // When
-        let notificationName = Notification.Name.errorUndefined
-        expectation(
-            forNotification: notificationName,
-            object: nil,
-            handler: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(notificationPosted(_:)),
-            name: notificationName,
-            object: nil
-        )
-        
-        sut.getRate()
-        
-        // Then
-        waitForExpectations(timeout: timeout) { (error) in
-            if let error = error {
-                XCTFail("timeout errored: \(error)")
-                return
-            }
-            XCTAssertEqual(self.notification?.name, .errorUndefined)
         }
     }
     
@@ -652,6 +660,73 @@ class CurrencyTestCase: XCTestCase {
         )
     }
     
+    func testGivenUserInputOverflow_WhenProcessInput_ThenReturnOldValue() {
+        // Given
+        userDefaults.set("100 000 $", forKey: usdToEuroInputUDKey)
+        let userInput = "100 0000 $"
+        
+        // When
+        let currencyIOValues = sut.processInput(
+            input: userInput,
+            for: .usdToEuro
+        )
+        
+        // Then
+        XCTAssertEqual(
+            currencyIOValues.input, "100 000 $"
+        )
+    }
+    
+    func testGivenUserInputHasFourDigits_WhenProcessInput_ThenSpaceIsAdded() {
+        // Given
+        let userInput = "1000 $"
+        
+        // When
+        let currencyIOValues = sut.processInput(
+            input: userInput,
+            for: .usdToEuro
+        )
+        
+        // Then
+        XCTAssertEqual(
+            currencyIOValues.input, "1 000 $"
+        )
+    }
+    
+    func testGivenUserInputHasFiveDigits_WhenProcessInput_ThenSpaceIsAdded() {
+        // Given
+        let userInput = "1 0000 $"
+        
+        // When
+        let currencyIOValues = sut.processInput(
+            input: userInput,
+            for: .usdToEuro
+        )
+        
+        // Then
+        XCTAssertEqual(
+            currencyIOValues.input, "10 000 $"
+        )
+    }
+    
+    func testGivenUserInputHasSixDigits_WhenProcessInput_ThenSpaceIsAdded() {
+        // Given
+        let userInput = "10 0000 $"
+        
+        // When
+        let currencyIOValues = sut.processInput(
+            input: userInput,
+            for: .usdToEuro
+        )
+        
+        // Then
+        XCTAssertEqual(
+            currencyIOValues.input, "100 000 $"
+        )
+    }
+
+    // MARK: - Pasteboard tests
+    
     func testGivenCopiedValue_WhenCopyInPasteboard_ThenCopiedValueIsSetInPasteboard() {
         // Given
         let copiedValue = "2,000 $"
@@ -755,6 +830,10 @@ class CurrencyTestCase: XCTestCase {
             )
         }
     }
+    
+    
+    
+    // MARK: - Useless commas test
     
     func testWhenUselessCommasInInput_WhenGivenRemoveUselessCommasFromInputs_ThenInputValuesAreSanitized() {
         // Given

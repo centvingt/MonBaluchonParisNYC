@@ -404,7 +404,6 @@ extension CurrencyViewController: CurrencyCalculationCellDelegate {
             haptic.runError()
             
             // TODO: Afficher une alerte
-            print("CurrencyViewController ~> paste ~> ERREUR")
             NotificationCenter.default.post(Notification(name: .errorBadPasteboardValue))
             
             return

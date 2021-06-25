@@ -48,6 +48,7 @@ class Currency {
     }
     private var inputConversion: Float?
     private let vatRate = 1.08875
+    private let maxValue: Double = 1_000_000
     
     // MARK: - Input values
     
@@ -234,15 +235,20 @@ class Currency {
         input: String,
         for calculation: CurrencyCalculation
     ) -> CurrencyIOValues {
-        var newInput = input.replacingOccurrences(of: ".", with: ",")
+        guard let doubleFromInput = getDoubleFromInput(input, for: calculation) else {
+            return getIOValues(for: calculation)
+        }
         
+        var newInput = input
+            .replacingOccurrences(of: ".", with: ",")
+
         if newInput.prefix(1) == "0"
             && newInput.prefix(2) != "0," {
             newInput.removeFirst()
         }
-        
+
         if newInput.count == 2 { newInput = "0" + newInput }
-        
+
         let endIndex = newInput.index(
             newInput.endIndex,
             offsetBy: -2
@@ -251,6 +257,27 @@ class Currency {
            newInput[commaIndex..<endIndex].count == 5 {
             let removeIndex = newInput.index(before: endIndex)
             newInput.remove(at: removeIndex)
+        }
+        
+        if doubleFromInput >= 1_000 {
+            let suffix = getInputSuffix(for: calculation)
+            newInput = newInput.replacingOccurrences(of: suffix, with: "")
+                .replacingOccurrences(of: " ", with: "")
+                
+            if 1_000..<10_000 ~= doubleFromInput {
+                let index = newInput.index(newInput.startIndex, offsetBy: 1)
+                newInput.insert(" ", at: index)
+            }
+            if 10_000..<100_000 ~= doubleFromInput {
+                let index = newInput.index(newInput.startIndex, offsetBy: 2)
+                newInput.insert(" ", at: index)
+            }
+            if 100_000..<1_000_000 ~= doubleFromInput {
+                let index = newInput.index(newInput.startIndex, offsetBy: 3)
+                newInput.insert(" ", at: index)
+            }
+
+            newInput.append(suffix)
         }
         
         userDefaults.set(
@@ -370,7 +397,7 @@ class Currency {
             return 0
         }
         guard let double = Double(sanitizedInput),
-              double < 1_000_000 else {
+              double < maxValue else {
             return nil
         }
         

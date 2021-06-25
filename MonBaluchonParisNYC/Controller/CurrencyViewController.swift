@@ -159,7 +159,9 @@ class CurrencyViewController: UITableViewController {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
             return
         }
-        tableView.contentInset.bottom = keyboardFrame.size.height
+        
+        let tabBarHeight = self.tabBarController?.tabBar.frame.height ?? 49.0
+        tableView.contentInset.bottom = keyboardFrame.size.height - tabBarHeight
     }
     @objc func keyboardWillHide(_ notification: Notification) {
         tableView.contentInset.bottom = 0

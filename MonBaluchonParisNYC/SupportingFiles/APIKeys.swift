@@ -9,7 +9,7 @@ import Foundation
 
 func valueForAPIKey(named keyname:String) -> String? {
     guard let filePath = Bundle.main.path(forResource: "APIKeys", ofType: "plist") else {
-        print("NO FILEPATH!")
+        print("valueForAPIKey ~> NO FILEPATH!")
         return nil
     }
     let plist = NSDictionary(contentsOfFile:filePath)
@@ -17,6 +17,6 @@ func valueForAPIKey(named keyname:String) -> String? {
     return value
 }
 
-let keyCurrency = valueForAPIKey(named: "Fixer")
-//let KeyTranslate = valueForAPIKey(named: "GoogleTranslate")
-//let KeyWeather = valueForAPIKey(named: "OpenWeather")
+//let keyCurrency = valueForAPIKey(named: "Fixer")
+let apiKeyTranslate = valueForAPIKey(named: "GoogleTranslation")
+//let keyWeather = valueForAPIKey(named: "OpenWeather")

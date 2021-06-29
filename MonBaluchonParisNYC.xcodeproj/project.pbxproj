@@ -13,7 +13,7 @@
 		2F4297312683B0CF00D61B79 /* CityTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4297302683B0CF00D61B79 /* CityTestCase.swift */; };
 		2F43E424267F06430050B61C /* CurrencyTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F146C60267B97A0000CB25A /* CurrencyTestCase.swift */; };
 		2F57451026695B3400667EFD /* CurrencyCalculationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F57450F26695B3400667EFD /* CurrencyCalculationCell.swift */; };
-		2F57451326695BC100667EFD /* RoundAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F57451226695BC100667EFD /* RoundAndShadow.swift */; };
+		2F57451326695BC100667EFD /* ViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F57451226695BC100667EFD /* ViewHelper.swift */; };
 		2F5745172669735C00667EFD /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5745162669735C00667EFD /* CurrencyService.swift */; };
 		2F599803265A213700ABC8D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F599802265A213700ABC8D1 /* AppDelegate.swift */; };
 		2F599805265A213700ABC8D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F599804265A213700ABC8D1 /* SceneDelegate.swift */; };
@@ -43,11 +43,16 @@
 		2F97F66A26821F47002655F4 /* MockPasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F97F66926821F47002655F4 /* MockPasteboardService.swift */; };
 		2F9C65F52666BEA4002C767F /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C65F42666BEA4002C767F /* CurrencyViewController.swift */; };
 		2F9C65F82666BFD8002C767F /* CurrencyRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C65F72666BFD8002C767F /* CurrencyRateCell.swift */; };
+		2FB5CCC42686CC9F0033F782 /* TranslationRequestHTTPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB5CCC32686CC9F0033F782 /* TranslationRequestHTTPData.swift */; };
+		2FB5CCC62686CEC20033F782 /* TranslationResponseHTTPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB5CCC52686CEC20033F782 /* TranslationResponseHTTPData.swift */; };
+		2FB5CCC82688F0040033F782 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB5CCC72688F0040033F782 /* Translation.swift */; };
 		2FCBA7882668C7670035F205 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCBA7872668C7670035F205 /* City.swift */; };
 		2FCE94FE266029F500209B83 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE94FD266029F500209B83 /* LaunchScreen.png */; };
 		2FCE950026602FB100209B83 /* BPNColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE94FF26602FB100209B83 /* BPNColors.swift */; };
 		2FE7A9C9267D3ACD005C7079 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE7A9C8267D3ACD005C7079 /* MockUserDefaults.swift */; };
 		2FE7A9CB267E03A8005C7079 /* MockCurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE7A9CA267E03A8005C7079 /* MockCurrencyService.swift */; };
+		2FF61527268B1F3200B94BEF /* TranslationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF61526268B1F3200B94BEF /* TranslationCell.swift */; };
+		2FF61529268B24E800B94BEF /* TranslationLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF61528268B24E800B94BEF /* TranslationLanguage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +72,7 @@
 		2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardServiceTestCase.swift; sourceTree = "<group>"; };
 		2F4297302683B0CF00D61B79 /* CityTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTestCase.swift; sourceTree = "<group>"; };
 		2F57450F26695B3400667EFD /* CurrencyCalculationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCalculationCell.swift; sourceTree = "<group>"; };
-		2F57451226695BC100667EFD /* RoundAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundAndShadow.swift; sourceTree = "<group>"; };
+		2F57451226695BC100667EFD /* ViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelper.swift; sourceTree = "<group>"; };
 		2F5745162669735C00667EFD /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		2F5997FF265A213700ABC8D1 /* MonBaluchonParisNYC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonBaluchonParisNYC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F599802265A213700ABC8D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,11 +106,16 @@
 		2F97F66926821F47002655F4 /* MockPasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPasteboardService.swift; sourceTree = "<group>"; };
 		2F9C65F42666BEA4002C767F /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		2F9C65F72666BFD8002C767F /* CurrencyRateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateCell.swift; sourceTree = "<group>"; };
+		2FB5CCC32686CC9F0033F782 /* TranslationRequestHTTPData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequestHTTPData.swift; sourceTree = "<group>"; };
+		2FB5CCC52686CEC20033F782 /* TranslationResponseHTTPData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponseHTTPData.swift; sourceTree = "<group>"; };
+		2FB5CCC72688F0040033F782 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		2FCBA7872668C7670035F205 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		2FCE94FD266029F500209B83 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		2FCE94FF26602FB100209B83 /* BPNColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPNColors.swift; sourceTree = "<group>"; };
 		2FE7A9C8267D3ACD005C7079 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		2FE7A9CA267E03A8005C7079 /* MockCurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCurrencyService.swift; sourceTree = "<group>"; };
+		2FF61526268B1F3200B94BEF /* TranslationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCell.swift; sourceTree = "<group>"; };
+		2FF61528268B24E800B94BEF /* TranslationLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationLanguage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				2F599851265AAFCB00ABC8D1 /* CurrencyRateHTTPData.swift */,
+				2FB5CCC32686CC9F0033F782 /* TranslationRequestHTTPData.swift */,
+				2FB5CCC52686CEC20033F782 /* TranslationResponseHTTPData.swift */,
 			);
 			path = HTTPData;
 			sourceTree = "<group>";
@@ -164,7 +176,7 @@
 			children = (
 				2FCE94FF26602FB100209B83 /* BPNColors.swift */,
 				2F761FFC2673E5790029919C /* Haptic.swift */,
-				2F57451226695BC100667EFD /* RoundAndShadow.swift */,
+				2F57451226695BC100667EFD /* ViewHelper.swift */,
 			);
 			path = ViewHelpers;
 			sourceTree = "<group>";
@@ -202,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				2F599853265ABA3C00ABC8D1 /* Currency.swift */,
+				2FB5CCC72688F0040033F782 /* Translation.swift */,
 				2F146C5E267B95FE000CB25A /* HTTPData */,
 				2F146C5D267B959A000CB25A /* Services */,
 				2FCBA7862668C73B0035F205 /* Enumerations */,
@@ -215,6 +228,7 @@
 			children = (
 				2F599808265A213700ABC8D1 /* Main.storyboard */,
 				2F29964E265FEA080042238F /* SelfSizedTableView.swift */,
+				2FF61525268B1ECD00B94BEF /* TranslationCell */,
 				2F9C65F62666BFA0002C767F /* CurrencyViews */,
 				2F57451126695B6D00667EFD /* ViewHelpers */,
 			);
@@ -294,9 +308,18 @@
 			children = (
 				2F681BB1266F81E700485DE3 /* CurrencyIOValues .swift */,
 				2FCBA7872668C7670035F205 /* City.swift */,
+				2FF61528268B24E800B94BEF /* TranslationLanguage.swift */,
 				2F7D3075266C036F00B8423A /* CurrencyCalculation.swift */,
 			);
 			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		2FF61525268B1ECD00B94BEF /* TranslationCell */ = {
+			isa = PBXGroup;
+			children = (
+				2FF61526268B1F3200B94BEF /* TranslationCell.swift */,
+			);
+			path = TranslationCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,27 +432,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FF61527268B1F3200B94BEF /* TranslationCell.swift in Sources */,
 				2F761FFD2673E5790029919C /* Haptic.swift in Sources */,
 				2F599844265AA05F00ABC8D1 /* WeatherService.swift in Sources */,
 				2F59984B265AAA0900ABC8D1 /* BPNError.swift in Sources */,
 				2F599840265A7B6D00ABC8D1 /* APIKeys.swift in Sources */,
 				2F599854265ABA3C00ABC8D1 /* Currency.swift in Sources */,
+				2FB5CCC82688F0040033F782 /* Translation.swift in Sources */,
 				2FCE950026602FB100209B83 /* BPNColors.swift in Sources */,
 				2F599852265AAFCB00ABC8D1 /* CurrencyRateHTTPData.swift in Sources */,
 				2F57451026695B3400667EFD /* CurrencyCalculationCell.swift in Sources */,
 				2F681BB2266F81E700485DE3 /* CurrencyIOValues .swift in Sources */,
 				2F7D3076266C036F00B8423A /* CurrencyCalculation.swift in Sources */,
+				2FB5CCC42686CC9F0033F782 /* TranslationRequestHTTPData.swift in Sources */,
 				2F599837265A31F400ABC8D1 /* WeatherViewController.swift in Sources */,
 				2F354E7F26721D72005AC917 /* PasteboardService.swift in Sources */,
 				2F599803265A213700ABC8D1 /* AppDelegate.swift in Sources */,
 				2F9C65F52666BEA4002C767F /* CurrencyViewController.swift in Sources */,
+				2FF61529268B24E800B94BEF /* TranslationLanguage.swift in Sources */,
 				2F5745172669735C00667EFD /* CurrencyService.swift in Sources */,
 				2F599846265AA07600ABC8D1 /* TranslationService.swift in Sources */,
+				2FB5CCC62686CEC20033F782 /* TranslationResponseHTTPData.swift in Sources */,
 				2F599805265A213700ABC8D1 /* SceneDelegate.swift in Sources */,
 				2F9C65F82666BFD8002C767F /* CurrencyRateCell.swift in Sources */,
 				2F29964F265FEA080042238F /* SelfSizedTableView.swift in Sources */,
 				2F599859265BC58400ABC8D1 /* BPNNotifications.swift in Sources */,
-				2F57451326695BC100667EFD /* RoundAndShadow.swift in Sources */,
+				2F57451326695BC100667EFD /* ViewHelper.swift in Sources */,
 				2FCBA7882668C7670035F205 /* City.swift in Sources */,
 				2F599839265A320900ABC8D1 /* TranslationViewController.swift in Sources */,
 			);

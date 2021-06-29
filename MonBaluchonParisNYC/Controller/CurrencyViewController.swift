@@ -9,7 +9,6 @@ import UIKit
 
 class CurrencyViewController: UITableViewController {
     @IBOutlet weak private var segmentedControl: UISegmentedControl!
-    
     private var city: City?
     
     private var currency = Currency()
@@ -42,6 +41,23 @@ class CurrencyViewController: UITableViewController {
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
+        
+        if #available(iOS 13.0, *) {
+            guard let font = UIFont(name: "SF Compact Rounded", size: 16.0) else {
+                print("pas de police")
+                return
+            }
+            
+            segmentedControl.selectedSegmentTintColor = UIColor.bpnBleuGoudron
+            segmentedControl.setTitleTextAttributes(
+                [
+                    .foregroundColor: UIColor.bpnBleuGoudron as Any,
+                    .font: font
+                ],
+                for: .normal
+            )
+            segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.bpnRoseVille as Any, .font: font], for: .selected)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         currency.getRate()
@@ -223,7 +239,7 @@ class CurrencyViewController: UITableViewController {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "WaitingCell"
             ) else {
-                return getEmptyCell()
+                return ViewHelper.getEmptyCell()
             }
             return cell
         }
@@ -247,17 +263,12 @@ class CurrencyViewController: UITableViewController {
         case 3:
             return getCalculationCell(calculation: .tip)
         default:
-            return getEmptyCell()
+            return ViewHelper.getEmptyCell()
         }
     }
     
     // MARK: - Table view cells
     
-    private func getEmptyCell() -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.contentView.backgroundColor = UIColor.bpnRoseVille
-        return cell
-    }
     private func getRateCell(
         euroToUSDRate: String,
         usdToEuroRate: String,
@@ -267,7 +278,7 @@ class CurrencyViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "RateCell"
         ) as? CurrencyRateCell else {
-            return getEmptyCell()
+            return ViewHelper.getEmptyCell()
         }
         
         let rate = city == .paris ? euroToUSDRate : usdToEuroRate
@@ -283,7 +294,7 @@ class CurrencyViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "CalculationCell"
         ) as? CurrencyCalculationCell else {
-            return getEmptyCell()
+            return ViewHelper.getEmptyCell()
         }
         cell.calculation = calculation
         

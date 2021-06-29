@@ -17,22 +17,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Traduction-->
-        <scene sceneID="r1q-cU-8RT">
-            <objects>
-                <viewController id="tjg-ns-0n2" customClass="TranslationViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="idc-xE-FCb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="2NX-Al-xUp"/>
-                        <color key="backgroundColor" name="RoseVille"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Traduction" id="1rP-rX-dwU"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6iP-L2-l1h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1794" y="869"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MZm-Yc-04X">
             <objects>
@@ -89,9 +73,16 @@
         <!--Currency View Controller-->
         <scene sceneID="Ccd-S0-VWY">
             <objects>
+                <exit id="g3w-JI-Wbf" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="ynz-Ba-WtK">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="a0D-9R-uby" id="MMr-Uk-i8r"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kGB-AI-PAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="a0D-9R-uby" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nmV-en-CHQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="RoseVille"/>
                         <color key="tintColor" name="BleuGoudron"/>
@@ -133,13 +124,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="151"/>
                                                             <subviews>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfC-6b-Jt4">
-                                                                    <rect key="frame" x="16" y="8" width="350" height="42"/>
+                                                                    <rect key="frame" x="16" y="8" width="350" height="43"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="36"/>
                                                                     <color key="textColor" name="RoseVille"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,833 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pWj-oj-McM">
-                                                                    <rect key="frame" x="16" y="30" width="350" height="121"/>
+                                                                    <rect key="frame" x="16" y="31" width="350" height="120"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="94"/>
                                                                     <color key="textColor" name="BleuGoudron"/>
                                                                     <nil key="highlightedColor"/>
@@ -248,7 +239,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PU5-zo-OCZ">
-                                                                                    <rect key="frame" x="40" y="0.0" width="34" height="44"/>
+                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="y7Q-fN-pFx"/>
                                                                                     </constraints>
@@ -257,7 +248,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gX9-I8-wgs">
-                                                                                    <rect key="frame" x="82" y="0.0" width="236" height="44"/>
+                                                                                    <rect key="frame" x="80" y="0.0" width="238" height="44"/>
                                                                                     <color key="backgroundColor" name="BleuGoudron"/>
                                                                                     <color key="tintColor" name="RoseVille"/>
                                                                                     <color key="textColor" name="BleuVille"/>
@@ -287,7 +278,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AAh-jq-l2e">
-                                                                                    <rect key="frame" x="40" y="0.0" width="34" height="44"/>
+                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="C8T-rD-Isc"/>
                                                                                     </constraints>
@@ -296,7 +287,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m2H-hT-wSt">
-                                                                                    <rect key="frame" x="82" y="0.0" width="236" height="44"/>
+                                                                                    <rect key="frame" x="80" y="0.0" width="238" height="44"/>
                                                                                     <color key="backgroundColor" name="BleuGoudron"/>
                                                                                     <color key="tintColor" name="RoseVille"/>
                                                                                     <color key="textColor" name="BleuVille"/>
@@ -474,13 +465,6 @@
                         <outlet property="segmentedControl" destination="YJt-LH-eao" id="7Mv-B4-K4h"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kGB-AI-PAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ynz-Ba-WtK">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="a0D-9R-uby" id="MMr-Uk-i8r"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <exit id="g3w-JI-Wbf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1700" y="136.28185907046478"/>
         </scene>
@@ -501,7 +485,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="tjg-ns-0n2" kind="relationship" relationship="rootViewController" id="GT5-JB-22I"/>
+                        <segue destination="a9j-w1-Xzg" kind="relationship" relationship="rootViewController" id="7ER-lo-ovP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QR5-Yj-L6z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -513,7 +497,7 @@
             <objects>
                 <viewController id="ATx-VW-dom" customClass="WeatherViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rn2-dG-Fgj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="C25-Mo-gfc"/>
                         <color key="backgroundColor" name="RoseVille"/>
@@ -547,6 +531,162 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ON-Dc-qAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="882.60869565217399" y="1595.7589285714284"/>
+        </scene>
+        <!--Translation View Controller-->
+        <scene sceneID="qHU-Dn-dPc">
+            <objects>
+                <exit id="dId-cP-QFN" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="0SP-WE-dgT">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="a9j-w1-Xzg" id="Irg-Pw-HhV"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFS-bU-nZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tableViewController id="a9j-w1-Xzg" customClass="TranslationViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3dr-mw-mLN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="RoseVille"/>
+                        <color key="tintColor" name="BleuGoudron"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TranslationCell" id="rnr-T4-cFJ" customClass="TranslationCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="349"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rnr-T4-cFJ" id="WLx-8I-QrB">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="349"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mt-oy-0bw">
+                                            <rect key="frame" x="16" y="16" width="382" height="317"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qbe-Hn-scS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="317"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GeH-Vf-0Af">
+                                                            <rect key="frame" x="16" y="16" width="350" height="61"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="APO-6U-d93">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="61"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anglais / français" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CX1-Pm-POg">
+                                                                            <rect key="frame" x="16" y="8" width="318" height="45"/>
+                                                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                                            <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
+                                                                            <color key="textColor" name="RoseVille"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="APO-6U-d93" secondAttribute="bottom" id="Lvp-Wi-OCd"/>
+                                                                <constraint firstItem="APO-6U-d93" firstAttribute="leading" secondItem="GeH-Vf-0Af" secondAttribute="leading" id="hJT-X2-2Iz"/>
+                                                                <constraint firstAttribute="trailing" secondItem="APO-6U-d93" secondAttribute="trailing" id="pR2-NB-c7g"/>
+                                                                <constraint firstItem="APO-6U-d93" firstAttribute="top" secondItem="GeH-Vf-0Af" secondAttribute="top" id="yVa-Rj-ZGb"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sON-a9-KzW">
+                                                            <rect key="frame" x="16" y="93" width="350" height="208"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5DF-d4-5h4">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="208"/>
+                                                                    <subviews>
+                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in" translatesAutoresizingMaskIntoConstraints="NO" id="Jg9-Ju-6iR">
+                                                                            <rect key="frame" x="16" y="16" width="318" height="80"/>
+                                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="80" id="IJl-Pa-SLh"/>
+                                                                            </constraints>
+                                                                            <color key="textColor" name="BleuVille"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                        </textView>
+                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in" translatesAutoresizingMaskIntoConstraints="NO" id="KdQ-vu-fpX">
+                                                                            <rect key="frame" x="16" y="112" width="318" height="80"/>
+                                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="80" id="yay-bl-C59"/>
+                                                                            </constraints>
+                                                                            <color key="textColor" name="RoseVille"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                        </textView>
+                                                                    </subviews>
+                                                                    <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="5DF-d4-5h4" secondAttribute="bottom" id="0ex-dh-LKw"/>
+                                                                <constraint firstItem="5DF-d4-5h4" firstAttribute="leading" secondItem="sON-a9-KzW" secondAttribute="leading" id="2Cd-O0-WcI"/>
+                                                                <constraint firstItem="5DF-d4-5h4" firstAttribute="top" secondItem="sON-a9-KzW" secondAttribute="top" id="2dL-tH-XZF"/>
+                                                                <constraint firstAttribute="trailing" secondItem="5DF-d4-5h4" secondAttribute="trailing" id="ds0-9g-Ngh"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="BleuVille"/>
+                                            <constraints>
+                                                <constraint firstItem="qbe-Hn-scS" firstAttribute="leading" secondItem="2mt-oy-0bw" secondAttribute="leading" id="421-ao-hZU"/>
+                                                <constraint firstAttribute="trailing" secondItem="qbe-Hn-scS" secondAttribute="trailing" id="LQh-fX-EYj"/>
+                                                <constraint firstAttribute="bottom" secondItem="qbe-Hn-scS" secondAttribute="bottom" id="R4x-gh-AjV"/>
+                                                <constraint firstItem="qbe-Hn-scS" firstAttribute="top" secondItem="2mt-oy-0bw" secondAttribute="top" id="a4j-nG-Cwc"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="2mt-oy-0bw" secondAttribute="trailing" constant="16" id="0TM-Ha-3zp"/>
+                                        <constraint firstItem="2mt-oy-0bw" firstAttribute="top" secondItem="WLx-8I-QrB" secondAttribute="top" constant="16" id="8G7-Xo-FzD"/>
+                                        <constraint firstItem="2mt-oy-0bw" firstAttribute="leading" secondItem="WLx-8I-QrB" secondAttribute="leading" constant="16" id="LwT-m1-QAk"/>
+                                        <constraint firstAttribute="bottom" secondItem="2mt-oy-0bw" secondAttribute="bottom" constant="16" id="VRh-XW-ZAa"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="RoseVille"/>
+                                <connections>
+                                    <outlet property="inputTextView" destination="KdQ-vu-fpX" id="p2Y-3M-sac"/>
+                                    <outlet property="ioContainer" destination="sON-a9-KzW" id="2VQ-Pl-20q"/>
+                                    <outlet property="mainContainer" destination="2mt-oy-0bw" id="NWF-1B-mPv"/>
+                                    <outlet property="outputTextView" destination="Jg9-Ju-6iR" id="CV4-wn-iTv"/>
+                                    <outlet property="title" destination="CX1-Pm-POg" id="NgE-oj-rbY"/>
+                                    <outlet property="titleContainer" destination="GeH-Vf-0Af" id="HnX-Pb-lOu"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="a9j-w1-Xzg" id="Whc-yP-TSC"/>
+                            <outlet property="delegate" destination="a9j-w1-Xzg" id="ikh-4n-L1p"/>
+                            <outletCollection property="gestureRecognizers" destination="0SP-WE-dgT" appends="YES" id="4Hn-qE-YdY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uAr-a6-naQ">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="0PW-U8-oDU">
+                            <rect key="frame" x="127.5" y="5.5" width="159" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Paris"/>
+                                <segment title="New-York"/>
+                            </segments>
+                            <color key="tintColor" name="RoseVille"/>
+                            <color key="selectedSegmentTintColor" name="RoseVille"/>
+                            <connections>
+                                <action selector="segmentedChanged:" destination="a9j-w1-Xzg" eventType="valueChanged" id="7Yq-1V-JGX"/>
+                                <action selector="segmentedChanged:" destination="dId-cP-QFN" eventType="valueChanged" id="hNp-ZQ-TZw"/>
+                                <action selector="segmentedChanged:" destination="g3w-JI-Wbf" eventType="valueChanged" id="sgG-q5-4ic"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="0PW-U8-oDU" id="DKs-CF-cIv"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1755" y="869"/>
         </scene>
     </scenes>
     <resources>

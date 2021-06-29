@@ -476,13 +476,12 @@ struct CurrentDate {
 var currentDate = CurrentDate()
 
 public protocol BPNUserDefaultsProtocol {
-    func integer(forKey defaultName: String) -> Int
-//    func set(_ value: Int, forKey defaultName: String)
-    
-    func string(forKey defaultName: String) -> String?
     func set(_ value: Any?, forKey defaultName: String)
     
+    func integer(forKey defaultName: String) -> Int
+    
+    func string(forKey defaultName: String) -> String?
+    
     func double(forKey defaultName: String) -> Double
-//    func set(_ value: Double, forKey defaultName: String)
 }
 extension UserDefaults: BPNUserDefaultsProtocol {}

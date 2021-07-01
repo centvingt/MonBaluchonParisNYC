@@ -15,5 +15,6 @@ enum BPNError {
          httpResponse,
          httpStatusCode,
          httpResponseData,
-         incorrectPastedValue
+         incorrectPastedValue,
+         translationRequestLimitExceeded
 }

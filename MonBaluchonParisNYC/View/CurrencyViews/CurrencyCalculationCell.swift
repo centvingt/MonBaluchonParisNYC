@@ -43,7 +43,7 @@ class CurrencyCalculationCell: UITableViewCell {
     var outputTip15Text = "0 $"
     var outputTip20Text = "0 $"
     
-    // MARK: Configuration
+    // MARK: - Configuration
     
     override func awakeFromNib() {
         super.awakeFromNib()

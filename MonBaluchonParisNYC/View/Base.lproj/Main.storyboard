@@ -82,7 +82,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kGB-AI-PAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="a0D-9R-uby" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nmV-en-CHQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="RoseVille"/>
                         <color key="tintColor" name="BleuGoudron"/>
@@ -124,13 +124,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="151"/>
                                                             <subviews>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfC-6b-Jt4">
-                                                                    <rect key="frame" x="16" y="8" width="350" height="43"/>
+                                                                    <rect key="frame" x="16" y="8" width="350" height="42"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="36"/>
                                                                     <color key="textColor" name="RoseVille"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,833 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pWj-oj-McM">
-                                                                    <rect key="frame" x="16" y="31" width="350" height="120"/>
+                                                                    <rect key="frame" x="16" y="30" width="350" height="121"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="94"/>
                                                                     <color key="textColor" name="BleuGoudron"/>
                                                                     <nil key="highlightedColor"/>
@@ -239,7 +239,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PU5-zo-OCZ">
-                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
+                                                                                    <rect key="frame" x="40" y="0.0" width="34" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="y7Q-fN-pFx"/>
                                                                                     </constraints>
@@ -248,7 +248,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gX9-I8-wgs">
-                                                                                    <rect key="frame" x="80" y="0.0" width="238" height="44"/>
+                                                                                    <rect key="frame" x="82" y="0.0" width="236" height="44"/>
                                                                                     <color key="backgroundColor" name="BleuGoudron"/>
                                                                                     <color key="tintColor" name="RoseVille"/>
                                                                                     <color key="textColor" name="BleuVille"/>
@@ -278,7 +278,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AAh-jq-l2e">
-                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
+                                                                                    <rect key="frame" x="40" y="0.0" width="34" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="C8T-rD-Isc"/>
                                                                                     </constraints>
@@ -287,7 +287,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m2H-hT-wSt">
-                                                                                    <rect key="frame" x="80" y="0.0" width="238" height="44"/>
+                                                                                    <rect key="frame" x="82" y="0.0" width="236" height="44"/>
                                                                                     <color key="backgroundColor" name="BleuGoudron"/>
                                                                                     <color key="tintColor" name="RoseVille"/>
                                                                                     <color key="textColor" name="BleuVille"/>
@@ -497,7 +497,7 @@
             <objects>
                 <viewController id="ATx-VW-dom" customClass="WeatherViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rn2-dG-Fgj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="C25-Mo-gfc"/>
                         <color key="backgroundColor" name="RoseVille"/>
@@ -544,23 +544,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFS-bU-nZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="a9j-w1-Xzg" customClass="TranslationViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3dr-mw-mLN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="RoseVille"/>
                         <color key="tintColor" name="BleuGoudron"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TranslationCell" id="rnr-T4-cFJ" customClass="TranslationCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="349"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="449"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rnr-T4-cFJ" id="WLx-8I-QrB">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="349"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="449"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mt-oy-0bw">
-                                            <rect key="frame" x="16" y="16" width="382" height="317"/>
+                                            <rect key="frame" x="16" y="16" width="382" height="417"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qbe-Hn-scS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="317"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="417"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GeH-Vf-0Af">
                                                             <rect key="frame" x="16" y="16" width="350" height="61"/>
@@ -588,31 +588,75 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sON-a9-KzW">
-                                                            <rect key="frame" x="16" y="93" width="350" height="208"/>
+                                                            <rect key="frame" x="16" y="93" width="350" height="308"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5DF-d4-5h4">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="208"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="308"/>
                                                                     <subviews>
-                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in" translatesAutoresizingMaskIntoConstraints="NO" id="Jg9-Ju-6iR">
-                                                                            <rect key="frame" x="16" y="16" width="318" height="80"/>
-                                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWN-i9-4mW">
+                                                                            <rect key="frame" x="16" y="16" width="318" height="100"/>
+                                                                            <subviews>
+                                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in" translatesAutoresizingMaskIntoConstraints="NO" id="Jg9-Ju-6iR">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="100"/>
+                                                                                    <color key="backgroundColor" name="BleuGoudron"/>
+                                                                                    <color key="textColor" name="BleuVille"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                                </textView>
+                                                                                <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1GP-6B-dV5">
+                                                                                    <rect key="frame" x="149" y="40" width="20" height="20"/>
+                                                                                    <color key="color" name="BleuVille"/>
+                                                                                </activityIndicatorView>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="80" id="IJl-Pa-SLh"/>
+                                                                                <constraint firstItem="Jg9-Ju-6iR" firstAttribute="leading" secondItem="qWN-i9-4mW" secondAttribute="leading" id="A8C-LB-BUV"/>
+                                                                                <constraint firstAttribute="height" constant="100" id="Tk4-fd-7hG"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="Jg9-Ju-6iR" secondAttribute="bottom" id="bNX-PU-8RD"/>
+                                                                                <constraint firstItem="Jg9-Ju-6iR" firstAttribute="top" secondItem="qWN-i9-4mW" secondAttribute="top" id="jCR-oh-CsV"/>
+                                                                                <constraint firstItem="1GP-6B-dV5" firstAttribute="centerY" secondItem="qWN-i9-4mW" secondAttribute="centerY" id="kF2-Ti-Eez"/>
+                                                                                <constraint firstItem="1GP-6B-dV5" firstAttribute="centerX" secondItem="qWN-i9-4mW" secondAttribute="centerX" id="l6y-YE-eeL"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="Jg9-Ju-6iR" secondAttribute="trailing" id="mrU-Zf-j94"/>
                                                                             </constraints>
-                                                                            <color key="textColor" name="BleuVille"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                                        </textView>
+                                                                        </view>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in" translatesAutoresizingMaskIntoConstraints="NO" id="KdQ-vu-fpX">
-                                                                            <rect key="frame" x="16" y="112" width="318" height="80"/>
+                                                                            <rect key="frame" x="16" y="132" width="318" height="100"/>
                                                                             <color key="backgroundColor" name="BleuGoudron"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="80" id="yay-bl-C59"/>
+                                                                                <constraint firstAttribute="height" constant="100" id="yay-bl-C59"/>
                                                                             </constraints>
                                                                             <color key="textColor" name="RoseVille"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                                         </textView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RTV-mQ-26d">
+                                                                            <rect key="frame" x="16" y="248" width="318" height="44"/>
+                                                                            <subviews>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvP-A0-qLc">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="44"/>
+                                                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="18"/>
+                                                                                    <state key="normal" title="Effacer">
+                                                                                        <color key="titleColor" name="RoseVille"/>
+                                                                                    </state>
+                                                                                    <connections>
+                                                                                        <action selector="deleteButtonDidPressed:" destination="rnr-T4-cFJ" eventType="touchUpInside" id="JP4-v4-Ixf"/>
+                                                                                    </connections>
+                                                                                </button>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQm-Vl-dGX">
+                                                                                    <rect key="frame" x="167" y="0.0" width="151" height="44"/>
+                                                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="18"/>
+                                                                                    <state key="normal" title="Traduire">
+                                                                                        <color key="titleColor" name="RoseVille"/>
+                                                                                    </state>
+                                                                                    <connections>
+                                                                                        <action selector="translateButtonDidPressed:" destination="rnr-T4-cFJ" eventType="touchUpInside" id="ccR-vk-RbE"/>
+                                                                                    </connections>
+                                                                                </button>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="44" id="jEC-li-tsT"/>
+                                                                            </constraints>
+                                                                        </stackView>
                                                                     </subviews>
                                                                     <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
                                                                 </stackView>
@@ -647,12 +691,15 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" name="RoseVille"/>
                                 <connections>
+                                    <outlet property="deleteButton" destination="cvP-A0-qLc" id="vkR-Yg-0VX"/>
                                     <outlet property="inputTextView" destination="KdQ-vu-fpX" id="p2Y-3M-sac"/>
                                     <outlet property="ioContainer" destination="sON-a9-KzW" id="2VQ-Pl-20q"/>
                                     <outlet property="mainContainer" destination="2mt-oy-0bw" id="NWF-1B-mPv"/>
+                                    <outlet property="outputActivityIndicator" destination="1GP-6B-dV5" id="K5A-Ru-P3C"/>
                                     <outlet property="outputTextView" destination="Jg9-Ju-6iR" id="CV4-wn-iTv"/>
                                     <outlet property="title" destination="CX1-Pm-POg" id="NgE-oj-rbY"/>
                                     <outlet property="titleContainer" destination="GeH-Vf-0Af" id="HnX-Pb-lOu"/>
+                                    <outlet property="translateButton" destination="UQm-Vl-dGX" id="X73-bg-lDb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

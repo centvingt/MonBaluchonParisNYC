@@ -9,23 +9,22 @@ import UIKit
 
 class TranslationViewController: UITableViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    private var city: City?
+    private var city: City = .nyc
     
     private var translation = Translation()
     
+    private let haptic = Haptic()
+    
+    private var inputEnToFR = ""
+    private var outputEnToFr = ""
+    
+    private var inputFrToEn = ""
+    private var outputFrToEn = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        print("TranslationViewController ~> viewDidLoad")
-        TranslationService.shared.getTranslation(
-            of: "traduction",
-            from: .fr,
-            to: .en) { error, string in
-            if let error = error { print(error) }
-            if let string = string { print(string) }
-        }
-        
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         
@@ -34,6 +33,23 @@ class TranslationViewController: UITableViewController {
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
+        
+        if #available(iOS 13.0, *) {
+            guard let font = UIFont(name: "SF Compact Rounded", size: 16.0) else {
+                print("pas de police")
+                return
+            }
+            
+            segmentedControl.selectedSegmentTintColor = UIColor.bpnBleuGoudron
+            segmentedControl.setTitleTextAttributes(
+                [
+                    .foregroundColor: UIColor.bpnBleuGoudron as Any,
+                    .font: font
+                ],
+                for: .normal
+            )
+            segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.bpnRoseVille as Any, .font: font], for: .selected)
+        }
     }
     
     // MARK: - Notifications
@@ -48,6 +64,10 @@ class TranslationViewController: UITableViewController {
         if bpnError == .undefinedRequestError {
             title = "Erreur"
             message = "Une erreur indéterminée est survenue."
+        }
+        if bpnError == .translationRequestLimitExceeded {
+            title = "Limite dépassée"
+            message = "Vous ne pouvez pas effectuer plus de \(translation.maxRequestPerDay) traduction par jour, ré-essayez demain."
         }
 
         let alert = UIAlertController(
@@ -97,6 +117,7 @@ class TranslationViewController: UITableViewController {
     
     @IBAction func segmentedChanged(_ sender: Any) {
         city = getCityFromSegmentedControl()
+        
         tableView.reloadData()
     }
     private func getCityFromSegmentedControl() -> City {
@@ -137,6 +158,74 @@ class TranslationViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TranslationCell") as? TranslationCell else {
             return ViewHelper.getEmptyCell()
         }
+        
+        let inputLanguage = city.language.from
+        
+        cell.delegate = self
+        
+        cell.inputLanguage = inputLanguage
+        
+        switch inputLanguage {
+        case .en:
+            cell.inputText = inputEnToFR
+            cell.outputText = outputEnToFr
+        case .fr:
+            cell.inputText = inputFrToEn
+            cell.outputText = outputFrToEn
+        }
+        cell.configureIOValues()
+        
         return cell
+    }
+}
+
+extension TranslationViewController: TranslationCellDelegate {
+    func shouldChangeTextOfInput(
+        textView: UITextView, 
+        range: NSRange, 
+        text: String
+    ) -> Bool {
+        let newText = (textView.text as NSString)
+            .replacingCharacters(in: range, with: text)
+        
+        guard newText.count < translation.maxCharacters else {
+            haptic.runError()
+            return false
+        }
+        
+        return true
+    }
+    
+    func translateInput(value: String) {
+        let from = city.language.from
+        let to = city.language.to
+
+        translation.getTranslation(
+            of: value,
+            from: from,
+            to: to
+        ) { bpnError, string in
+            if let bpnError = bpnError {
+                self.presentAlert(for: bpnError)
+                return
+            }
+            
+            guard let string = string else {
+                // TODO: Présenter une alerte d’erreur indéfinie
+                print("TranslationViewController ~> translateInput ~> getTranslation ~> STRING IS NIL")
+                return
+            }
+            
+            switch from {
+            case .en:
+                self.inputEnToFR = value
+                self.outputEnToFr = string
+            case .fr:
+                self.inputFrToEn = value
+                self.outputFrToEn = string
+            }
+            
+            self.tableView.reloadData()
+        }
     }
 }

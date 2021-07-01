@@ -8,6 +8,12 @@
 import Foundation
 
 class Currency {
+    // MARK: - Dependency injection
+    
+    private let userDefaults: BPNUserDefaultsProtocol
+    private let currencyService: CurrencyServiceProtocol
+    private let pasteboardService: PasteboardServiceProtocol
+    
     init(
         userDefaults: BPNUserDefaultsProtocol = UserDefaults.standard,
         currencyService: CurrencyServiceProtocol = CurrencyService.shared,
@@ -17,10 +23,6 @@ class Currency {
         self.currencyService = currencyService
         self.pasteboardService = pasteboardService
     }
-    
-    private let userDefaults: BPNUserDefaultsProtocol
-    private let currencyService: CurrencyServiceProtocol
-    private let pasteboardService: PasteboardServiceProtocol
     
     // MARK: - Data
     
@@ -33,11 +35,11 @@ class Currency {
     private var formatedDate: String? {
         let firstFormatter = DateFormatter()
         firstFormatter.dateFormat = "yyyyMMdd"
-
+        
         guard let date = date,
               date > 0,
               let firstDate = firstFormatter.date(
-                  from: String(date)
+                from: String(date)
               )
         else { return nil }
         
@@ -141,7 +143,7 @@ class Currency {
         else { return "0" + suffix }
         return result + suffix
     }
-
+    
     // MARK: - User Defaults Keys
     
     private let euroToUSDRateUDKey = "euroToUSDRate"
@@ -210,7 +212,7 @@ class Currency {
               let euroToUSDRate = getStringFromDouble(euroToUSDRateDouble),
               let usdToEuroRate = getStringFromDouble(usdToEuroRateDouble)
         else {
-           NotificationCenter.default.post(Notification(name: .errorUndefined))
+            NotificationCenter.default.post(Notification(name: .errorUndefined))
             return
         }
         
@@ -241,14 +243,14 @@ class Currency {
         
         var newInput = input
             .replacingOccurrences(of: ".", with: ",")
-
+        
         if newInput.prefix(1) == "0"
             && newInput.prefix(2) != "0," {
             newInput.removeFirst()
         }
-
+        
         if newInput.count == 2 { newInput = "0" + newInput }
-
+        
         let endIndex = newInput.index(
             newInput.endIndex,
             offsetBy: -2
@@ -263,7 +265,7 @@ class Currency {
             let suffix = getInputSuffix(for: calculation)
             newInput = newInput.replacingOccurrences(of: suffix, with: "")
                 .replacingOccurrences(of: " ", with: "")
-                
+            
             if 1_000..<10_000 ~= doubleFromInput {
                 let index = newInput.index(newInput.startIndex, offsetBy: 1)
                 newInput.insert(" ", at: index)
@@ -276,7 +278,7 @@ class Currency {
                 let index = newInput.index(newInput.startIndex, offsetBy: 3)
                 newInput.insert(" ", at: index)
             }
-
+            
             newInput.append(suffix)
         }
         
@@ -333,14 +335,14 @@ class Currency {
     private func getCurrentIntDate() -> Int {
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(abbreviation: "CET") ?? calendar.timeZone
-
+        
         let currentDate = currentDate.value()
         let year = calendar.component(.year, from: currentDate)
         let month = calendar.component(.month, from: currentDate)
         let day = calendar.component(.day, from: currentDate)
-
+        
         let dateComponents = [ year, month, day ]
-
+        
         var intDate = 0
         let indexes = 0...2
         indexes.forEach { index in
@@ -378,7 +380,7 @@ class Currency {
         formatter.groupingSeparator = " "
         formatter.groupingSize = 3
         formatter.usesGroupingSeparator = true
-
+        
         return formatter.string(for: double)
     }
     private func getDoubleFromInput(
@@ -467,21 +469,5 @@ class Currency {
         }
         
         if valuesHaveChanged { postDataNotification() }
-   }
+    }
 }
-
-struct CurrentDate {
-    var value: () -> Date = Date.init
-}
-var currentDate = CurrentDate()
-
-public protocol BPNUserDefaultsProtocol {
-    func set(_ value: Any?, forKey defaultName: String)
-    
-    func integer(forKey defaultName: String) -> Int
-    
-    func string(forKey defaultName: String) -> String?
-    
-    func double(forKey defaultName: String) -> Double
-}
-extension UserDefaults: BPNUserDefaultsProtocol {}

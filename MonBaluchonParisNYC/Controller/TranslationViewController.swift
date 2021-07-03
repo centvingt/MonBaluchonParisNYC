@@ -20,7 +20,7 @@ class TranslationViewController: UITableViewController {
     
     private var inputFrToEn = ""
     private var outputFrToEn = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,7 +48,13 @@ class TranslationViewController: UITableViewController {
                 ],
                 for: .normal
             )
-            segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.bpnRoseVille as Any, .font: font], for: .selected)
+            segmentedControl.setTitleTextAttributes(
+                [
+                    .foregroundColor: UIColor.bpnRoseVille as Any,
+                    .font: font
+                ],
+                for: .selected
+            )
         }
     }
     
@@ -196,7 +202,10 @@ extension TranslationViewController: TranslationCellDelegate {
         return true
     }
     
-    func translateInput(value: String) {
+    func translateInput(value: String, of cell: TranslationCell) {
+        cell.outputActivityIndicator.startAnimating()
+        cell.outputTextView.text = ""
+        
         let from = city.language.from
         let to = city.language.to
 
@@ -205,6 +214,8 @@ extension TranslationViewController: TranslationCellDelegate {
             from: from,
             to: to
         ) { bpnError, string in
+            cell.outputActivityIndicator.stopAnimating()
+            
             if let bpnError = bpnError {
                 self.presentAlert(for: bpnError)
                 return

@@ -84,7 +84,7 @@ class TranslationCell: UITableViewCell {
         inputTextView.text = ""
     }
     @IBAction func translateButtonDidPressed(_ sender: UIButton) {
-        delegate?.translateInput(value: inputTextView.text)
+        delegate?.translateInput(value: inputTextView.text, of: self)
     }
 }
 
@@ -118,7 +118,7 @@ extension TranslationCell: UITextViewDelegate {
 }
 
 protocol TranslationCellDelegate {
-    func translateInput(value: String)
+    func translateInput(value: String, of cell: TranslationCell)
     func shouldChangeTextOfInput(
         textView: UITextView,
         range: NSRange,

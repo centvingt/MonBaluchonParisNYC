@@ -10,6 +10,18 @@ import Foundation
 enum City {
     case paris, nyc
     
+    var language: (
+        from: TranslationLanguage,
+        to: TranslationLanguage
+    ) {
+        switch self {
+        case .paris:
+            return (.fr, .en)
+        case .nyc:
+            return (.en, .fr)
+        }
+    }
+    
     func getCurrency() -> (name: String, convertSymbol: String) {
         switch self {
         case .paris:

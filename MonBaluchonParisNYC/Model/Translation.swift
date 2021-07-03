@@ -50,13 +50,16 @@ class Translation {
     }
     private var newRequestIsAllowed: Bool {
         let currentDate = Int(currentDate.value().timeIntervalSince1970)
+
         if currentDate == requestTimestampCounter {
             return requestCounter <= maxRequestPerDay
         }
+        
         if currentDate > requestTimestampCounter {
             requestCounter = 0
             return true
         }
+        
         return false
     }
     
@@ -76,6 +79,9 @@ class Translation {
             completion(BPNError.translationRequestLimitExceeded, nil)
             return
         }
+        
+        requestTimestampCounter = Int(currentDate.value().timeIntervalSince1970)
+        print("Translation ~> getTranslation ~> requestCounter ~>", requestCounter)
         
         translationService.getTranslation(
             of: text,

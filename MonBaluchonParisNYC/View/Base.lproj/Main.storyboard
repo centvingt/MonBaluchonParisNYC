@@ -73,13 +73,6 @@
         <!--Currency View Controller-->
         <scene sceneID="Ccd-S0-VWY">
             <objects>
-                <exit id="g3w-JI-Wbf" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="ynz-Ba-WtK">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="a0D-9R-uby" id="MMr-Uk-i8r"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kGB-AI-PAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="a0D-9R-uby" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nmV-en-CHQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -465,6 +458,13 @@
                         <outlet property="segmentedControl" destination="YJt-LH-eao" id="7Mv-B4-K4h"/>
                     </connections>
                 </tableViewController>
+                <exit id="g3w-JI-Wbf" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="ynz-Ba-WtK">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="a0D-9R-uby" id="MMr-Uk-i8r"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kGB-AI-PAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1700" y="136.28185907046478"/>
         </scene>
@@ -535,13 +535,6 @@
         <!--Translation View Controller-->
         <scene sceneID="qHU-Dn-dPc">
             <objects>
-                <exit id="dId-cP-QFN" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="0SP-WE-dgT">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="a9j-w1-Xzg" id="Irg-Pw-HhV"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fFS-bU-nZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="a9j-w1-Xzg" customClass="TranslationViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3dr-mw-mLN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -732,6 +725,13 @@
                         <outlet property="segmentedControl" destination="0PW-U8-oDU" id="DKs-CF-cIv"/>
                     </connections>
                 </tableViewController>
+                <exit id="dId-cP-QFN" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="0SP-WE-dgT">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="a9j-w1-Xzg" id="Irg-Pw-HhV"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFS-bU-nZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1755" y="869"/>
         </scene>

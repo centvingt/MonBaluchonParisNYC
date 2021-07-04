@@ -16,7 +16,9 @@ class MockUserDefaults: BPNUserDefaultsProtocol {
             if let value = value as? Double {
                 store[defaultName] = value
             }
-        case "currencyDate":
+        case "currencyDate",
+             "translationRequestTimestampCounter",
+             "translationRequestCounter":
             if let value = value as? Int {
                 store[defaultName] = value
             }

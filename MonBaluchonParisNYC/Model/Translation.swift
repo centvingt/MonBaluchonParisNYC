@@ -68,6 +68,8 @@ class Translation {
     private let requestTimestampCounterUDKey = "translationRequestTimestampCounter"
     private let requestCounterUDKey = "translationRequestCounter"
     
+    // MARK: - Service request
+    
     func getTranslation(
         of text: String,
         from: TranslationLanguage,
@@ -75,13 +77,13 @@ class Translation {
         completion: @escaping (BPNError?, String?) -> ()
     ) {
         requestCounter += 1
+        
         guard newRequestIsAllowed else {
             completion(BPNError.translationRequestLimitExceeded, nil)
             return
         }
         
         requestTimestampCounter = Int(currentDate.value().timeIntervalSince1970)
-        print("Translation ~> getTranslation ~> requestCounter ~>", requestCounter)
         
         translationService.getTranslation(
             of: text,

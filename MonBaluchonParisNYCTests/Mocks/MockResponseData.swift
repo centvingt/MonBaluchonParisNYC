@@ -1,17 +1,17 @@
 //
-//  MockCurrencyData.swift
+//  MockResponseData.swift
 //  MonBaluchonParisNYCTests
 //
-//  Created by Vincent Caronnet on 14/06/2021.
+//  Created by Vincent Caronnet on 03/07/2021.
 //
 
 import Foundation
 
-class MockCurrencyData {
+class MockResponseData {
     // MARK: - Simulate URL
     
     static let goodURL = "https://www.apple.com/fr/"
-    static let badURL = ""
+    static let badURL = "bar url"
     
     // MARK: - Simulate response
     static let responseOK = HTTPURLResponse(
@@ -47,9 +47,16 @@ class MockCurrencyData {
 
     // MARK: - Simulate data
     static var currencyCorrectData: Data? {
-        let bundle = Bundle(for: MockCurrencyData.self)
+        let bundle = Bundle(for: MockResponseData.self)
         let url = bundle.url(forResource: "Currency", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
+    
+    static var translationCorrectData: Data? {
+        let bundle = Bundle(for: MockResponseData.self)
+        let url = bundle.url(forResource: "Translation", withExtension: "json")!
+        return try! Data(contentsOf: url)
+    }
+    
     static let incorrectData = "incorrect data".data(using: .utf8)!
 }

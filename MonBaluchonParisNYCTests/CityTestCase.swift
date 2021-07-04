@@ -25,4 +25,21 @@ class CityTestCase: XCTestCase {
         XCTAssertEqual(nycCurrency.name, "dollar")
         XCTAssertEqual(nycCurrency.convertSymbol, "€")
     }
+    
+    func testGivenCity_WhenGetLanguage_ThenReturnCorrectValues() {
+        // Given
+        let paris = City.paris
+        let nyc = City.nyc
+        
+        // When
+        let parisLanguage = paris.language
+        let nycLanguage = nyc.language
+        
+        // Then
+        XCTAssertEqual(parisLanguage.from, .fr)
+        XCTAssertEqual(parisLanguage.to, .en)
+        
+        XCTAssertEqual(nycLanguage.from, .en)
+        XCTAssertEqual(nycLanguage.to, .fr)
+    }
 }

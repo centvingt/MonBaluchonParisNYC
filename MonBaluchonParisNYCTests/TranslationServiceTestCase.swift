@@ -1,59 +1,60 @@
 //
-//  MonBaluchonParisNYCTests.swift
+//  TranslationServiceTestCase.swift
 //  MonBaluchonParisNYCTests
 //
-//  Created by Vincent Caronnet on 12/06/2021.
+//  Created by Vincent Caronnet on 03/07/2021.
 //
 
 @testable import MonBaluchonParisNYC
 import XCTest
 
-class CurrencyServiceTestCase: XCTestCase {
-    var currencyService: CurrencyService!
+class TranslationServiceTestCase: XCTestCase {
+    var translationService: TranslationService!
     var expectation: XCTestExpectation!
     let timeOut = 1.0
-
+    
+    let queryText = "The Great Pyramid of Giza"
+    let translatedText = "La grande pyramide de Gizeh"
+    
     override func setUp() {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockURLProtocol.self]
         let session = URLSession.init(configuration: configuration)
 
-        currencyService = CurrencyService(
+        translationService = TranslationService(
             session: session,
             apiURL: MockResponseData.goodURL
         )
         expectation = expectation(description: "Expectation")
     }
-
-    func testGivenResponseAndDataAreCorrect_WhenGetRate_ThenResponseIsASuccess() {
+    
+    func testGivenResponseAndDataAreCorrect_WhenGetTranslation_ThenResponseIsASuccess() {
         // Given
         MockURLProtocol.requestHandler = { request in
             return (
                 error: nil,
                 response: MockResponseData.responseOK,
-                data: MockResponseData.currencyCorrectData
+                data: MockResponseData.translationCorrectData
             )
         }
         // When
-        currencyService.getRate { error, data in
+        translationService.getTranslation(
+            of: queryText,
+            from: .en,
+            to: .fr
+        ) { bpnError, string in
             // Then
-            let success = true
-            let date = "2021-06-14"
-            let ratesUSD = 1.212437
-
-            XCTAssertNil(error)
-            XCTAssertNotNil(data)
-
-            XCTAssertEqual(success, data?.success)
-            XCTAssertEqual(date, data?.date)
-            XCTAssertEqual(ratesUSD, data?.rates.USD)
-
+            XCTAssertNil(bpnError)
+            XCTAssertNotNil(string)
+            
+            XCTAssertEqual(self.translatedText, string)
+            
             self.expectation.fulfill()
         }
         wait(for: [expectation], timeout: timeOut)
     }
-
-    func testGivenRequestHasAUnknowdError_WhenGetRate_ThenUndefinedErrorIsThrown() {
+    
+    func testGivenRequestHasAUnknowdError_WhenGetTranslation_ThenUndefinedErrorIsThrown() {
         // Given
         MockURLProtocol.requestHandler = { request in
             return (
@@ -64,10 +65,14 @@ class CurrencyServiceTestCase: XCTestCase {
         }
         
         // When
-        currencyService.getRate { error, data in
+        translationService.getTranslation(
+            of: queryText,
+            from: .en,
+            to: .fr
+        ) { bpnError, string in
             // Then
-            XCTAssertEqual(error, .undefinedRequestError)
-            XCTAssertNil(data)
+            XCTAssertEqual(bpnError, .undefinedRequestError)
+            XCTAssertNil(string)
             
             self.expectation.fulfill()
         }
@@ -79,26 +84,29 @@ class CurrencyServiceTestCase: XCTestCase {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockURLProtocol.self]
         let session = URLSession.init(configuration: configuration)
-        
-        currencyService = CurrencyService(
+
+        translationService = TranslationService(
             session: session,
             apiURL: MockResponseData.badURL
         )
-        
-        // When
-        currencyService.getRate { error, data in
-            // Then
 
-            XCTAssertEqual(error, .apiURLRequest)
-            XCTAssertNil(data)
+        // When
+        translationService.getTranslation(
+            of: queryText,
+            from: .en,
+            to: .fr
+        ) { bpnError, string in
+            // Then
+            XCTAssertEqual(bpnError, .undefinedRequestError)
+            XCTAssertNil(string)
             
             self.expectation.fulfill()
         }
         
         wait(for: [expectation], timeout: timeOut)
     }
-    
-    func testGivenRequestHasConnectionError_WhenGetRate_ThenConnectionErrorIsThrown() {
+
+    func testGivenRequestHasConnectionError_WhenGetTranslation_ThenConnectionErrorIsThrown() {
         // Given
         MockURLProtocol.requestHandler = { request in
             return (
@@ -108,18 +116,22 @@ class CurrencyServiceTestCase: XCTestCase {
             )
         }
         // When
-        currencyService.getRate { error, data in
+        translationService.getTranslation(
+            of: queryText,
+            from: .en,
+            to: .fr
+        ) { bpnError, string in
             // Then
+            XCTAssertNotNil(bpnError)
+            XCTAssertNil(string)
 
-            XCTAssertNotNil(error)
-            XCTAssertNil(data)
-            
             self.expectation.fulfill()
         }
+        
         wait(for: [expectation], timeout: 1)
     }
-    
-    func testGivenBadResponseData_WhenGetRate_ThenIncorrectDataErrorIsThrown() {
+
+    func testGivenBadResponseData_WhenGetTranslation_ThenIncorrectDataErrorIsThrown() {
         MockURLProtocol.requestHandler = { request in
             return (
                 error: nil,
@@ -127,18 +139,21 @@ class CurrencyServiceTestCase: XCTestCase {
                 data: MockResponseData.incorrectData
             )
         }
-        currencyService.getRate { error, data in
+        translationService.getTranslation(
+            of: queryText,
+            from: .en,
+            to: .fr
+        ) { bpnError, string in
             // Then
+            XCTAssertNotNil(bpnError)
+            XCTAssertNil(string)
 
-            XCTAssertNotNil(error)
-            XCTAssertNil(data)
-            
             self.expectation.fulfill()
         }
         wait(for: [expectation], timeout: timeOut)
     }
-    
-    func testGivenNoResponseData_WhenGetRate_ThenResponseDataErrorIsThrown() {
+
+    func testGivenNoResponseData_WhenGetTranslation_ThenResponseDataErrorIsThrown() {
         // Given
         MockURLProtocol.requestHandler = { request in
             return (
@@ -148,18 +163,22 @@ class CurrencyServiceTestCase: XCTestCase {
             )
         }
         // When
-        currencyService.getRate { error, data in
+        translationService.getTranslation(
+            of: queryText,
+            from: .en,
+            to: .fr
+        ) { bpnError, string in
             // Then
-            XCTAssertEqual(error, .httpResponseData)
-            XCTAssertNil(data)
-            
+            XCTAssertEqual(bpnError, .httpResponseData)
+            XCTAssertNil(string)
+
             self.expectation.fulfill()
         }
-        
+
         wait(for: [expectation], timeout: timeOut)
     }
 
-    func testGivenBadStatusResponse_WhenGetRate_ThenStatusCodeErrorIsThrown() {
+    func testGivenBadStatusResponse_WhenGetTranslation_ThenStatusCodeErrorIsThrown() {
         // Given
         MockURLProtocol.requestHandler = { request in
             return (
@@ -168,20 +187,23 @@ class CurrencyServiceTestCase: XCTestCase {
                 data: nil
             )
         }
-        
-        // When
-        currencyService.getRate { error, data in
-            // Then
 
-            XCTAssertEqual(error, .httpStatusCode)
-            XCTAssertNil(data)
-            
+        // When
+        translationService.getTranslation(
+            of: queryText,
+            from: .en,
+            to: .fr
+        ) { bpnError, string in
+            // Then
+            XCTAssertEqual(bpnError, .httpStatusCode)
+            XCTAssertNil(string)
+
             self.expectation.fulfill()
         }
         wait(for: [expectation], timeout: timeOut)
     }
-    func testGivenNoResponse_WhenGetRate_ThenResponseErrorIsThrown() {
-        // Giventm
+    func testGivenNoResponse_WhenGetTranslation_ThenResponseErrorIsThrown() {
+        // Givent
         MockURLProtocol.requestHandler = { request in
             return (
                 error: nil,
@@ -189,16 +211,20 @@ class CurrencyServiceTestCase: XCTestCase {
                 data: nil
             )
         }
-        
-        // When
-        currencyService.getRate { error, data in
-            // Then
 
-            XCTAssertEqual(error, .httpResponse)
-            XCTAssertNil(data)
-            
+        // When
+        translationService.getTranslation(
+            of: queryText,
+            from: .en,
+            to: .fr
+        ) { bpnError, string in
+            // Then
+            XCTAssertEqual(bpnError, .httpResponse)
+            XCTAssertNil(string)
+
             self.expectation.fulfill()
         }
         wait(for: [expectation], timeout: timeOut)
     }
-}
+    
+ }

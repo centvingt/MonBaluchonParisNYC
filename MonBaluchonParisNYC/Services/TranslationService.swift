@@ -12,19 +12,17 @@ class TranslationService: TranslationServiceProtocol {
     private init() {}
     
     private var session = URLSession(configuration: .default)
-    
-    private var apiURL: URL? {
-        guard let apiKeyTranslate = apiKeyTranslate,
-              let apiURL = URL(
-                string: "https://translation.googleapis.com/language/translate/v2?key=\(apiKeyTranslate)"
-              )
-        else {
-            return nil
-        }
-        return apiURL
-    }
-    
     private var task: URLSessionDataTask?
+    
+    private var apiURL: String = "https://translation.googleapis.com/language/translate/v2"
+    
+    init(
+        session: URLSession = URLSession.shared,
+        apiURL: String
+    ) {
+        self.session = session
+        self.apiURL = apiURL
+    }
     
     func getTranslation(
         of text: String,
@@ -32,7 +30,8 @@ class TranslationService: TranslationServiceProtocol {
         to: TranslationLanguage,
         completion: @escaping (BPNError?, String?) -> ()
     ) {
-        guard let apiURL = apiURL else {
+        guard let apiKeyTranslate = apiKeyTranslate,
+            let url = URL(string: "\(apiURL)?key=\(apiKeyTranslate)") else {
             completion(BPNError.undefinedRequestError, nil)
             return
         }
@@ -42,7 +41,7 @@ class TranslationService: TranslationServiceProtocol {
             source: from,
             target: to
         )
-        var request = URLRequest(url: apiURL)
+        var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue(
             "application/json",

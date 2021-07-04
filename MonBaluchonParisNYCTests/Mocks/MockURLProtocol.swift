@@ -7,54 +7,6 @@
 
 import Foundation
 
-// MARK: - Not iOS 13.0 friendly
-
-//class URLSessionFake: URLSession {
-//    var data: Data?
-//    var response: URLResponse?
-//    var error: Error?
-//
-//    init(data: Data?, response: URLResponse?, error: Error?) {
-//        self.data = data
-//        self.response = response
-//        self.error = error
-//    }
-//
-//    override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-//        let task = URLSessionDataTaskFake()
-//        task.completionHander = completionHandler
-//        task.data = data
-//        task.urlResponse = response
-//        task.responseError = error
-//        return task
-//    }
-//
-//    override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-//        let task = URLSessionDataTaskFake()
-//        task.completionHander = completionHandler
-//        task.data = data
-//        task.urlResponse = response
-//        task.responseError = error
-//        return task
-//    }
-//}
-//
-//class URLSessionDataTaskFake: URLSessionDataTask {
-//    var completionHander: ((Data?, URLResponse?, Error?) -> Void)?
-//    var data: Data?
-//    var urlResponse: URLResponse?
-//    var responseError: Error?
-//
-//    override func resume() {
-//        completionHander?(data, urlResponse, responseError)
-//    }
-//
-//    override func cancel() {}
-//}
-
-
-// MARK: - iOS 13.0 friendly
-
 class MockURLProtocol: URLProtocol {
     // 1. Handler to test the request and return mock response.
     static var requestHandler: (

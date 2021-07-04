@@ -9,8 +9,24 @@ import UIKit
 
 class TranslationViewController: UITableViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    private var city: City = .nyc
-    
+    let userDefaults = UserDefaults()
+    let cityUDKey = "city"
+    private var city: City {
+        get {
+            guard let userDefaultsCity = userDefaults.string(forKey: cityUDKey) else {
+                return .nyc
+            }
+            if userDefaultsCity == City.paris.rawValue {
+                return .paris
+            } else {
+                return .nyc
+            }
+        }
+        set {
+            userDefaults.set(newValue.rawValue, forKey: cityUDKey)
+        }
+    }
+
     private var translation = Translation()
     
     private let haptic = Haptic()
@@ -25,6 +41,8 @@ class TranslationViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        setSegmentedControl()
+        
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         
@@ -33,7 +51,7 @@ class TranslationViewController: UITableViewController {
         
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
-        
+            
         if #available(iOS 13.0, *) {
             guard let font = UIFont(name: "SF Compact Rounded", size: 16.0) else {
                 print("pas de police")
@@ -56,6 +74,9 @@ class TranslationViewController: UITableViewController {
                 for: .selected
             )
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        setSegmentedControl()
     }
     
     // MARK: - Notifications
@@ -134,7 +155,7 @@ class TranslationViewController: UITableViewController {
         view.endEditing(true)
     }
     
-    // MARK: - Swipe handler
+    // MARK: - Segmented controll handler
     @objc private func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
             segmentedControl.selectedSegmentIndex = 0
@@ -144,6 +165,14 @@ class TranslationViewController: UITableViewController {
         }
         city = getCityFromSegmentedControl()
         tableView.reloadData()
+    }
+    private func setSegmentedControl() {
+        switch city {
+        case .paris:
+            segmentedControl.selectedSegmentIndex = 0
+        case .nyc:
+            segmentedControl.selectedSegmentIndex = 1
+        }
     }
     
     // MARK: - Table view data source

@@ -9,7 +9,23 @@ import UIKit
 
 class CurrencyViewController: UITableViewController {
     @IBOutlet weak private var segmentedControl: UISegmentedControl!
-    private var city: City?
+    let userDefaults = UserDefaults()
+    let cityUDKey = "city"
+    private var city: City {
+        get {
+            guard let userDefaultsCity = userDefaults.string(forKey: cityUDKey) else {
+                return .nyc
+            }
+            if userDefaultsCity == City.paris.rawValue {
+                return .paris
+            } else {
+                return .nyc
+            }
+        }
+        set {
+            userDefaults.set(newValue.rawValue, forKey: cityUDKey)
+        }
+    }
     
     private var currency = Currency()
     
@@ -31,7 +47,8 @@ class CurrencyViewController: UITableViewController {
         registerForErrorNotifications()
         registerForKeyboardNotifications()
         
-        city = getCityFromSegmentedControl()
+//        city = getCityFromSegmentedControl()
+        setSegmentedControl()
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
@@ -44,7 +61,6 @@ class CurrencyViewController: UITableViewController {
         
         if #available(iOS 13.0, *) {
             guard let font = UIFont(name: "SF Compact Rounded", size: 16.0) else {
-                print("pas de police")
                 return
             }
             
@@ -61,6 +77,7 @@ class CurrencyViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         currency.getRate()
+        setSegmentedControl()
     }
     
     // MARK: - Notifications
@@ -199,7 +216,7 @@ class CurrencyViewController: UITableViewController {
         view.endEditing(true)
     }
     
-    // MARK: - Swipe handler
+    // MARK: - Segmented controll handler
     @objc private func handleSwipes(_ sender:UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
             segmentedControl.selectedSegmentIndex = 0
@@ -209,6 +226,14 @@ class CurrencyViewController: UITableViewController {
         }
         city = getCityFromSegmentedControl()
         tableView.reloadData()
+    }
+    private func setSegmentedControl() {
+        switch city {
+        case .paris:
+            segmentedControl.selectedSegmentIndex = 0
+        case .nyc:
+            segmentedControl.selectedSegmentIndex = 1
+        }
     }
     
     // MARK: - Table view data source
@@ -222,8 +247,7 @@ class CurrencyViewController: UITableViewController {
     ) -> Int {
         guard let _ = euroToUSDRate,
               let _ = usdToEuroRate,
-              let _ = rateDate,
-              let _ = city
+              let _ = rateDate
         else { return 1 }
         return city == .paris ? 2 : 4
     }
@@ -233,8 +257,7 @@ class CurrencyViewController: UITableViewController {
     ) -> UITableViewCell {
         guard let euroToUSDRate = euroToUSDRate,
               let usdToEuroRate = usdToEuroRate,
-              let rateDate = rateDate,
-              let city = city
+              let rateDate = rateDate
         else {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "WaitingCell"

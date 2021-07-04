@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum City {
+enum City: String {
     case paris, nyc
     
     var language: (

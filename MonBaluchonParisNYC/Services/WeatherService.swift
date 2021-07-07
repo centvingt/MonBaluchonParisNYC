@@ -29,7 +29,7 @@ class WeatherService: WeatherServiceProtocol {
         completion: @escaping (BPNError?, WeatherHTTPData?) -> ()
     ) {
         guard let apiKeyWeather = apiKeyWeather,
-              let url = URL(string: "\(apiURL)?id=\(city.getCityWeatherID())&lang=fr&appid=\(apiKeyWeather)") else {
+              let url = URL(string: "\(apiURL)?id=\(city.getCityWeatherID())&lang=fr&units=metric&appid=\(apiKeyWeather)") else {
             completion(BPNError.undefinedRequestError, nil)
             return
         }
@@ -37,6 +37,8 @@ class WeatherService: WeatherServiceProtocol {
         task?.cancel()
         task = session.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
+                print("WeatherService ~> getWeatherOf ~> NEW WEATHER REQUEST")
+                
                 // HTTP request's handling
                 if let error = error as? URLError {
                     if error.code == URLError.Code.notConnectedToInternet {

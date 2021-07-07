@@ -27,7 +27,7 @@ class Weather {
         
         // 43200000 is equal to 12 hours
         if let weatherHTTPData = coreDataStorage.getWeatherOfCity(id: city.getCityWeatherID()),
-           weatherHTTPData.dt + 43200000 < Int64(currentDate.value().timeIntervalSince1970) {
+           weatherHTTPData.dt + 43200000 > Int64(currentDate.value().timeIntervalSince1970) {
             postDataNotification(
                 weatherHTTPData: weatherHTTPData,
                 for: city
@@ -77,13 +77,16 @@ class Weather {
             name: .weatherData,
             object: self,
             userInfo: [
-                "weatherDescription": weatherHTTPData.weather[0].description,
+                "weatherDescription": weatherHTTPData
+                    .weather[0]
+                    .description
+                    .capitalizingFirstLetter(),
                 "date": getFormatedDate(
                     from: weatherHTTPData.dt,
                     with: weatherHTTPData.timezone,
                     for: city
                 ),
-                "icon": weatherHTTPData.weather[0].icon,
+                "iconName": weatherHTTPData.weather[0].icon,
                 "temp": getFormatedTemp(
                     weatherHTTPData.main.temp,
                     for: nil
@@ -160,6 +163,16 @@ class Weather {
             complement = ""
         }
         
-        return "\(temp.rounded()) °C\(complement)"
+        return "\(Int(temp.rounded())) °C\(complement)"
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }

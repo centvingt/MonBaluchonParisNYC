@@ -10,7 +10,7 @@ import UIKit
 class WeatherViewController: UITableViewController {
     private var weatherDescription: String?
     private var date: String?
-    private var icon: String?
+    private var iconName: String?
     private var temp: String?
     private var tempMin: String?
     private var tempMax: String?
@@ -100,8 +100,8 @@ class WeatherViewController: UITableViewController {
                 .userInfo?["weatherDescription"] as? String,
               let date = notification
                 .userInfo?["date"] as? String,
-              let icon = notification
-                .userInfo?["icon"] as? String,
+              let iconName = notification
+                .userInfo?["iconName"] as? String,
               let temp = notification
                 .userInfo?["temp"] as? String,
               let tempMin = notification
@@ -116,7 +116,7 @@ class WeatherViewController: UITableViewController {
         
         self.weatherDescription = weatherDescription
         self.date = date
-        self.icon = icon
+        self.iconName = iconName
         self.temp = temp
         self.tempMin = tempMin
         self.tempMax = tempMax
@@ -235,7 +235,7 @@ class WeatherViewController: UITableViewController {
     ) -> UITableViewCell {
         guard let weatherDescription = weatherDescription,
               let date = date,
-              let icon = icon,
+              let iconName = iconName,
               let temp = temp,
               let tempMin = tempMin,
               let tempMax = tempMax,
@@ -253,9 +253,17 @@ class WeatherViewController: UITableViewController {
             return cell
         }
         
+        cell.weatherDescription = weatherDescription
+        cell.date = date
+        cell.iconName = iconName
+        cell.temp = temp
+        cell.tempMin = tempMin
+        cell.tempMax = tempMax
+        cell.sunrise = sunrise
+        cell.sunset = sunset
+        
+        cell.configureValues()
+        
         return cell
     }
-    
-    // MARK: - Table view cells
-
 }

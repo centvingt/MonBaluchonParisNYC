@@ -921,7 +921,7 @@
                                                                                 <constraint firstAttribute="height" constant="36" id="flA-SG-728"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 h 30 (coucher)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSO-st-rwT">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 h 30 (coucher)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSO-st-rwT">
                                                                             <rect key="frame" x="42" y="0.0" width="276" height="36"/>
                                                                             <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
                                                                             <color key="textColor" name="RoseVille"/>
@@ -981,7 +981,6 @@
                         <connections>
                             <outlet property="dataSource" destination="z2O-Wb-qGW" id="nhx-pD-HQM"/>
                             <outlet property="delegate" destination="z2O-Wb-qGW" id="yyf-4t-9bb"/>
-                            <outletCollection property="gestureRecognizers" destination="UID-1z-l4N" appends="YES" id="Nv0-Jd-KEU"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="1Sn-aU-u8H">
@@ -1004,11 +1003,6 @@
                         <outlet property="segmentedControl" destination="1y9-Fi-f1B" id="Zlp-ZW-Dqm"/>
                     </connections>
                 </tableViewController>
-                <tapGestureRecognizer id="UID-1z-l4N">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="z2O-Wb-qGW" id="7lU-rv-glw"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TSO-7j-VR4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1823" y="1586"/>

@@ -9,8 +9,8 @@ import UIKit
 
 class CurrencyViewController: UITableViewController {
     @IBOutlet weak private var segmentedControl: UISegmentedControl!
-    let userDefaults = UserDefaults()
-    let cityUDKey = "city"
+    private let userDefaults = UserDefaults()
+    private let cityUDKey = "city"
     private var city: City {
         get {
             guard let userDefaultsCity = userDefaults.string(forKey: cityUDKey) else {
@@ -140,7 +140,7 @@ class CurrencyViewController: UITableViewController {
             object: nil
         )
     }
-    @objc func presentAlert(for notification: Notification) {
+    @objc private func presentAlert(for notification: Notification) {
         var title = ""
         var message = ""
         

@@ -9,8 +9,8 @@ import UIKit
 
 class TranslationViewController: UITableViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    let userDefaults = UserDefaults()
-    let cityUDKey = "city"
+    private let userDefaults = UserDefaults()
+    private let cityUDKey = "city"
     private var city: City {
         get {
             guard let userDefaultsCity = userDefaults.string(forKey: cityUDKey) else {

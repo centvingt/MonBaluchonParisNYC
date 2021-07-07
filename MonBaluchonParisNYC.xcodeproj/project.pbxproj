@@ -48,6 +48,10 @@
 		2FAC35C426906ECE0078A4B0 /* Translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC35C326906ECE0078A4B0 /* Translation.json */; };
 		2FAC35C6269102360078A4B0 /* TranslationTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAC35C5269102360078A4B0 /* TranslationTestCase.swift */; };
 		2FAC35C826916D110078A4B0 /* MockCurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAC35C726916D110078A4B0 /* MockCurrentDate.swift */; };
+		2FAC35CA269227A10078A4B0 /* WeatherHTTPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAC35C9269227A10078A4B0 /* WeatherHTTPData.swift */; };
+		2FAC35CE269237F60078A4B0 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAC35CD269237F60078A4B0 /* Weather.swift */; };
+		2FAC35D2269244A90078A4B0 /* MonBaluchonParisNYC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FAC35D0269244A90078A4B0 /* MonBaluchonParisNYC.xcdatamodeld */; };
+		2FAC35D4269307B50078A4B0 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAC35D3269307B50078A4B0 /* CoreDataStorage.swift */; };
 		2FB5CCC42686CC9F0033F782 /* TranslationRequestHTTPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB5CCC32686CC9F0033F782 /* TranslationRequestHTTPData.swift */; };
 		2FB5CCC62686CEC20033F782 /* TranslationResponseHTTPData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB5CCC52686CEC20033F782 /* TranslationResponseHTTPData.swift */; };
 		2FB5CCC82688F0040033F782 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB5CCC72688F0040033F782 /* Translation.swift */; };
@@ -118,6 +122,10 @@
 		2FAC35C326906ECE0078A4B0 /* Translation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translation.json; sourceTree = "<group>"; };
 		2FAC35C5269102360078A4B0 /* TranslationTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationTestCase.swift; sourceTree = "<group>"; };
 		2FAC35C726916D110078A4B0 /* MockCurrentDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCurrentDate.swift; sourceTree = "<group>"; };
+		2FAC35C9269227A10078A4B0 /* WeatherHTTPData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHTTPData.swift; sourceTree = "<group>"; };
+		2FAC35CD269237F60078A4B0 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		2FAC35D1269244A90078A4B0 /* MonBaluchonParisNYC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonBaluchonParisNYC.xcdatamodel; sourceTree = "<group>"; };
+		2FAC35D3269307B50078A4B0 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		2FB5CCC32686CC9F0033F782 /* TranslationRequestHTTPData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequestHTTPData.swift; sourceTree = "<group>"; };
 		2FB5CCC52686CEC20033F782 /* TranslationResponseHTTPData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponseHTTPData.swift; sourceTree = "<group>"; };
 		2FB5CCC72688F0040033F782 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
@@ -168,6 +176,7 @@
 				2F599851265AAFCB00ABC8D1 /* CurrencyRateHTTPData.swift */,
 				2FB5CCC32686CC9F0033F782 /* TranslationRequestHTTPData.swift */,
 				2FB5CCC52686CEC20033F782 /* TranslationResponseHTTPData.swift */,
+				2FAC35C9269227A10078A4B0 /* WeatherHTTPData.swift */,
 			);
 			path = HTTPData;
 			sourceTree = "<group>";
@@ -232,6 +241,8 @@
 			children = (
 				2F599853265ABA3C00ABC8D1 /* Currency.swift */,
 				2FB5CCC72688F0040033F782 /* Translation.swift */,
+				2FAC35CD269237F60078A4B0 /* Weather.swift */,
+				2FAC35CF269244070078A4B0 /* CoreData */,
 				2F146C5E267B95FE000CB25A /* HTTPData */,
 				2F146C5D267B959A000CB25A /* Services */,
 				2FCBA7862668C73B0035F205 /* Types */,
@@ -320,6 +331,15 @@
 				2F57450F26695B3400667EFD /* CurrencyCalculationCell.swift */,
 			);
 			path = CurrencyViews;
+			sourceTree = "<group>";
+		};
+		2FAC35CF269244070078A4B0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2FAC35D0269244A90078A4B0 /* MonBaluchonParisNYC.xcdatamodeld */,
+				2FAC35D3269307B50078A4B0 /* CoreDataStorage.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		2FCBA7862668C73B0035F205 /* Types */ = {
@@ -460,6 +480,7 @@
 				2F59984B265AAA0900ABC8D1 /* BPNError.swift in Sources */,
 				2F599840265A7B6D00ABC8D1 /* APIKeys.swift in Sources */,
 				2F599854265ABA3C00ABC8D1 /* Currency.swift in Sources */,
+				2FAC35CA269227A10078A4B0 /* WeatherHTTPData.swift in Sources */,
 				2FB5CCC82688F0040033F782 /* Translation.swift in Sources */,
 				2FCE950026602FB100209B83 /* BPNColors.swift in Sources */,
 				2F599852265AAFCB00ABC8D1 /* CurrencyRateHTTPData.swift in Sources */,
@@ -468,6 +489,7 @@
 				2F681BB2266F81E700485DE3 /* CurrencyIOValues .swift in Sources */,
 				2F7D3076266C036F00B8423A /* CurrencyCalculation.swift in Sources */,
 				2FB5CCC42686CC9F0033F782 /* TranslationRequestHTTPData.swift in Sources */,
+				2FAC35D2269244A90078A4B0 /* MonBaluchonParisNYC.xcdatamodeld in Sources */,
 				2F599837265A31F400ABC8D1 /* WeatherViewController.swift in Sources */,
 				2F354E7F26721D72005AC917 /* PasteboardService.swift in Sources */,
 				2F599803265A213700ABC8D1 /* AppDelegate.swift in Sources */,
@@ -477,8 +499,10 @@
 				2F599846265AA07600ABC8D1 /* TranslationService.swift in Sources */,
 				2FB5CCC62686CEC20033F782 /* TranslationResponseHTTPData.swift in Sources */,
 				2F599805265A213700ABC8D1 /* SceneDelegate.swift in Sources */,
+				2FAC35CE269237F60078A4B0 /* Weather.swift in Sources */,
 				2F9C65F82666BFD8002C767F /* CurrencyRateCell.swift in Sources */,
 				2F29964F265FEA080042238F /* SelfSizedTableView.swift in Sources */,
+				2FAC35D4269307B50078A4B0 /* CoreDataStorage.swift in Sources */,
 				2F599859265BC58400ABC8D1 /* BPNNotifications.swift in Sources */,
 				2F57451326695BC100667EFD /* ViewHelper.swift in Sources */,
 				2FCBA7882668C7670035F205 /* City.swift in Sources */,
@@ -764,6 +788,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2FAC35D0269244A90078A4B0 /* MonBaluchonParisNYC.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2FAC35D1269244A90078A4B0 /* MonBaluchonParisNYC.xcdatamodel */,
+			);
+			currentVersion = 2FAC35D1269244A90078A4B0 /* MonBaluchonParisNYC.xcdatamodel */;
+			path = MonBaluchonParisNYC.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2F5997F7265A213600ABC8D1 /* Project object */;
 }

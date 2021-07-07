@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -493,22 +492,6 @@
             <point key="canvasLocation" x="884" y="869"/>
         </scene>
         <!--Météo-->
-        <scene sceneID="c4m-T5-gkj">
-            <objects>
-                <viewController id="ATx-VW-dom" customClass="WeatherViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Rn2-dG-Fgj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="C25-Mo-gfc"/>
-                        <color key="backgroundColor" name="RoseVille"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Météo" id="7Cw-qu-RZh"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pbK-7f-P42" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1792.753623188406" y="1595.7589285714284"/>
-        </scene>
-        <!--Météo-->
         <scene sceneID="7XG-XX-rNe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JVG-if-oyV" sceneMemberID="viewController">
@@ -525,7 +508,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ATx-VW-dom" kind="relationship" relationship="rootViewController" id="hSm-bu-aXs"/>
+                        <segue destination="z2O-Wb-qGW" kind="relationship" relationship="rootViewController" id="Y9c-OB-VRq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ON-Dc-qAU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -717,7 +700,6 @@
                             <connections>
                                 <action selector="segmentedChanged:" destination="a9j-w1-Xzg" eventType="valueChanged" id="7Yq-1V-JGX"/>
                                 <action selector="segmentedChanged:" destination="dId-cP-QFN" eventType="valueChanged" id="hNp-ZQ-TZw"/>
-                                <action selector="segmentedChanged:" destination="g3w-JI-Wbf" eventType="valueChanged" id="sgG-q5-4ic"/>
                             </connections>
                         </segmentedControl>
                     </navigationItem>
@@ -734,6 +716,194 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFS-bU-nZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1755" y="869"/>
+        </scene>
+        <!--Weather View Controller-->
+        <scene sceneID="FT0-Fg-CGk">
+            <objects>
+                <tableViewController id="z2O-Wb-qGW" customClass="WeatherViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="J4l-ni-2RJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="RoseVille"/>
+                        <color key="tintColor" name="BleuGoudron"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TranslationCell" id="MBc-jJ-ww5" customClass="TranslationCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="449"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MBc-jJ-ww5" id="djg-Ve-1QZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="449"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQW-dc-GHj">
+                                            <rect key="frame" x="16" y="16" width="382" height="417"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="srD-YW-Oah">
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="417"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Acj-b5-3Je">
+                                                            <rect key="frame" x="16" y="16" width="350" height="61"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZWj-0e-d2t">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="61"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anglais / français" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJv-p9-fh3">
+                                                                            <rect key="frame" x="16" y="8" width="318" height="45"/>
+                                                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                                            <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
+                                                                            <color key="textColor" name="RoseVille"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="ZWj-0e-d2t" secondAttribute="trailing" id="Hei-8c-MMV"/>
+                                                                <constraint firstItem="ZWj-0e-d2t" firstAttribute="top" secondItem="Acj-b5-3Je" secondAttribute="top" id="LFI-sv-Dyw"/>
+                                                                <constraint firstAttribute="bottom" secondItem="ZWj-0e-d2t" secondAttribute="bottom" id="nMo-5l-OiG"/>
+                                                                <constraint firstItem="ZWj-0e-d2t" firstAttribute="leading" secondItem="Acj-b5-3Je" secondAttribute="leading" id="tk6-81-1Dt"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4x4-1h-WQG">
+                                                            <rect key="frame" x="16" y="93" width="350" height="308"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ORI-8F-Ueb">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="308"/>
+                                                                    <subviews>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IAP-7F-Z0A">
+                                                                            <rect key="frame" x="16" y="16" width="318" height="100"/>
+                                                                            <subviews>
+                                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-Nk-fYL">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="318" height="100"/>
+                                                                                    <color key="backgroundColor" name="BleuGoudron"/>
+                                                                                    <color key="textColor" name="BleuVille"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                                </textView>
+                                                                                <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="tnC-ky-pMM">
+                                                                                    <rect key="frame" x="149" y="40" width="20" height="20"/>
+                                                                                    <color key="color" name="BleuVille"/>
+                                                                                </activityIndicatorView>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <constraints>
+                                                                                <constraint firstItem="DRi-Nk-fYL" firstAttribute="top" secondItem="IAP-7F-Z0A" secondAttribute="top" id="4wC-ty-bHT"/>
+                                                                                <constraint firstItem="tnC-ky-pMM" firstAttribute="centerX" secondItem="IAP-7F-Z0A" secondAttribute="centerX" id="AGu-ry-X0u"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="DRi-Nk-fYL" secondAttribute="bottom" id="Etb-uB-9yU"/>
+                                                                                <constraint firstItem="DRi-Nk-fYL" firstAttribute="leading" secondItem="IAP-7F-Z0A" secondAttribute="leading" id="Tnj-Ge-ZUE"/>
+                                                                                <constraint firstAttribute="height" constant="100" id="USu-G6-9zK"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="DRi-Nk-fYL" secondAttribute="trailing" id="gfS-rx-Rf9"/>
+                                                                                <constraint firstItem="tnC-ky-pMM" firstAttribute="centerY" secondItem="IAP-7F-Z0A" secondAttribute="centerY" id="kJm-tG-Yog"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in" translatesAutoresizingMaskIntoConstraints="NO" id="bL5-Qz-vyi">
+                                                                            <rect key="frame" x="16" y="132" width="318" height="100"/>
+                                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="100" id="VTo-hR-ERH"/>
+                                                                            </constraints>
+                                                                            <color key="textColor" name="RoseVille"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                        </textView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sxJ-aF-7Ye">
+                                                                            <rect key="frame" x="16" y="248" width="318" height="44"/>
+                                                                            <subviews>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="897-Fg-ciw">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="44"/>
+                                                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="18"/>
+                                                                                    <state key="normal" title="Effacer">
+                                                                                        <color key="titleColor" name="RoseVille"/>
+                                                                                    </state>
+                                                                                </button>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nxz-dO-Lcv">
+                                                                                    <rect key="frame" x="167" y="0.0" width="151" height="44"/>
+                                                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="18"/>
+                                                                                    <state key="normal" title="Traduire">
+                                                                                        <color key="titleColor" name="RoseVille"/>
+                                                                                    </state>
+                                                                                </button>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="44" id="9WQ-rB-ka3"/>
+                                                                            </constraints>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                    <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" name="BleuGoudron"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="ORI-8F-Ueb" secondAttribute="bottom" id="AM3-Fq-QVQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ORI-8F-Ueb" secondAttribute="trailing" id="KGP-60-uP6"/>
+                                                                <constraint firstItem="ORI-8F-Ueb" firstAttribute="leading" secondItem="4x4-1h-WQG" secondAttribute="leading" id="bC4-iv-8yz"/>
+                                                                <constraint firstItem="ORI-8F-Ueb" firstAttribute="top" secondItem="4x4-1h-WQG" secondAttribute="top" id="vDF-FG-NFJ"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="BleuVille"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="srD-YW-Oah" secondAttribute="trailing" id="7bb-pZ-SyE"/>
+                                                <constraint firstAttribute="bottom" secondItem="srD-YW-Oah" secondAttribute="bottom" id="Nqw-CA-8eP"/>
+                                                <constraint firstItem="srD-YW-Oah" firstAttribute="top" secondItem="tQW-dc-GHj" secondAttribute="top" id="dfM-eP-ec2"/>
+                                                <constraint firstItem="srD-YW-Oah" firstAttribute="leading" secondItem="tQW-dc-GHj" secondAttribute="leading" id="iyx-ca-2lF"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="tQW-dc-GHj" secondAttribute="trailing" constant="16" id="Ib6-SL-xi3"/>
+                                        <constraint firstItem="tQW-dc-GHj" firstAttribute="top" secondItem="djg-Ve-1QZ" secondAttribute="top" constant="16" id="a13-BP-ZAn"/>
+                                        <constraint firstItem="tQW-dc-GHj" firstAttribute="leading" secondItem="djg-Ve-1QZ" secondAttribute="leading" constant="16" id="dAW-nP-fDu"/>
+                                        <constraint firstAttribute="bottom" secondItem="tQW-dc-GHj" secondAttribute="bottom" constant="16" id="k5a-Hq-gfN"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" name="RoseVille"/>
+                                <connections>
+                                    <outlet property="ioContainer" destination="4x4-1h-WQG" id="LTG-iI-Jx6"/>
+                                    <outlet property="mainContainer" destination="tQW-dc-GHj" id="CHs-H9-Z8s"/>
+                                    <outlet property="titleContainer" destination="Acj-b5-3Je" id="6h0-Di-qnO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="z2O-Wb-qGW" id="nhx-pD-HQM"/>
+                            <outlet property="delegate" destination="z2O-Wb-qGW" id="yyf-4t-9bb"/>
+                            <outletCollection property="gestureRecognizers" destination="UID-1z-l4N" appends="YES" id="Nv0-Jd-KEU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="1Sn-aU-u8H">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="1y9-Fi-f1B">
+                            <rect key="frame" x="127.5" y="5.5" width="159" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Paris"/>
+                                <segment title="New-York"/>
+                            </segments>
+                            <color key="tintColor" name="RoseVille"/>
+                            <color key="selectedSegmentTintColor" name="RoseVille"/>
+                            <connections>
+                                <action selector="segmentedChanged:" destination="z2O-Wb-qGW" eventType="valueChanged" id="oHw-V5-z1R"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="1y9-Fi-f1B" id="Zlp-ZW-Dqm"/>
+                    </connections>
+                </tableViewController>
+                <tapGestureRecognizer id="UID-1z-l4N">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="z2O-Wb-qGW" id="7lU-rv-glw"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TSO-7j-VR4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1823" y="1586"/>
         </scene>
     </scenes>
     <resources>

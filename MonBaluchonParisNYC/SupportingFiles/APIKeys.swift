@@ -19,4 +19,4 @@ func valueForAPIKey(named keyname:String) -> String? {
 
 //let keyCurrency = valueForAPIKey(named: "Fixer")
 let apiKeyTranslate = valueForAPIKey(named: "GoogleTranslation")
-//let keyWeather = valueForAPIKey(named: "OpenWeather")
+let apiKeyWeather = valueForAPIKey(named: "OpenWeather")

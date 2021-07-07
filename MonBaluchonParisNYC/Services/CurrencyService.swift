@@ -37,11 +37,9 @@ class CurrencyService: CurrencyServiceProtocol {
                 // HTTP request's handling
                 if let error = error as? URLError {
                     if error.code == URLError.Code.notConnectedToInternet {
-                        print("ERROR BECAUSE NOT CONNECTED TO INTERNET")
                         completion(BPNError.internetConnection, nil)
                         return
                     } else {
-                        print("UNDEFINED REQUEST ERROR")
                         completion(BPNError.undefinedRequestError, nil)
                         return
                     }
@@ -49,21 +47,22 @@ class CurrencyService: CurrencyServiceProtocol {
                 
                 // Getting HTTP response
                 guard let response = response as? HTTPURLResponse else {
-                    print("ERROR WITH THE RESPONSE")
                     completion(BPNError.httpResponse, nil)
                     return
                 }
                 
                 guard response.statusCode == 200 else {
-                    print("ERROR WITH THE RESPONSE'S STATUS CODE", response.statusCode)
                     completion(BPNError.httpStatusCode, nil)
                     return
                 }
                 
                 // Getting JSON from HTTP response
                 guard let data = data,
-                      let currencyRateData = try? JSONDecoder().decode(CurrencyRateHTTPData.self, from: data) else {
-                    print("ERROR WITH THE DATA")
+                      let currencyRateData = try? JSONDecoder()
+                        .decode(
+                            CurrencyRateHTTPData.self,
+                            from: data
+                        ) else {
                     completion(BPNError.httpResponseData, nil)
                     return
                 }

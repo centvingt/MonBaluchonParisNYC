@@ -366,7 +366,7 @@ class Currency {
         return intDate
     }
     
-    // MARK: - IO helperes
+    // MARK: IO helperes
     
     private func getStringFromDouble(
         _ double: Double,

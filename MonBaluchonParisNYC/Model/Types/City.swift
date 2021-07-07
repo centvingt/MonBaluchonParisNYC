@@ -8,7 +8,8 @@
 import Foundation
 
 enum City: String {
-    case paris, nyc
+    case paris = "Paris",
+         nyc = "New-York"
     
     var language: (
         from: TranslationLanguage,
@@ -28,6 +29,15 @@ enum City: String {
             return ("euro", "$")
         case .nyc:
             return ("dollar", "€")
+        }
+    }
+    
+    func getCityWeatherID() -> Int64 {
+        switch self {
+        case .paris:
+            return 2988507
+        case .nyc:
+            return 5128581
         }
     }
 }

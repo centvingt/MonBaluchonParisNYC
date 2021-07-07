@@ -8,8 +8,14 @@
 import UIKit
 
 class WeatherViewController: UITableViewController {
-    var weatherData: WeatherHTTPData?
-    var dateData: String?
+    private var weatherDescription: String?
+    private var date: String?
+    private var icon: String?
+    private var temp: String?
+    private var tempMin: String?
+    private var tempMax: String?
+    private var sunrise: String?
+    private var sunset: String?
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     private let userDefaults = UserDefaults()
@@ -90,17 +96,32 @@ class WeatherViewController: UITableViewController {
         )
     }
     @objc private func weatherDataIncoming(_ notification: NSNotification) {
-        guard let weatherData = notification
-                .userInfo?["weatherData"] as? WeatherHTTPData,
-              let dateData = notification
-                .userInfo?["dateData"] as? String
+        guard let weatherDescription = notification
+                .userInfo?["weatherDescription"] as? String,
+              let date = notification
+                .userInfo?["date"] as? String,
+              let icon = notification
+                .userInfo?["icon"] as? String,
+              let temp = notification
+                .userInfo?["temp"] as? String,
+              let tempMin = notification
+                .userInfo?["tempMin"] as? String,
+              let tempMax = notification
+                .userInfo?["tempMax"] as? String,
+              let sunrise = notification
+                .userInfo?["sunrise"] as? String,
+              let sunset = notification
+                .userInfo?["sunset"] as? String
         else { return }
         
-        self.weatherData = weatherData
-        self.dateData = dateData
-        
-        print("WeatherViewController ~> weatherDataIncoming ~> weatherData ~>", weatherData)
-        print("WeatherViewController ~> weatherDataIncoming ~> dateData ~>", dateData)
+        self.weatherDescription = weatherDescription
+        self.date = date
+        self.icon = icon
+        self.temp = temp
+        self.tempMin = tempMin
+        self.tempMax = tempMax
+        self.sunrise = sunrise
+        self.sunset = sunset
         
         DispatchQueue.main.async{
             self.tableView.reloadData()
@@ -177,7 +198,7 @@ class WeatherViewController: UITableViewController {
     }
     
     // MARK: - Segmented controll handler
-    @objc private func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+    @objc private func handleSwipes(_ sender: UISwipeGestureRecognizer) {
         if (sender.direction == .left) {
             segmentedControl.selectedSegmentIndex = 0
         }
@@ -195,5 +216,46 @@ class WeatherViewController: UITableViewController {
             segmentedControl.selectedSegmentIndex = 1
         }
     }
- 
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        return 1
+    }
+    
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let weatherDescription = weatherDescription,
+              let date = date,
+              let icon = icon,
+              let temp = temp,
+              let tempMin = tempMin,
+              let tempMax = tempMax,
+              let sunrise = sunrise,
+              let sunset = sunset,
+              let cell = tableView
+                .dequeueReusableCell(withIdentifier: "WeatherCell")
+                as? WeatherCell
+        else {
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "WaitingCell"
+            ) else {
+                return ViewHelper.getEmptyCell()
+            }
+            return cell
+        }
+        
+        return cell
+    }
+    
+    // MARK: - Table view cells
+
 }

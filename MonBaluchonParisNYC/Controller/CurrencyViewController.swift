@@ -389,6 +389,7 @@ class CurrencyViewController: UITableViewController {
         }
     }
 }
+
 extension CurrencyViewController: CurrencyCalculationCellDelegate {
     func deleteTextFieldText(for cell: CurrencyCalculationCell) {
         let calculation = cell.calculation

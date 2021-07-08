@@ -5,7 +5,6 @@
 //  Created by Vincent Caronnet on 19/06/2021.
 //
 
-import Foundation
 @testable import MonBaluchonParisNYC
 
 class MockCurrencyService: CurrencyServiceProtocol {

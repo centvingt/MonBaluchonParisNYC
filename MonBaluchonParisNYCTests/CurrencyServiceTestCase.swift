@@ -12,19 +12,19 @@ class CurrencyServiceTestCase: XCTestCase {
     var currencyService: CurrencyService!
     var expectation: XCTestExpectation!
     let timeOut = 1.0
-
+    
     override func setUp() {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockURLProtocol.self]
         let session = URLSession.init(configuration: configuration)
-
+        
         currencyService = CurrencyService(
             session: session,
             apiURL: MockResponseData.goodURL
         )
-        expectation = expectation(description: "Expectation")
+        expectation = expectation(description: "Currency expectation")
     }
-
+    
     func testGivenResponseAndDataAreCorrect_WhenGetRate_ThenResponseIsASuccess() {
         // Given
         MockURLProtocol.requestHandler = { request in
@@ -111,7 +111,7 @@ class CurrencyServiceTestCase: XCTestCase {
         currencyService.getRate { error, data in
             // Then
 
-            XCTAssertNotNil(error)
+            XCTAssertEqual(error, .internetConnection)
             XCTAssertNil(data)
             
             self.expectation.fulfill()
@@ -120,6 +120,7 @@ class CurrencyServiceTestCase: XCTestCase {
     }
     
     func testGivenBadResponseData_WhenGetRate_ThenIncorrectDataErrorIsThrown() {
+        // Given
         MockURLProtocol.requestHandler = { request in
             return (
                 error: nil,
@@ -127,6 +128,8 @@ class CurrencyServiceTestCase: XCTestCase {
                 data: MockResponseData.incorrectData
             )
         }
+        
+        // When
         currencyService.getRate { error, data in
             // Then
 

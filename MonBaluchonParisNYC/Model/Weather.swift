@@ -7,25 +7,40 @@
 
 import Foundation
 
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+//    mutating func capitalizeFirstLetter() {
+//        self = self.capitalizingFirstLetter()
+//    }
+}
+
 class Weather {
     // MARK: - Dependency injection
     
     private let weatherService: WeatherServiceProtocol
-    
-    private let coreDataStorage = CoreDataStorage()
+    private let coreDataStorage: CoreDataStorageProtocol
     
     init(
-        weatherService: WeatherServiceProtocol = WeatherService.shared
+        weatherService: WeatherServiceProtocol = WeatherService.shared,
+        coreDataStorage: CoreDataStorageProtocol = CoreDataStorage()
     ) {
         self.weatherService = weatherService
+        self.coreDataStorage = coreDataStorage
     }
     
     // MARK: - Service request
     
     func getWeatherOf(city: City) {
         // 43200000 is equal to 12 hours
-        if let weatherHTTPData = coreDataStorage.getWeatherOfCity(id: city.getCityWeatherID()),
-           weatherHTTPData.dt + 43200000 > Int64(currentDate.value().timeIntervalSince1970) {
+        if let weatherHTTPData = coreDataStorage
+            .getWeatherOfCity(id: city.getCityWeatherID()),
+           weatherHTTPData.dt + 43200000 > Int64(
+            currentDate.value()
+                .timeIntervalSince1970
+           ) {
             postDataNotification(
                 weatherHTTPData: weatherHTTPData,
                 for: city
@@ -35,18 +50,20 @@ class Weather {
         
         weatherService.getWeatherOf(city: city) { bpnError, weatherHTTPData in
             if let bpnError = bpnError {
-                // TODO: poster des notifications avec les erreurs
+                var notification: Notification
                 if bpnError == .internetConnection {
-                    print("Weather ~> getWeatherOf ~> bpnError.internetConnection")
+                    notification = Notification(name: .errorInternetConnection)
                 } else {
-                    print("Weather ~> getWeatherOf ~> bpnError.errorUndefined")
+                    notification = Notification(name: .errorUndefined)
                 }
+                NotificationCenter.default.post(notification)
                 return
             }
             
             guard let weatherHTTPData = weatherHTTPData else {
                 // TODO: poster une notification avec l’erreur
-                print("Weather ~> getWeatherOf ~> erreur data")
+                print("Weather ~> getWeatherOf ~> DATA ERROR")
+                NotificationCenter.default.post(Notification(name: .errorUndefined))
                 return
             }
             
@@ -161,15 +178,5 @@ class Weather {
         }
         
         return "\(Int(temp.rounded())) °C\(complement)"
-    }
-}
-
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).capitalized + dropFirst()
-    }
-
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
     }
 }

@@ -36,7 +36,7 @@ class CurrencyTestCase: XCTestCase {
     // Check that a notification has been posted
     var notification: NSNotification?
     
-    // setUp() is executed for each test
+    // setUp() is executed before each test
     override func setUp() {
         super.setUp()
         
@@ -84,7 +84,7 @@ class CurrencyTestCase: XCTestCase {
             self.tipIOValues = tipIOValues
         }
     }
-
+    
     // MARK: - Request tests
     
     func testGivenGetRateReturnConnectionError_WhenGetRate_ThenNotificationPosted() {
@@ -152,7 +152,7 @@ class CurrencyTestCase: XCTestCase {
         }
     }
     
-    func testGivenGetRateReturnNoData_WhenGetRate_ThenNotificationPosted() {
+    func testGivenGetRateReturnNoData_WhenGetRate_ThenErrorNotificationPosted() {
         // Given
         currencyService.bpnError = nil
         currencyService.currencyRateHTTPData = nil

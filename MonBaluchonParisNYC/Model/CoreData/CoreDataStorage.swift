@@ -7,11 +7,16 @@
 
 import CoreData
 
+protocol CoreDataStorageProtocol {
+    func saveWeather(_ weather: WeatherHTTPData)
+    func getWeatherOfCity(id: Int64) -> WeatherHTTPData?
+}
+
 enum StorageType {
     case persistent, inMemory
 }
 
-class CoreDataStorage {
+class CoreDataStorage: CoreDataStorageProtocol {
     let persistentContainer: NSPersistentContainer
     
     init(_ storageType: StorageType = .persistent) {
@@ -47,7 +52,6 @@ class CoreDataStorage {
     }
     
     func saveWeather(_ weather: WeatherHTTPData) {
-        print("CoreDataStore ~> saveWeather ~> weather.id ~>", weather.id)
         var cdWeather: CDWeather
         
         if let cityWeather = getCDWeatherOfCity(id: weather.id) {
@@ -122,17 +126,3 @@ extension WeatherHTTPData {
         ]
     }
 }
-
-//func updateScore(at date: Date, with value: Int) {
-//    let fetchRequest: NSFetchRequest<CDScore> = CDScore.fetchRequest()
-//    fetchRequest.predicate = NSPredicate(format: "date == %@", date as NSDate)
-//    fetchRequest.fetchLimit = 1
-//    guard
-//        let fetchResult = try? context.fetch(fetchRequest),
-//        let foundScore = fetchResult.first else
-//    else { return }
-//
-//    foundScore.value = value
-//
-//    saveContext()
-//}

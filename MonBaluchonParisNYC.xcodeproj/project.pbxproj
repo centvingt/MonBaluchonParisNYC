@@ -65,6 +65,12 @@
 		2FF6152B268BCFAE00B94BEF /* CurrentDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6152A268BCFAE00B94BEF /* CurrentDate.swift */; };
 		2FF6152D268BD26D00B94BEF /* BPNUserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6152C268BD26D00B94BEF /* BPNUserDefaultsProtocol.swift */; };
 		2FFBEC112696223100ACBD10 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC102696223100ACBD10 /* WeatherCell.swift */; };
+		2FFBEC132696CF7500ACBD10 /* WeatherServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC122696CF7500ACBD10 /* WeatherServiceTestCase.swift */; };
+		2FFBEC152696D14300ACBD10 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FFBEC142696D14300ACBD10 /* Weather.json */; };
+		2FFBEC172696F2A300ACBD10 /* WeatherTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC162696F2A300ACBD10 /* WeatherTestCase.swift */; };
+		2FFBEC192696FBAE00ACBD10 /* MockCoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC182696FBAE00ACBD10 /* MockCoreDataStorage.swift */; };
+		2FFBEC1B26970A6B00ACBD10 /* MockWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC1A26970A6B00ACBD10 /* MockWeatherService.swift */; };
+		2FFBEC1D26974F2700ACBD10 /* CoreDataStorageTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC1C26974F2700ACBD10 /* CoreDataStorageTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +146,12 @@
 		2FF6152A268BCFAE00B94BEF /* CurrentDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDate.swift; sourceTree = "<group>"; };
 		2FF6152C268BD26D00B94BEF /* BPNUserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPNUserDefaultsProtocol.swift; sourceTree = "<group>"; };
 		2FFBEC102696223100ACBD10 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		2FFBEC122696CF7500ACBD10 /* WeatherServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTestCase.swift; sourceTree = "<group>"; };
+		2FFBEC142696D14300ACBD10 /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
+		2FFBEC162696F2A300ACBD10 /* WeatherTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTestCase.swift; sourceTree = "<group>"; };
+		2FFBEC182696FBAE00ACBD10 /* MockCoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStorage.swift; sourceTree = "<group>"; };
+		2FFBEC1A26970A6B00ACBD10 /* MockWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeatherService.swift; sourceTree = "<group>"; };
+		2FFBEC1C26974F2700ACBD10 /* CoreDataStorageTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,15 +198,18 @@
 		2F146C5F267B9728000CB25A /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				2FE7A9CA267E03A8005C7079 /* MockCurrencyService.swift */,
+				2FAC35BF2690683A0078A4B0 /* MockTranslationService.swift */,
+				2FFBEC1A26970A6B00ACBD10 /* MockWeatherService.swift */,
+				2FFBEC182696FBAE00ACBD10 /* MockCoreDataStorage.swift */,
 				2F6F3A832677B6B1008F252A /* MockURLProtocol.swift */,
 				2FAC35C726916D110078A4B0 /* MockCurrentDate.swift */,
-				2FAC35BF2690683A0078A4B0 /* MockTranslationService.swift */,
 				2FAC35C126906E050078A4B0 /* MockResponseData.swift */,
+				2FE7A9C8267D3ACD005C7079 /* MockUserDefaults.swift */,
+				2F97F66926821F47002655F4 /* MockPasteboardService.swift */,
 				2F6F3A7F2677AEF6008F252A /* Currency.json */,
 				2FAC35C326906ECE0078A4B0 /* Translation.json */,
-				2FE7A9C8267D3ACD005C7079 /* MockUserDefaults.swift */,
-				2FE7A9CA267E03A8005C7079 /* MockCurrencyService.swift */,
-				2F97F66926821F47002655F4 /* MockPasteboardService.swift */,
+				2FFBEC142696D14300ACBD10 /* Weather.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -314,11 +329,14 @@
 			isa = PBXGroup;
 			children = (
 				2F7620152674ACCF0029919C /* CurrencyServiceTestCase.swift */,
+				2F146C60267B97A0000CB25A /* CurrencyTestCase.swift */,
 				2FAC35BD26905C5D0078A4B0 /* TranslationServiceTestCase.swift */,
 				2FAC35C5269102360078A4B0 /* TranslationTestCase.swift */,
-				2F146C60267B97A0000CB25A /* CurrencyTestCase.swift */,
+				2FFBEC122696CF7500ACBD10 /* WeatherServiceTestCase.swift */,
+				2FFBEC162696F2A300ACBD10 /* WeatherTestCase.swift */,
 				2F4297302683B0CF00D61B79 /* CityTestCase.swift */,
 				2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */,
+				2FFBEC1C26974F2700ACBD10 /* CoreDataStorageTestCase.swift */,
 				2F146C5F267B9728000CB25A /* Mocks */,
 				2F7620172674ACCF0029919C /* Info.plist */,
 			);
@@ -458,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F6F3A802677AEF6008F252A /* Currency.json in Resources */,
+				2FFBEC152696D14300ACBD10 /* Weather.json in Resources */,
 				2FAC35C426906ECE0078A4B0 /* Translation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,12 +534,17 @@
 				2F4297312683B0CF00D61B79 /* CityTestCase.swift in Sources */,
 				2FAC35BE26905C5D0078A4B0 /* TranslationServiceTestCase.swift in Sources */,
 				2FAC35C226906E050078A4B0 /* MockResponseData.swift in Sources */,
+				2FFBEC172696F2A300ACBD10 /* WeatherTestCase.swift in Sources */,
+				2FFBEC132696CF7500ACBD10 /* WeatherServiceTestCase.swift in Sources */,
+				2FFBEC192696FBAE00ACBD10 /* MockCoreDataStorage.swift in Sources */,
 				2F7620162674ACCF0029919C /* CurrencyServiceTestCase.swift in Sources */,
+				2FFBEC1D26974F2700ACBD10 /* CoreDataStorageTestCase.swift in Sources */,
 				2FE7A9C9267D3ACD005C7079 /* MockUserDefaults.swift in Sources */,
 				2F97F66A26821F47002655F4 /* MockPasteboardService.swift in Sources */,
 				2F42972D2683A9D200D61B79 /* PasteboardServiceTestCase.swift in Sources */,
 				2FAC35C02690683A0078A4B0 /* MockTranslationService.swift in Sources */,
 				2F6F3A842677B6B1008F252A /* MockURLProtocol.swift in Sources */,
+				2FFBEC1B26970A6B00ACBD10 /* MockWeatherService.swift in Sources */,
 				2FAC35C826916D110078A4B0 /* MockCurrentDate.swift in Sources */,
 				2FE7A9CB267E03A8005C7079 /* MockCurrencyService.swift in Sources */,
 				2FAC35C6269102360078A4B0 /* TranslationTestCase.swift in Sources */,

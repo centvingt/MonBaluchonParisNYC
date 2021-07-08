@@ -58,5 +58,11 @@ class MockResponseData {
         return try! Data(contentsOf: url)
     }
     
+    static var weatherCorrectData: Data? {
+        let bundle = Bundle(for: MockResponseData.self)
+        let url = bundle.url(forResource: "Weather", withExtension: "json")!
+        return try! Data(contentsOf: url)
+    }
+
     static let incorrectData = "incorrect data".data(using: .utf8)!
 }

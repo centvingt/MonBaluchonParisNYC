@@ -27,4 +27,12 @@ extension CurrentDate {
             return Date(timeIntervalSince1970: 1620691200)
         }
     )
+    static let mockDate20210512 = CurrentDate(
+        value: {
+            // 12/05/2021 0h00.00
+            return Date(timeIntervalSince1970: 1620777600)
+        }
+    )
 }
+
+// 1625415627

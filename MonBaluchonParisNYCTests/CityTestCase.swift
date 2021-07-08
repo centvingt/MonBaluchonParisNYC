@@ -42,4 +42,18 @@ class CityTestCase: XCTestCase {
         XCTAssertEqual(nycLanguage.from, .en)
         XCTAssertEqual(nycLanguage.to, .fr)
     }
+    
+    func testGivenCity_WhenGetWeatherID_ThenReturnCorrectValue() {
+        // Given
+        let paris = City.paris
+        let nyc = City.nyc
+        
+        // When
+        let parisID = paris.getCityWeatherID()
+        let nycID = nyc.getCityWeatherID()
+        
+        // Then
+        XCTAssertEqual(parisID, 2988507)
+        XCTAssertEqual(nycID, 5128581)
+    }
 }

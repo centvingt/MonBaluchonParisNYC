@@ -14,7 +14,7 @@ class CurrencyService: CurrencyServiceProtocol {
     private var session = URLSession(configuration: .default)
     private var task: URLSessionDataTask?
     
-    private var apiURL: String = "https://animated-graph-314612.uk.r.appspot.com/?key=devkey"
+    private var apiURL: String = "https://fixer-io-request.herokuapp.com/?key=devkey"
     
     init(
         session: URLSession = URLSession.shared,

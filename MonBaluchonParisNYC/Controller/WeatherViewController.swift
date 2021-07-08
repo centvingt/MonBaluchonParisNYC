@@ -83,7 +83,6 @@ class WeatherViewController: UITableViewController {
         setSegmentedControl()
         
         weather.getWeatherOf(city: city)
-        registerForWeatherDataNotification()
     }
 
     // MARK: - Notifications
@@ -189,7 +188,6 @@ class WeatherViewController: UITableViewController {
         city = getCityFromSegmentedControl()
         
         weather.getWeatherOf(city: city)
-        registerForWeatherDataNotification()
         
         tableView.reloadData()
     }
@@ -205,7 +203,10 @@ class WeatherViewController: UITableViewController {
         if (sender.direction == .right) {
             segmentedControl.selectedSegmentIndex = 1
         }
+        
         city = getCityFromSegmentedControl()
+        weather.getWeatherOf(city: city)
+        
         tableView.reloadData()
     }
     private func setSegmentedControl() {

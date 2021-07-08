@@ -76,14 +76,8 @@ class WeatherCell: UITableViewCell {
         
         if iconName.last == "d" {
             headerContainer.backgroundColor = .bpnRoseVille
-            descriptionLabel.textColor = UIColor.bpnBleuVille
-            icon.tintColor = UIColor.bpnBleuVille
-            tempLabel.textColor = UIColor.bpnBleuVille
         } else {
             headerContainer.backgroundColor = .bpnBleuGoudron
-            descriptionLabel.textColor = UIColor.bpnBleuVille
-            icon.tintColor = UIColor.bpnBleuVille
-            tempLabel.textColor = UIColor.bpnBleuVille
         }
     }
 }

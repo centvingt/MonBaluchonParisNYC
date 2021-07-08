@@ -23,8 +23,6 @@ class Weather {
     // MARK: - Service request
     
     func getWeatherOf(city: City) {
-        print("Weather ~> getWeatherOf")
-        
         // 43200000 is equal to 12 hours
         if let weatherHTTPData = coreDataStorage.getWeatherOfCity(id: city.getCityWeatherID()),
            weatherHTTPData.dt + 43200000 > Int64(currentDate.value().timeIntervalSince1970) {
@@ -72,7 +70,6 @@ class Weather {
         weatherHTTPData: WeatherHTTPData,
         for city: City
     ) {
-        print("Weather ~> postDataNotification")
         NotificationCenter.default.post(
             name: .weatherData,
             object: self,
@@ -126,7 +123,7 @@ class Weather {
         formatter.locale = Locale(identifier: "fr-FR")
         formatter.dateFormat = """
             'Dernière mise à jour le' eeee d MMMM yyyy
-            'à' H 'h' mm 'heure de \(city.rawValue)'
+            'à' H 'h' mm', heure de \(city.rawValue)'
             """
         formatter.timeZone = TimeZone(secondsFromGMT: Int(timezone))
         

@@ -71,6 +71,7 @@
 		2FFBEC192696FBAE00ACBD10 /* MockCoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC182696FBAE00ACBD10 /* MockCoreDataStorage.swift */; };
 		2FFBEC1B26970A6B00ACBD10 /* MockWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC1A26970A6B00ACBD10 /* MockWeatherService.swift */; };
 		2FFBEC1D26974F2700ACBD10 /* CoreDataStorageTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC1C26974F2700ACBD10 /* CoreDataStorageTestCase.swift */; };
+		2FFBEC1F2699CE5E00ACBD10 /* BPNAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFBEC1E2699CE5D00ACBD10 /* BPNAlertHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		2FFBEC182696FBAE00ACBD10 /* MockCoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStorage.swift; sourceTree = "<group>"; };
 		2FFBEC1A26970A6B00ACBD10 /* MockWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeatherService.swift; sourceTree = "<group>"; };
 		2FFBEC1C26974F2700ACBD10 /* CoreDataStorageTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageTestCase.swift; sourceTree = "<group>"; };
+		2FFBEC1E2699CE5D00ACBD10 /* BPNAlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPNAlertHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 				2FCE94FF26602FB100209B83 /* BPNColors.swift */,
 				2F761FFC2673E5790029919C /* Haptic.swift */,
 				2F57451226695BC100667EFD /* ViewHelper.swift */,
+				2FFBEC1E2699CE5D00ACBD10 /* BPNAlertHelper.swift */,
 			);
 			path = ViewHelpers;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				2FF6152B268BCFAE00B94BEF /* CurrentDate.swift in Sources */,
 				2F57451026695B3400667EFD /* CurrencyCalculationCell.swift in Sources */,
 				2F681BB2266F81E700485DE3 /* CurrencyIOValues .swift in Sources */,
+				2FFBEC1F2699CE5E00ACBD10 /* BPNAlertHelper.swift in Sources */,
 				2F7D3076266C036F00B8423A /* CurrencyCalculation.swift in Sources */,
 				2FB5CCC42686CC9F0033F782 /* TranslationRequestHTTPData.swift in Sources */,
 				2FAC35D2269244A90078A4B0 /* MonBaluchonParisNYC.xcdatamodeld in Sources */,

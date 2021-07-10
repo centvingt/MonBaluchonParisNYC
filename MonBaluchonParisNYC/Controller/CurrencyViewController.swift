@@ -140,37 +140,10 @@ class CurrencyViewController: UITableViewController {
         )
     }
     @objc private func presentAlert(for notification: Notification) {
-        var title = ""
-        var message = ""
-        
-        if notification.name == .errorInternetConnection {
-            title = "Pas de connection internet"
-            message = "Activez votre connexion internet avant d’utiliser l’application."
-        }
-        if notification.name == .errorUndefined {
-            title = "Erreur"
-            message = "Une erreur indéterminée est survenue."
-        }
-        if notification.name == .errorBadPasteboardValue {
-            title = "Mauvaise donnée"
-            message = "Veuillez coller un nombre dans ce champ."
-        }
-
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
+        self.present(
+            BPNAlertHelper.getAlert(for: notification),
+            animated: true
         )
-        
-        alert.addAction(
-            UIAlertAction(
-                title: "J’ai compris",
-                style: .default,
-                handler: nil
-            )
-        )
-        
-        self.present(alert, animated: true)
     }
     
     private func registerForKeyboardNotifications() {

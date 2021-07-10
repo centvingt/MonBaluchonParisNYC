@@ -13,4 +13,5 @@ extension Notification.Name {
     static let errorBadPasteboardValue = Notification.Name("errorBadPasteboardValue")
     static let currencyRateData = Notification.Name("currencyRateData")
     static let weatherData = Notification.Name("weatherData")
+    static let errorTranslationRequestLimitExceeded = Notification.Name("errorTranslationRequestLimitExceeded")
 }

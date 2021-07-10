@@ -56,7 +56,6 @@ class TranslationViewController: UITableViewController {
             
         if #available(iOS 13.0, *) {
             guard let font = UIFont(name: "SF Compact Rounded", size: 16.0) else {
-                print("pas de police")
                 return
             }
             
@@ -83,35 +82,16 @@ class TranslationViewController: UITableViewController {
     
     // MARK: - Notifications
     func presentAlert(for bpnError: BPNError) {
-        var title = ""
-        var message = ""
+        var alert: UIAlertController
         
-        if bpnError == .internetConnection {
-            title = "Pas de connection internet"
-            message = "Activez votre connexion internet avant d’utiliser l’application."
+        switch bpnError {
+        case .internetConnection:
+            alert = BPNAlertHelper.getAlert(for: Notification(name: .errorInternetConnection))
+        case .translationRequestLimitExceeded:
+            alert = BPNAlertHelper.getAlert(for: Notification(name: .errorTranslationRequestLimitExceeded))
+        default:
+            alert = BPNAlertHelper.getAlert(for: Notification(name: .errorUndefined))
         }
-        if bpnError == .undefinedRequestError {
-            title = "Erreur"
-            message = "Une erreur indéterminée est survenue."
-        }
-        if bpnError == .translationRequestLimitExceeded {
-            title = "Limite dépassée"
-            message = "Vous ne pouvez pas effectuer plus de \(translation.maxRequestPerDay) traduction par jour, ré-essayez demain."
-        }
-
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        
-        alert.addAction(
-            UIAlertAction(
-                title: "J’ai compris",
-                style: .default,
-                handler: nil
-            )
-        )
         
         self.present(alert, animated: true)
     }

@@ -34,9 +34,9 @@ class Weather {
     // MARK: - Service request
     
     func getWeatherOf(city: City) {
-        // 43200000 is equal to 12 hours
         if let weatherHTTPData = coreDataStorage
             .getWeatherOfCity(id: city.getCityWeatherID()),
+           // 43200000 is equal to 12 hours
            weatherHTTPData.dt + 43200000 > Int64(
             currentDate.value()
                 .timeIntervalSince1970

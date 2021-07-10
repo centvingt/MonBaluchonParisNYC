@@ -76,12 +76,10 @@ class WeatherViewController: UITableViewController {
             )
         }
         
-        weather.getWeatherOf(city: city)
         registerForWeatherDataNotification()
     }
     override func viewWillAppear(_ animated: Bool) {
         setSegmentedControl()
-        
         weather.getWeatherOf(city: city)
     }
 

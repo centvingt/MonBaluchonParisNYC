@@ -47,7 +47,6 @@ class CurrencyViewController: UITableViewController {
         registerForErrorNotifications()
         registerForKeyboardNotifications()
         
-//        city = getCityFromSegmentedControl()
         setSegmentedControl()
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))

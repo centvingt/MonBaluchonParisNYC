@@ -283,8 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				2F9C65F42666BEA4002C767F /* CurrencyViewController.swift */,
-				2F599836265A31F400ABC8D1 /* WeatherViewController.swift */,
 				2F599838265A320900ABC8D1 /* TranslationViewController.swift */,
+				2F599836265A31F400ABC8D1 /* WeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

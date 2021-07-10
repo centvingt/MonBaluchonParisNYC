@@ -41,6 +41,8 @@ class TranslationViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        registerForKeyboardNotifications()
+        
         setSegmentedControl()
         
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))

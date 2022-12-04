@@ -213,7 +213,10 @@ extension TranslationViewController: TranslationCellDelegate {
         return true
     }
     
-    func translateInput(value: String, of cell: TranslationCell) {
+    func translateInput(
+        value: String,
+        of cell: TranslationCell
+    ) {
         cell.outputActivityIndicator.startAnimating()
         cell.outputTextView.text = ""
         

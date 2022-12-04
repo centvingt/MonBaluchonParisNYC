@@ -22,7 +22,6 @@ class Translation {
     }
     
     let maxCharacters = 100
-    
     let maxRequestPerDay = 20
     
     private var requestTimestampCounter: Int {

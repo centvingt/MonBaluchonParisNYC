@@ -14,7 +14,23 @@ class CurrencyService: CurrencyServiceProtocol {
     private var session = URLSession(configuration: .default)
     private var task: URLSessionDataTask?
     
-    private var apiURL: String = "https://fixer-io-request.herokuapp.com/?key=devkey"
+    //    private var apiURL: String = "https://fixer-io-request.herokuapp.com/?key=13E1D8BB-A38D-4F38-A264-E29DAE7F1FA4"
+    private var apiURL: String = "https://api.frankfurter.app/latest?to=USD"
+    
+    
+    /* https://api.frankfurter.app/latest?amount=${fromValue}&from=${currencyFrom}&to=${currencyTo} */
+    /* https://api.frankfurter.app/latest?to=USD */
+    
+    //    struct CurrencyRateHTTPData: Decodable {
+    //        let success: Bool
+    //        let date: String
+    //        let rates: Rates
+    //
+    //        struct Rates: Decodable {
+    //            let USD: Double
+    //        }
+    //    }
+    
     
     init(
         session: URLSession = URLSession.shared,
@@ -59,10 +75,11 @@ class CurrencyService: CurrencyServiceProtocol {
                 // Getting JSON from HTTP response
                 guard let data = data,
                       let currencyRateData = try? JSONDecoder()
-                        .decode(
-                            CurrencyRateHTTPData.self,
-                            from: data
-                        ) else {
+                    .decode(
+                        CurrencyRateHTTPData.self,
+                        from: data
+                    )
+                else {
                     completion(BPNError.httpResponseData, nil)
                     return
                 }

@@ -316,7 +316,10 @@ class Currency {
                 string,
                 for: calculation
               ),
-              let formattedString = getStringFromDouble(double, minimumFractionDigits: 0)
+              let formattedString = getStringFromDouble(
+                double,
+                minimumFractionDigits: 0
+              )
         else {
             return nil
         }

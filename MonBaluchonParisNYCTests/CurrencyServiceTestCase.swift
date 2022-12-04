@@ -37,14 +37,14 @@ class CurrencyServiceTestCase: XCTestCase {
         // When
         currencyService.getRate { error, data in
             // Then
-            let success = true
+//            let success = true
             let date = "2021-06-14"
             let ratesUSD = 1.212437
 
             XCTAssertNil(error)
             XCTAssertNotNil(data)
 
-            XCTAssertEqual(success, data?.success)
+//            XCTAssertEqual(success, data?.success)
             XCTAssertEqual(date, data?.date)
             XCTAssertEqual(ratesUSD, data?.rates.USD)
 

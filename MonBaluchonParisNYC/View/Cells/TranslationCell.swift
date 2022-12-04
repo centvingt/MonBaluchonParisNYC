@@ -118,7 +118,10 @@ extension TranslationCell: UITextViewDelegate {
 }
 
 protocol TranslationCellDelegate {
-    func translateInput(value: String, of cell: TranslationCell)
+    func translateInput(
+        value: String,
+        of cell: TranslationCell
+    )
     func shouldChangeTextOfInput(
         textView: UITextView,
         range: NSRange,

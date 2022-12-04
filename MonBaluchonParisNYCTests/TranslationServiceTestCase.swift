@@ -37,6 +37,7 @@ class TranslationServiceTestCase: XCTestCase {
                 data: MockResponseData.translationCorrectData
             )
         }
+        
         // When
         translationService.getTranslation(
             of: queryText,

@@ -15,7 +15,7 @@ class PasteboardServiceTestCase: XCTestCase {
         UIPasteboard.general.items = []
     }
     
-    func testGivenStringInput_WhenSetPasteboard_ThenResponseIsStringInput() {
+    func testGivenStringInput_WhenSetPasteboard_ThenOutputIsCorrect() {
         // Given
         let input = "abcd"
         
@@ -28,7 +28,7 @@ class PasteboardServiceTestCase: XCTestCase {
         XCTAssertEqual(output!, input)
     }
     
-    func testGivenImage_WhenSetString_ThenResponseIsASuccess() {
+    func testGivenImage_WhenSetString_ThenOutputIsNil() {
         // Given
         let input = UIImage()
         

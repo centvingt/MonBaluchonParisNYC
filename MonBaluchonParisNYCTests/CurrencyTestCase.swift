@@ -186,7 +186,7 @@ class CurrencyTestCase: XCTestCase {
     func testHTTPDataDateIsZero_WhenGetRate_ThenErrorNotificationPosted() {
         let notificationName = Notification.Name.errorUndefined
         let currencyRateHTTPData = CurrencyRateHTTPData(
-            success: true,
+//            success: true,
             date: "0",
             rates: CurrencyRateHTTPData.Rates(USD: 2.0)
         )
@@ -224,7 +224,7 @@ class CurrencyTestCase: XCTestCase {
     func testHTTPDataDateIsBad_WhenGetRate_ThenErrorNotificationPosted() {
         let notificationName = Notification.Name.errorUndefined
         let currencyRateHTTPData = CurrencyRateHTTPData(
-            success: true,
+//            success: true,
             date: "aze",
             rates: CurrencyRateHTTPData.Rates(USD: 2.0)
         )
@@ -264,7 +264,7 @@ class CurrencyTestCase: XCTestCase {
     func testGivenEmptyUD_WhenGetRate_ThenUDSetAndNotificationPosted() {
         // Given
         let currencyRateHTTPData = CurrencyRateHTTPData(
-            success: true,
+//            success: true,
             date: "2021-10-03",
             rates: CurrencyRateHTTPData.Rates(USD: 2.0)
         )
@@ -341,7 +341,7 @@ class CurrencyTestCase: XCTestCase {
         userDefaults.set("5 $", forKey: tipInputUDKey)
         
         let currencyRateHTTPData = CurrencyRateHTTPData(
-            success: true,
+//            success: true,
             date: "2021-10-03",
             rates: CurrencyRateHTTPData.Rates(USD: 2.0)
         )
@@ -476,7 +476,7 @@ class CurrencyTestCase: XCTestCase {
         userDefaults.set(" $", forKey: usdToEuroInputUDKey)
         
         let currencyRateHTTPData = CurrencyRateHTTPData(
-            success: true,
+//            success: true,
             date: "2021-10-03",
             rates: CurrencyRateHTTPData.Rates(USD: 2.0)
         )
@@ -522,7 +522,7 @@ class CurrencyTestCase: XCTestCase {
         userDefaults.set("badvalue", forKey: usdToEuroInputUDKey)
 //
         let currencyRateHTTPData = CurrencyRateHTTPData(
-            success: true,
+//            success: true,
             date: "2021-10-03",
             rates: CurrencyRateHTTPData.Rates(USD: 2.0)
         )
@@ -793,7 +793,7 @@ class CurrencyTestCase: XCTestCase {
         )
         
         let currencyRateHTTPData = CurrencyRateHTTPData(
-            success: true,
+//            success: true,
             date: "2021-10-03",
             rates: CurrencyRateHTTPData.Rates(USD: 2.0)
         )

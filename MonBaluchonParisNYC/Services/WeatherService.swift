@@ -29,7 +29,8 @@ class WeatherService: WeatherServiceProtocol {
         completion: @escaping (BPNError?, WeatherHTTPData?) -> ()
     ) {
         guard let apiKeyWeather = apiKeyWeather,
-              let url = URL(string: "\(apiURL)?id=\(city.getCityWeatherID())&lang=fr&units=metric&appid=\(apiKeyWeather)") else {
+              let url = URL(string: "\(apiURL)?id=\(city.getCityWeatherID())&lang=fr&units=metric&appid=\(apiKeyWeather)")
+        else {
             completion(BPNError.undefinedRequestError, nil)
             return
         }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F121AEB2A5A0FF00063A688 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F121AEA2A5A0FF00063A688 /* LaunchScreen.png */; };
+		2F121AED2A5A11400063A688 /* SupportingFiles in Resources */ = {isa = PBXBuildFile; fileRef = 2F121AEC2A5A113F0063A688 /* SupportingFiles */; };
 		2F354E7F26721D72005AC917 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F354E7E26721D72005AC917 /* PasteboardService.swift */; };
 		2F42972D2683A9D200D61B79 /* PasteboardServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */; };
 		2F4297312683B0CF00D61B79 /* CityTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4297302683B0CF00D61B79 /* CityTestCase.swift */; };
@@ -41,7 +43,6 @@
 		2F97F66A26821F47002655F4 /* MockPasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F97F66926821F47002655F4 /* MockPasteboardService.swift */; };
 		2F9C65F52666BEA4002C767F /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C65F42666BEA4002C767F /* CurrencyViewController.swift */; };
 		2F9C65F82666BFD8002C767F /* CurrencyRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9C65F72666BFD8002C767F /* CurrencyRateCell.swift */; };
-		2FA106DE293C190F00FC8367 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FA106DD293C190F00FC8367 /* LaunchScreen.png */; };
 		2FAC35BE26905C5D0078A4B0 /* TranslationServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAC35BD26905C5D0078A4B0 /* TranslationServiceTestCase.swift */; };
 		2FAC35C02690683A0078A4B0 /* MockTranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAC35BF2690683A0078A4B0 /* MockTranslationService.swift */; };
 		2FAC35C226906E050078A4B0 /* MockResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAC35C126906E050078A4B0 /* MockResponseData.swift */; };
@@ -84,6 +85,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F121AEA2A5A0FF00063A688 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaunchScreen.png; path = ../../../LaunchScreen.png; sourceTree = "<group>"; };
+		2F121AEC2A5A113F0063A688 /* SupportingFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SupportingFiles; sourceTree = "<group>"; };
 		2F146C60267B97A0000CB25A /* CurrencyTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTestCase.swift; sourceTree = "<group>"; };
 		2F354E7E26721D72005AC917 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardServiceTestCase.swift; sourceTree = "<group>"; };
@@ -122,7 +125,6 @@
 		2F97F66926821F47002655F4 /* MockPasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPasteboardService.swift; sourceTree = "<group>"; };
 		2F9C65F42666BEA4002C767F /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		2F9C65F72666BFD8002C767F /* CurrencyRateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateCell.swift; sourceTree = "<group>"; };
-		2FA106DD293C190F00FC8367 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		2FAC35BD26905C5D0078A4B0 /* TranslationServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationServiceTestCase.swift; sourceTree = "<group>"; };
 		2FAC35BF2690683A0078A4B0 /* MockTranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTranslationService.swift; sourceTree = "<group>"; };
 		2FAC35C126906E050078A4B0 /* MockResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponseData.swift; sourceTree = "<group>"; };
@@ -296,7 +298,8 @@
 				2F599804265A213700ABC8D1 /* SceneDelegate.swift */,
 				2F59980B265A213900ABC8D1 /* Assets.xcassets */,
 				2F59980D265A213900ABC8D1 /* LaunchScreen.storyboard */,
-				2FA106DD293C190F00FC8367 /* LaunchScreen.png */,
+				2F121AEA2A5A0FF00063A688 /* LaunchScreen.png */,
+				2F121AEC2A5A113F0063A688 /* SupportingFiles */,
 				2F599810265A213900ABC8D1 /* Info.plist */,
 				2F59983A265A644800ABC8D1 /* APIKeys_SAMPLE.plist */,
 				2F59983E265A7B1300ABC8D1 /* APIKeys.plist */,
@@ -461,12 +464,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F59980F265A213900ABC8D1 /* LaunchScreen.storyboard in Resources */,
+				2F121AED2A5A11400063A688 /* SupportingFiles in Resources */,
 				2F599847265AA82500ABC8D1 /* APIKeys.plist in Resources */,
 				2F59983B265A644800ABC8D1 /* APIKeys_SAMPLE.plist in Resources */,
 				2F59985D265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf in Resources */,
 				2F59980C265A213900ABC8D1 /* Assets.xcassets in Resources */,
 				2F59980A265A213700ABC8D1 /* Main.storyboard in Resources */,
-				2FA106DE293C190F00FC8367 /* LaunchScreen.png in Resources */,
+				2F121AEB2A5A0FF00063A688 /* LaunchScreen.png in Resources */,
 				2F59985C265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

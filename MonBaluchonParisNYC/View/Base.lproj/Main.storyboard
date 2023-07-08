@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oET-1u-It0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oET-1u-It0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,7 +52,7 @@
                     <tabBarItem key="tabBarItem" title="Taux de change" image="Currency" selectedImage="CurrencySelected" id="vfr-w6-IjP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="qYh-0G-uhi">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BleuVille"/>
                         <textAttributes key="titleTextAttributes">
@@ -74,13 +74,13 @@
             <objects>
                 <tableViewController id="a0D-9R-uby" customClass="CurrencyViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nmV-en-CHQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="RoseVille"/>
                         <color key="tintColor" name="BleuGoudron"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="WaitingCell" id="crs-Q9-XsD">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="42"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="42"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="crs-Q9-XsD" id="Dlx-d0-kfw">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
@@ -100,7 +100,7 @@
                                 <color key="backgroundColor" name="RoseVille"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RateCell" id="JZc-Nh-Bhc" customClass="CurrencyRateCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66.5" width="414" height="197"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="197"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JZc-Nh-Bhc" id="oWJ-mh-1G0">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="197"/>
@@ -116,13 +116,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="151"/>
                                                             <subviews>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un dollar équivaut à" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfC-6b-Jt4">
-                                                                    <rect key="frame" x="16" y="8" width="350" height="42"/>
+                                                                    <rect key="frame" x="16" y="8" width="350" height="43"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="36"/>
                                                                     <color key="textColor" name="RoseVille"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00,833 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pWj-oj-McM">
-                                                                    <rect key="frame" x="16" y="30" width="350" height="121"/>
+                                                                    <rect key="frame" x="16" y="31" width="350" height="120"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="94"/>
                                                                     <color key="textColor" name="BleuGoudron"/>
                                                                     <nil key="highlightedColor"/>
@@ -168,7 +168,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CalculationCell" id="hgG-iY-YqB" customClass="CurrencyCalculationCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="263.5" width="414" height="381"/>
+                                <rect key="frame" x="0.0" y="289" width="414" height="381"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hgG-iY-YqB" id="K8r-2D-epA">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="381"/>
@@ -231,7 +231,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PU5-zo-OCZ">
-                                                                                    <rect key="frame" x="40" y="0.0" width="34" height="44"/>
+                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="y7Q-fN-pFx"/>
                                                                                     </constraints>
@@ -240,7 +240,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gX9-I8-wgs">
-                                                                                    <rect key="frame" x="82" y="0.0" width="236" height="44"/>
+                                                                                    <rect key="frame" x="80" y="0.0" width="238" height="44"/>
                                                                                     <color key="backgroundColor" name="BleuGoudron"/>
                                                                                     <color key="tintColor" name="RoseVille"/>
                                                                                     <color key="textColor" name="BleuVille"/>
@@ -270,7 +270,7 @@
                                                                                     </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AAh-jq-l2e">
-                                                                                    <rect key="frame" x="40" y="0.0" width="34" height="44"/>
+                                                                                    <rect key="frame" x="40" y="0.0" width="32" height="44"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="C8T-rD-Isc"/>
                                                                                     </constraints>
@@ -279,7 +279,7 @@
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 €" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m2H-hT-wSt">
-                                                                                    <rect key="frame" x="82" y="0.0" width="236" height="44"/>
+                                                                                    <rect key="frame" x="80" y="0.0" width="238" height="44"/>
                                                                                     <color key="backgroundColor" name="BleuGoudron"/>
                                                                                     <color key="tintColor" name="RoseVille"/>
                                                                                     <color key="textColor" name="BleuVille"/>
@@ -474,7 +474,7 @@
                     <tabBarItem key="tabBarItem" title="Traduction" image="Translation" selectedImage="TranslationSelected" id="q5R-Pu-xaI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2SM-6l-RA1">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BleuVille"/>
                         <textAttributes key="titleTextAttributes">
@@ -498,7 +498,7 @@
                     <tabBarItem key="tabBarItem" title="Météo" image="Weather" selectedImage="WeatherSelected" id="X6d-UH-IXn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="0hs-QP-fBw">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="BleuVille"/>
                         <textAttributes key="titleTextAttributes">
@@ -520,13 +520,13 @@
             <objects>
                 <tableViewController id="a9j-w1-Xzg" customClass="TranslationViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3dr-mw-mLN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="RoseVille"/>
                         <color key="tintColor" name="BleuGoudron"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TranslationCell" id="rnr-T4-cFJ" customClass="TranslationCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="449"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="449"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rnr-T4-cFJ" id="WLx-8I-QrB">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="449"/>
@@ -722,13 +722,13 @@
             <objects>
                 <tableViewController id="z2O-Wb-qGW" customClass="WeatherViewController" customModule="MonBaluchonParisNYC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="J4l-ni-2RJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="RoseVille"/>
                         <color key="tintColor" name="BleuGoudron"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="WaitingCell" id="0va-2C-c1F">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="42"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="42"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0va-2C-c1F" id="dn0-6k-Mwa">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
@@ -748,43 +748,43 @@
                                 <color key="backgroundColor" name="RoseVille"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="WeatherCell" id="xsG-ue-jDt" customClass="WeatherCell" customModule="MonBaluchonParisNYC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="66.5" width="414" height="633.5"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="595"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xsG-ue-jDt" id="W0h-Qw-HPR">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="633.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="595"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-9a-HvT">
-                                            <rect key="frame" x="16" y="16" width="382" height="601.5"/>
+                                            <rect key="frame" x="16" y="16" width="382" height="563"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nhY-Lg-8bq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="601.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="563"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eVI-mA-vFl">
-                                                            <rect key="frame" x="16" y="16" width="350" height="265.5"/>
+                                                            <rect key="frame" x="16" y="16" width="350" height="227"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wcI-2H-rDp" userLabel="Header Container">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="236"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="197"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GTu-eu-v6K">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="236"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="197"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuageux" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dry-C8-KDQ">
-                                                                                    <rect key="frame" x="127" y="16" width="96" height="31"/>
+                                                                                    <rect key="frame" x="127.5" y="16" width="95" height="22"/>
                                                                                     <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Ultralight" family="SF Compact Rounded" pointSize="24"/>
                                                                                     <color key="textColor" name="BleuVille"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="03d" translatesAutoresizingMaskIntoConstraints="NO" id="ysD-4Z-2c8">
-                                                                                    <rect key="frame" x="85" y="55" width="180" height="97"/>
+                                                                                    <rect key="frame" x="85" y="46" width="180" height="67"/>
                                                                                     <color key="tintColor" name="BleuVille"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="180" id="j0D-oa-eHN"/>
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cx6-N0-Tsa">
-                                                                                    <rect key="frame" x="87" y="160" width="176" height="60"/>
+                                                                                    <rect key="frame" x="98.5" y="121" width="153" height="60"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="60" id="hzd-Ip-q90"/>
                                                                                     </constraints>
@@ -805,7 +805,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTY-YF-nIj">
-                                                                    <rect key="frame" x="0.0" y="242" width="350" height="23.5"/>
+                                                                    <rect key="frame" x="0.0" y="203" width="350" height="24"/>
                                                                     <string key="text">Dernière mise à jour dimanche 4 juillet 2021 
 à 12 h 20 heure de New-York</string>
                                                                     <fontDescription key="fontDescription" name="SFRounded-Ultralight" family="SF Pro Rounded" pointSize="10"/>
@@ -815,7 +815,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veP-ZX-V0C">
-                                                            <rect key="frame" x="16" y="297.5" width="350" height="60"/>
+                                                            <rect key="frame" x="16" y="259" width="350" height="60"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="g76-aL-VyQ">
                                                                     <rect key="frame" x="16" y="12" width="318" height="36"/>
@@ -846,7 +846,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAL-9R-W4O">
-                                                            <rect key="frame" x="16" y="373.5" width="350" height="60"/>
+                                                            <rect key="frame" x="16" y="335" width="350" height="60"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="x8z-HX-wNl">
                                                                     <rect key="frame" x="16" y="12" width="318" height="36"/>
@@ -877,7 +877,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blZ-yr-6Ux">
-                                                            <rect key="frame" x="16" y="449.5" width="350" height="60"/>
+                                                            <rect key="frame" x="16" y="411" width="350" height="60"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="h3E-3b-iBt">
                                                                     <rect key="frame" x="16" y="12" width="318" height="36"/>
@@ -908,7 +908,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Se4-rn-WeS">
-                                                            <rect key="frame" x="16" y="525.5" width="350" height="60"/>
+                                                            <rect key="frame" x="16" y="487" width="350" height="60"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yDo-Rf-35s">
                                                                     <rect key="frame" x="16" y="12" width="318" height="36"/>

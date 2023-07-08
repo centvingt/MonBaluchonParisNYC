@@ -29,6 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
             UITabBar.appearance().standardAppearance = tabBarAppearance
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            
+            let navigationBarAppearance = UINavigationBarAppearance()
+            
+            navigationBarAppearance.configureWithDefaultBackground()
+            navigationBarAppearance.backgroundColor = UIColor.bpnBleuVille
+            
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         }
         
         return true

@@ -1,0 +1,93 @@
+
+/* Class = "UISegmentedControl"; 0PW-U8-oDU.segmentTitles[0] = "Paris"; ObjectID = "0PW-U8-oDU"; */
+"0PW-U8-oDU.segmentTitles[0]" = "Paris";
+
+/* Class = "UISegmentedControl"; 0PW-U8-oDU.segmentTitles[1] = "New-York"; ObjectID = "0PW-U8-oDU"; */
+"0PW-U8-oDU.segmentTitles[1]" = "New-York";
+
+/* Class = "UISegmentedControl"; 1y9-Fi-f1B.segmentTitles[0] = "Paris"; ObjectID = "1y9-Fi-f1B"; */
+"1y9-Fi-f1B.segmentTitles[0]" = "Paris";
+
+/* Class = "UISegmentedControl"; 1y9-Fi-f1B.segmentTitles[1] = "New-York"; ObjectID = "1y9-Fi-f1B"; */
+"1y9-Fi-f1B.segmentTitles[1]" = "New-York";
+
+/* Class = "UILabel"; text = "20%"; ObjectID = "AAh-jq-l2e"; */
+"AAh-jq-l2e.text" = "20%";
+
+/* Class = "UILabel"; text = "Anglais / français"; ObjectID = "CX1-Pm-POg"; */
+"CX1-Pm-POg.text" = "Anglais / français";
+
+/* Class = "UILabel"; text = "Nuageux"; ObjectID = "Dry-C8-KDQ"; */
+"Dry-C8-KDQ.text" = "Nuageux";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in"; ObjectID = "Jg9-Ju-6iR"; */
+"Jg9-Ju-6iR.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in";
+
+/* Class = "UILabel"; text = "Dernière mise à jour le mardi 24 mai"; ObjectID = "KJD-q0-S0a"; */
+"KJD-q0-S0a.text" = "Dernière mise à jour le mardi 24 mai";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in"; ObjectID = "KdQ-vu-fpX"; */
+"KdQ-vu-fpX.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor in";
+
+/* Class = "UILabel"; text = "20 h 30 (coucher)"; ObjectID = "OSO-st-rwT"; */
+"OSO-st-rwT.text" = "20 h 30 (coucher)";
+
+/* Class = "UILabel"; text = "15%"; ObjectID = "PU5-zo-OCZ"; */
+"PU5-zo-OCZ.text" = "15%";
+
+/* Class = "UIButton"; normalTitle = "Traduire"; ObjectID = "UQm-Vl-dGX"; */
+"UQm-Vl-dGX.normalTitle" = "Traduire";
+
+/* Class = "UILabel"; text = "27 °C (max.)"; ObjectID = "WN5-nJ-5UX"; */
+"WN5-nJ-5UX.text" = "27 °C (max.)";
+
+/* Class = "UITabBarItem"; title = "Météo"; ObjectID = "X6d-UH-IXn"; */
+"X6d-UH-IXn.title" = "Météo";
+
+/* Class = "UISegmentedControl"; YJt-LH-eao.segmentTitles[0] = "Paris"; ObjectID = "YJt-LH-eao"; */
+"YJt-LH-eao.segmentTitles[0]" = "Paris";
+
+/* Class = "UISegmentedControl"; YJt-LH-eao.segmentTitles[1] = "New-York"; ObjectID = "YJt-LH-eao"; */
+"YJt-LH-eao.segmentTitles[1]" = "New-York";
+
+/* Class = "UITextField"; text = "0 $"; ObjectID = "c2e-Q2-fHp"; */
+"c2e-Q2-fHp.text" = "0 $";
+
+/* Class = "UITextField"; text = "0 €"; ObjectID = "cWs-iC-uTb"; */
+"cWs-iC-uTb.text" = "0 €";
+
+/* Class = "UIButton"; normalTitle = "Effacer"; ObjectID = "cvP-A0-qLc"; */
+"cvP-A0-qLc.normalTitle" = "Effacer";
+
+/* Class = "UILabel"; text = "24 °C"; ObjectID = "cx6-N0-Tsa"; */
+"cx6-N0-Tsa.text" = "24 °C";
+
+/* Class = "UILabel"; text = "20 °C (min.)"; ObjectID = "gA3-vp-P4Z"; */
+"gA3-vp-P4Z.text" = "20 °C (min.)";
+
+/* Class = "UILabel"; text = "Dernière mise à jour dimanche 4 juillet 2021 \nà 12 h 20 heure de New-York"; ObjectID = "gTY-YF-nIj"; */
+"gTY-YF-nIj.text" = "Dernière mise à jour dimanche 4 juillet 2021 \nà 12 h 20 heure de New-York";
+
+/* Class = "UITextField"; text = "0 €"; ObjectID = "gX9-I8-wgs"; */
+"gX9-I8-wgs.text" = "0 €";
+
+/* Class = "UITextField"; text = "0 €"; ObjectID = "m2H-hT-wSt"; */
+"m2H-hT-wSt.text" = "0 €";
+
+/* Class = "UILabel"; text = "5 h 30 (lever)"; ObjectID = "nDb-jB-Vhh"; */
+"nDb-jB-Vhh.text" = "5 h 30 (lever)";
+
+/* Class = "UILabel"; text = "00,833 €"; ObjectID = "pWj-oj-McM"; */
+"pWj-oj-McM.text" = "00,833 €";
+
+/* Class = "UITabBarItem"; title = "Traduction"; ObjectID = "q5R-Pu-xaI"; */
+"q5R-Pu-xaI.title" = "Traduction";
+
+/* Class = "UILabel"; text = "Conversion $/€"; ObjectID = "sUq-OW-hAp"; */
+"sUq-OW-hAp.text" = "Conversion $/€";
+
+/* Class = "UITabBarItem"; title = "Taux de change"; ObjectID = "vfr-w6-IjP"; */
+"vfr-w6-IjP.title" = "Taux de change";
+
+/* Class = "UILabel"; text = "Un dollar équivaut à"; ObjectID = "yfC-6b-Jt4"; */
+"yfC-6b-Jt4.text" = "Un dollar équivaut à";

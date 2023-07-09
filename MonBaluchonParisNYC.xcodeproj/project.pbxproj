@@ -86,6 +86,8 @@
 /* Begin PBXFileReference section */
 		2F121AEA2A5A0FF00063A688 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaunchScreen.png; path = ../../../LaunchScreen.png; sourceTree = "<group>"; };
 		2F146C60267B97A0000CB25A /* CurrencyTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTestCase.swift; sourceTree = "<group>"; };
+		2F18CB632A5A9A9F007211C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		2F18CB642A5A9A9F007211C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2F354E7E26721D72005AC917 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardServiceTestCase.swift; sourceTree = "<group>"; };
 		2F4297302683B0CF00D61B79 /* CityTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTestCase.swift; sourceTree = "<group>"; };
@@ -436,11 +438,11 @@
 			};
 			buildConfigurationList = 2F5997FA265A213600ABC8D1 /* Build configuration list for PBXProject "MonBaluchonParisNYC" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				fr,
 			);
 			mainGroup = 2F5997F6265A213600ABC8D1;
 			packageReferences = (
@@ -566,6 +568,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2F599809265A213700ABC8D1 /* Base */,
+				2F18CB632A5A9A9F007211C2 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2F59980E265A213900ABC8D1 /* Base */,
+				2F18CB642A5A9A9F007211C2 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -585,6 +589,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -646,6 +651,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F121AEB2A5A0FF00063A688 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F121AEA2A5A0FF00063A688 /* LaunchScreen.png */; };
+		2F18CB662A5A9DA5007211C2 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F18CB652A5A9DA5007211C2 /* LaunchScreen.png */; };
 		2F354E7F26721D72005AC917 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F354E7E26721D72005AC917 /* PasteboardService.swift */; };
 		2F42972D2683A9D200D61B79 /* PasteboardServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */; };
 		2F4297312683B0CF00D61B79 /* CityTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4297302683B0CF00D61B79 /* CityTestCase.swift */; };
@@ -84,10 +84,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F121AEA2A5A0FF00063A688 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaunchScreen.png; path = ../../../LaunchScreen.png; sourceTree = "<group>"; };
 		2F146C60267B97A0000CB25A /* CurrencyTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTestCase.swift; sourceTree = "<group>"; };
 		2F18CB632A5A9A9F007211C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		2F18CB642A5A9A9F007211C2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2F18CB652A5A9DA5007211C2 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		2F354E7E26721D72005AC917 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		2F42972C2683A9D200D61B79 /* PasteboardServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardServiceTestCase.swift; sourceTree = "<group>"; };
 		2F4297302683B0CF00D61B79 /* CityTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTestCase.swift; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 				2F599804265A213700ABC8D1 /* SceneDelegate.swift */,
 				2F59980B265A213900ABC8D1 /* Assets.xcassets */,
 				2F59980D265A213900ABC8D1 /* LaunchScreen.storyboard */,
-				2F121AEA2A5A0FF00063A688 /* LaunchScreen.png */,
+				2F18CB652A5A9DA5007211C2 /* LaunchScreen.png */,
 				2F599810265A213900ABC8D1 /* Info.plist */,
 				2F59983A265A644800ABC8D1 /* APIKeys_SAMPLE.plist */,
 				2F59983E265A7B1300ABC8D1 /* APIKeys.plist */,
@@ -468,7 +468,7 @@
 				2F59985D265C4B2400ABC8D1 /* FontsFree-Net-SF-Pro-Rounded-Medium.ttf in Resources */,
 				2F59980C265A213900ABC8D1 /* Assets.xcassets in Resources */,
 				2F59980A265A213700ABC8D1 /* Main.storyboard in Resources */,
-				2F121AEB2A5A0FF00063A688 /* LaunchScreen.png in Resources */,
+				2F18CB662A5A9DA5007211C2 /* LaunchScreen.png in Resources */,
 				2F59985C265C4B2400ABC8D1 /* FontsFree-Net-SF-Compact-Rounded-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
